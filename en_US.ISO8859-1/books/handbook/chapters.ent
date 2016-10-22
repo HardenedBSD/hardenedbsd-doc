@@ -31,6 +31,7 @@
   <!ENTITY chap.config		SYSTEM "config/chapter.xml">
   <!ENTITY chap.boot		SYSTEM "boot/chapter.xml">
   <!ENTITY chap.security	SYSTEM "security/chapter.xml">
+  <!ENTITY chap.hardenedbsd	SYSTEM "hardenedbsd/chapter.xml">
   <!ENTITY chap.jails		SYSTEM "jails/chapter.xml">
   <!ENTITY chap.mac		SYSTEM "mac/chapter.xml">
   <!ENTITY chap.audit		SYSTEM "audit/chapter.xml">

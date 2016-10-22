@@ -226,6 +226,7 @@
     &chap.config;
     &chap.boot;
     &chap.security;
+    &chap.hardenedbsd;
     &chap.jails;
     &chap.mac;
     &chap.audit;

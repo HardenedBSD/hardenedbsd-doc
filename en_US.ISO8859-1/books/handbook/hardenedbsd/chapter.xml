@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0"
+    xml:id="hardenedbsd">
+	<info>
+		<title>HardenedBSD</title>
+
+		<authorgroup>
+			<author>
+				<personname>
+					<firstname>Shawn</firstname>
+					<surname>Webb</surname>
+				</personname>
+				<contrib>Written by </contrib>
+			</author>
+		</authorgroup>
+	</info>
+
+	<sect1 xml:id="hardenedbsd-synopsis">
+		<title>Synopsis</title>
+		<indexterm>
+			<primary>HardenedBSD</primary>
+		</indexterm>
+
+		<para>HardenedBSD is a fork of FreeBSD, founded
+		    in 2014, that implements exploit mitigations and
+		    security hardening technologies. The primary goal
+		    of HardenedBSD is to port over the grsecurity
+		    patchset for Linux to HardenedBSD.
+		</para>
+	</sect1>
+
+	<sect1 xml:id="hardenedbsd-history">
+		<title>History</title>
+		<para>Work on HardenedBSD began in 2013 when Oliver
+		    Pinter and Shawn Webb started working on an
+		    implementation of Address Space Layout
+		    Randomization (ASLR) for FreeBSD. At that time,
+		    HardenedBSD was meant to be a staging area for
+		    experimental development on the ASLR patch. Over
+		    time, as the process of upstreaming ASLR to
+		    FreeBSD became more difficult, HardenedBSD
+		    naturally became a fork.
+		</para>
+		<para>HardenedBSD completed its ASLR implementation
+		    in 2015 with the strongest form of ASLR ever
+		    implemented in any of the BSDs. Since then,
+		    HardenedBSD has moved on to implementing other
+		    exploit mitigations and hardening technologies.
+		    OPNsense, an open source firewall based on
+		    FreeBSD, incorporated HardenedBSD's ASLR
+		    implementation in 2016.
+		</para>
+		<para>HardenedBSD exists today as a fork of FreeBSD
+		    that closely follows FreeBSD's source code.
+		    HardenedBSD syncs with FreeBSD every six hours
+		    for the following FreeBSD branches:
+		</para>
+		<itemizedlist>
+			<listitem><para>HEAD</para></listitem>
+			<listitem><para>stable/11</para></listitem>
+			<listitem><para>releng/11.0</para></listitem>
+			<listitem><para>stable/10</para></listitem>
+		</itemizedlist>
+	</sect1>
+</chapter>
