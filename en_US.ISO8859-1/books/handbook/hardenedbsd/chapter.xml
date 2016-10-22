@@ -64,4 +64,68 @@
 			<listitem><para>stable/10</para></listitem>
 		</itemizedlist>
 	</sect1>
+	<sect1 xml:id="hardenedbsd-features">
+		<title>Features</title>
+		<para>HardenedBSD has successfully implemented the
+		    following features:
+		</para>
+		<itemizedlist>
+			<listitem>
+				<para>PaX-inspired Address Space
+				    Layout Randomization (ASLR)
+				</para>
+			</listitem>
+			<listitem>
+				<para>Base compiled as
+				    Position-Independent Executables
+				    (PIEs)
+				</para>
+			</listitem>
+			<listitem>
+				<para>Base compiled with full RELRO
+				    (RELRO + BIND_NOW)
+				    </para>
+			</listitem>
+			<listitem>
+				<para>PaX-inspired NOEXEC</para>
+			</listitem>
+			<listitem>
+				<para>PaX-inspired PAGEEXEC</para>
+			</listitem>
+			<listitem>
+				<para>PaX-inspired ASLR bruteforce
+				    protection (SEGVGUARD)
+				</para>
+			</listitem>
+			<listitem>
+				<para>Hardening of certain sensitive
+				    sysctl nodes
+				</para>
+			</listitem>
+			<listitem>
+				<para>Network stack hardening</para>
+			</listitem>
+			<listitem>
+				<para>Executable file integrity
+				    enforcement</para>
+			</listitem>
+			<listitem>
+				<para>Hardening of the boot process
+				    </para>
+			</listitem>
+			<listitem>
+				<para>procfs/linprocfs hardening</para>
+			</listitem>
+			<listitem>
+				<para>LibreSSL as the default crypto
+				    library in base</para>
+			</listitem>
+			<listitem>
+				<para>Trusted Path Execution (TPE)</para>
+			</listitem>
+			<listitem>
+				<para>Randomized PIDs</para>
+			</listitem>
+		</itemizedlist>
+	</sect1>
 </chapter>
