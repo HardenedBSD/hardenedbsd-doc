@@ -27,7 +27,10 @@
 		    in 2014, that implements exploit mitigations and
 		    security hardening technologies. The primary goal
 		    of HardenedBSD is to port over the grsecurity
-		    patchset for Linux to HardenedBSD.
+		    patchset for Linux to HardenedBSD. HardenedBSD
+		    takes a defense-in-depth approach to security,
+		    implementing many security hardening technologies
+		    out-of-the-box.
 		</para>
 		<para>Some of HardenedBSD's features can be toggled
 		    on a per-application and per-jail basis using
@@ -138,6 +141,26 @@
 		<title>Address Space Layout Randomization (ASLR)</title>
 		<sect2>
 			<title>Introduction</title>
+			<para>ASLR randomizes the virtual address
+			    space of a process through using
+			    randomized deltas. ASLR prevents
+			    attackers from knowing where
+			    vulnerabilities lie in memory. Without
+			    ASLR, attackers can easily generate and
+			    reuse exploits across all deployed
+			    systems. As is the case with all exploit
+			    mitigation technologies, ASLR is meant
+			    to help frustrate attackers, though ASLR
+			    alone is not sufficient to completely
+			    stop attacks. ASLR simply provides a
+			    solid foundation in which to implement
+			    further exploit mitigation technologies.
+			    A holistic approach to security (aka,
+			    defense-in-depth) is the best way to
+			    secure a system. Additionally, ASLR is
+			    intended and designed to prevent remote
+			    attacks, not local.
+			</para>
 			<para>HardenedBSD's ASLR implementation is
 			    based off of PaX's design and
 			    documentation. PaX's documentation can be
@@ -152,6 +175,115 @@
 			    Position-Independent Executable (PIE) base
 			    randomization.
 			</para>
+			<para>On 13 July 2015, HardenedBSD's ASLR
+			    implementation was completed with full
+			    stack and VDSO randomization. Since then,
+			    various improvements have been made, like
+			    implementing shared library load order
+			    randomization. HardenedBSD is the only
+			    BSD to support true stack randomization.
+			    Meaning, the top of the stack is
+			    randomized in addition to a random-sized
+			    gap between the top of the stack and the
+			    start of the user stack.
+			</para>
+		</sect2>
+		<sect2>
+			<title>Implementation</title>
+			<para>HardenedBSD's ASLR uses a set of four
+			    deltas on 32-bit systems and five deltas
+			    on 64-bit systems. Additionally, on
+			    64-bit systems, 32-bit compatibility is
+			    supported by a set of different deltas.
+			    The deltas are calculated at image
+			    activation (execve) time. The deltas are
+			    provided as a hint to the virtual memory
+			    subsystem, which may further modify the
+			    hint. Such may be the case if the
+			    application explicitly requests superpage
+			    support or other alignment constraints.
+			</para>
+			<para>The deltas are:</para>
+			<itemizedlist>
+				<listitem><para>PIE execution base
+				    </para></listitem>
+				<listitem><para>mmap hint for
+				    non-fixed mappings</para>
+				</listitem>
+				<listitem><para>stack top and gap
+				    </para></listitem>
+				<listitem><para>Virtual Dynamic
+				    Shared Object (VDSO)</para>
+				</listitem>
+				<listitem><para>on 64-bit systems,
+				    mmap hint for MAP_32BIT mappings
+				    </para></listitem>
+			</itemizedlist>
+			<para> The calculation of each delta is
+			    controlled by how many bits of entropy
+			    the user wants to introduce into the
+			    delta. The amount of entropy can be
+			    overridden in the kernel config and
+			    via boot-time (loader.conf) tunables. By
+			    default, HardenedBSD uses the following
+			    amount of entropy:
+			</para>
+			<informaltable frame="all" pgwide="0">
+				<tgroup cols="6">
+					<thead>
+						<row>
+							<entry>Delta</entry>
+							<entry>32-bit</entry>
+							<entry>64-bit</entry>
+							<entry>Compat</entry>
+							<entry>Tunable</entry>
+							<entry>Compat Tunable</entry>
+						</row>
+					</thead>
+					<tbody>
+						<row>
+							<entry>mmap</entry>
+							<entry>14 bits</entry>
+							<entry>30 bits</entry>
+							<entry>14 bits</entry>
+							<entry>hardening.pax.aslr.mmap_len</entry>
+							<entry>hardening.pax.aslr.compat.mmap_len</entry>
+						</row>
+						<row>
+							<entry>Stack</entry>
+							<entry>14 bits</entry>
+							<entry>42 bits</entry>
+							<entry>14 bits</entry>
+							<entry>hardening.pax.aslr.stack_len</entry>
+							<entry>hardening.pax.aslr.compat.stack_len</entry>
+						</row>
+						<row>
+							<entry>PIE exec base</entry>
+							<entry>14 bits</entry>
+							<entry>30 bits</entry>
+							<entry>14 bits</entry>
+							<entry>hardening.pax.aslr.exec_len</entry>
+							<entry>hardening.pax.aslr.compat.exec_len</entry>
+						</row>
+						<row>
+							<entry>VDSO</entry>
+							<entry>8 bits</entry>
+							<entry>28 bits</entry>
+							<entry>8 bits</entry>
+							<entry>hardening.pax.aslr.vdso_len</entry>
+							<entry>hardening.pax.aslr.compat.vdso_len</entry>
+						</row>
+						<row>
+							<entry>MAP_32BIT</entry>
+							<entry>N/A</entry>
+							<entry>18 bits</entry>
+							<entry>N/A</entry>
+							<entry>hardening.pax.aslr.map32bit_len</entry>
+							<entry>N/A</entry>
+						</row>
+					</tbody>
+				</tgroup>
+			</informaltable>
 		</sect2>
 	</sect1>
 </chapter>
