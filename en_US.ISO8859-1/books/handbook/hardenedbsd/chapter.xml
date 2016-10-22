@@ -29,6 +29,11 @@
 		    of HardenedBSD is to port over the grsecurity
 		    patchset for Linux to HardenedBSD.
 		</para>
+		<para>Some of HardenedBSD's features can be toggled
+		    on a per-application and per-jail basis using
+		    a tool called secadm. Documentation for secadm
+		    will be covered in this chapter.
+		</para>
 	</sect1>
 
 	<sect1 xml:id="hardenedbsd-history">
@@ -127,5 +132,26 @@
 				<para>Randomized PIDs</para>
 			</listitem>
 		</itemizedlist>
+	</sect1>
+
+	<sect1 xml:id="hardenedbsd-aslr">
+		<title>Address Space Layout Randomization (ASLR)</title>
+		<sect2>
+			<title>Introduction</title>
+			<para>HardenedBSD's ASLR implementation is
+			    based off of PaX's design and
+			    documentation. PaX's documentation can be
+			    found
+			    <link xlink:href="https://github.com/HardenedBSD/pax-docs-mirror/blob/master/aslr.txt">
+			        here</link>.
+			    Work on HardenedBSD's ASLR started in
+			    2013 when Oliver Pinter and Shawn Webb
+			    teamed up to implement it. Oliver had the
+			    start of an existing patch and Shawn Webb
+			    enhanced it by adding per-jail support and
+			    Position-Independent Executable (PIE) base
+			    randomization.
+			</para>
+		</sect2>
 	</sect1>
 </chapter>
