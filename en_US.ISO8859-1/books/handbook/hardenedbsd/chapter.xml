@@ -158,8 +158,8 @@
 			    A holistic approach to security (aka,
 			    defense-in-depth) is the best way to
 			    secure a system. Additionally, ASLR is
-			    intended and designed to prevent remote
-			    attacks, not local.
+			    intended and designed to help prevent
+			    remote attacks, not local.
 			</para>
 			<para>HardenedBSD's ASLR implementation is
 			    based off of PaX's design and
@@ -186,6 +186,14 @@
 			    randomized in addition to a random-sized
 			    gap between the top of the stack and the
 			    start of the user stack.
+			</para>
+			<para>ASLR is enabled by default in the
+			    <filename>HARDENEDBSD</filename> kernel
+			    configuration. ASLR has been tested and
+			    known to work on amd64, i386, arm, arm64,
+			    and risc-v. The options for ASLR are:
+			    <programlisting>options	PAX
+options	PAX_ASLR</programlisting>
 			</para>
 		</sect2>
 		<sect2>
@@ -284,6 +292,30 @@
 					</tbody>
 				</tgroup>
 			</informaltable>
+		</sect2>
+		<sect2>
+			<title>Position-Independent Executables (PIEs)</title>
+			<para>In order to make full use of ASLR,
+			    applications must be compiled as
+			    Position-Independent Executables. If an
+			    application is not compiled as a PIE,
+			    then ASLR will be applied to all but the
+			    execution base.  All of base is compiled
+			    as PIEs, with the exception of a few
+			    applications that explicitly request to
+			    be statically compiled. Those
+			    applications are:
+			</para>
+			<itemizedlist>
+				<listitem><para>All applications in
+				    /rescue</para></listitem>
+				<listitem><para>/sbin/devd</para>
+				</listitem>
+				<listitem><para>/sbin/init</para>
+				</listitem>
+				<listitem><para>/usr/sbin/nologin</para>
+				</listitem>
+			</itemizedlist>
 		</sect2>
 	</sect1>
 </chapter>
