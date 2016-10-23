@@ -54,6 +54,12 @@
   </category>
 
   <category>
+    <name>gsoc</name>
+
+    <description>Google Summer of Code</description>
+  </category>
+
+  <category>
     <name>arch</name>
 
     <description>Architectures</description>
@@ -208,6 +214,350 @@
 	get it populated before applying for the next Google Summer of
 	Code.  Please help unleash the next stream of projects you want to
 	see in &os;.</task>
+    </help>
+  </project>
+
+  <project cat='proj'>
+    <title>CloudABI: Running Untrusted Programs Directly on top of &os;</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Ed</given>
+	  <common>Schouten</common>
+	</name>
+	<email>ed@FreeBSD.org</email>
+      </person>
+
+      <person>
+	<name>The CloudABI mailing list</name>
+	<email>cloudabi-devel@googlegroups.com</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://nuxi.nl/">Official CloudABI Website.</url>
+      <url href="https://nuxi.nl/cloudabi/FreeBSD/">Using CloudABI on &os;.</url>
+      <url href="https://nuxi.nl/blog/2016/08/01/cloudabi-python.html">Python for CloudABI.</url>
+      <url href="https://github.com/NuxiNL">CloudABI on GitHub.</url>
+    </links>
+
+    <body>
+      <p>CloudABI is a compact UNIX-like runtime environment inspired by
+	&os;'s Capsicum security framework.  It allows you to safely
+	run potentially untrusted programs directly on top of &os;,
+	Linux and macOS, without requiring the use of virtualisation,
+	jails, etc.  This makes it a useful building block for
+	cluster/cloud computing.</p>
+
+      <p>Over the last couple of months, several new libraries and
+	applications have been ported over to CloudABI, the most
+	important addition being Python 3.6.  This means that you can now
+	write strongly sandboxed apps in Python!</p>
+
+      <p>Support for different hardware platforms has also improved.  In
+	addition to amd64 and arm64, we now support i686 and armv6.
+	The release of LLVM 3.9 was important to us, as it has
+	integrated all the necessary changes to support the first three
+	platforms.  Full armv6 support is still blocked on some issues
+	with LLVM's linker, LLD.</p>
+    </body>
+
+    <sponsor>
+      Nuxi, the Netherlands
+    </sponsor>
+
+    <help>
+      <task>Play around with CloudABI and let us know what you think of
+	it!  Full support for amd64 and arm64 is part of &os; 11.0.
+	i686 and armv6 support is only available on HEAD, but will be
+	merged to the stable/11 branch in the future.</task>
+
+      <task>Interested in Python programming? Give our copy of Python a
+	try and share your experiences!</task>
+
+      <task>Do you maintain pieces of software that could benefit from
+	strong sandboxing?  Try building them using the CloudABI cross
+	compiler!</task>
+    </help>
+  </project>
+
+  <project cat='kern'>
+    <title>&os; on Hyper-V and Azure</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Sepherosa</given>
+	  <common>Ziehau</common>
+	</name>
+	<email>sepherosa@gmail.com</email>
+      </person>
+
+      <person>
+	<name>
+	  <given>Hongjiang</given>
+	  <common>Zhang</common>
+	</name>
+	<email>honzhan@microsoft.com</email>
+      </person>
+
+      <person>
+	<name>
+	  <given>Dexuan</given>
+	  <common>Cui</common>
+	</name>
+	<email>decui@microsoft.com</email>
+      </person>
+
+      <person>
+	<name>
+	  <given>Kylie</given>
+	  <common>Liang</common>
+	</name>
+	<email>kyliel@microsoft.com</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://wiki.FreeBSD.org/HyperV">&os; Virtual Machines on Microsoft Hyper-V</url>
+      <url href="https://technet.microsoft.com/en-us/library/dn531030.aspx">Supported Linux and &os; virtual machines for Hyper-V on Windows</url>
+    </links>
+
+    <body>
+      <p>This quarter, the Hyper-V storage driver was greatly improved:
+	its performance was increased by a factor of 1.2-2 by applying
+	BUS_DMA and UNMAP_IO, enlarging the request queue, and selecting the
+	outgoing channel with the LUN considered;  TRIM/UNMAP was enabled;
+	and some critical bugs (PRs 209443, 211000, 212998) were fixed so
+	that disk hot add/remove and VHDX online resizing should work
+	now.</p>
+
+      <p>The VMBus driver also received attention, with enhancements made for
+	the handling of device hot add/remove.</p>
+
+      <p> In the Hyper-V network driver, configurable RSS key and dynamic
+	MTU change are now supported.</p>
+
+      <p>&os; images on Azure continue to be updated &mdash; after
+	publishing the &os; 10.3 VM image on the global Microsoft Azure in
+	June, Microsoft also published the VM image on the Microsoft Azure
+	operated by 21Vianet in China in September.</p>
+
+      <p>Patches have been developed to support PCIe pass-through (also
+	known as Discrete Device Assignment); this feature allows physical
+	PCIe devices to be passed through to &os; VMs running on Hyper-V
+	(Windows Server 2016), giving them near-native performance with low
+	CPU utilization.  The patch to enable the feature will be posted for
+	review soon.</p>
+    </body>
+
+    <sponsor>
+      Microsoft
+    </sponsor>
+  </project>
+
+  <project cat='gsoc'>
+    <title>ptnet Driver and bhyve Device Model</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Vincenzo</given>
+	  <common>Maffione</common>
+	</name>
+	<email>v.maffione@gmail.com</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://wiki.FreeBSD.org/SummerOfCode2016/PtnetDriverAndDeviceModel">&os; Wiki Page for Project Overview</url>
+      <url href="http://info.iet.unipi.it/~luigi/papers/20160613-ptnet.pdf">Conference Paper</url>
+      <url href="https://svnweb.FreeBSD.org/socsvn/soc2016/vincenzo/head/">Subversion Repository</url>
+    </links>
+
+    <body>
+      <p>This project provides:</p>
+
+      <ul>
+	<li>A new driver (<tt>if_ptnet</tt>) for a paravirtualized network
+	  device, modeled after the netmap API.  The driver supports
+	  multi-queue netmap ports, and it is able to work both in netmap
+	  mode and in normal mode.</li>
+
+	<li>The emulation of the <tt>ptnet</tt> device model as a module
+	  of the <tt>bhyve</tt> hypervisor.</li>
+      </ul>
+
+      <p>The <tt>ptnet</tt> device and driver has been introduced to
+	overcome the performance limitations of TCP/IP networking between
+	bhyve VMs.  Prior to this work, the most performant solution for
+	VM-to-VM intra-host TCP communication provided less than 2 Gbps TCP
+	throughput.  With <tt>ptnet</tt>, in the same VM-to-VM TCP
+	communication scenario, it is possible to obtain up to 20 Gbps.</p>
+    </body>
+
+    <sponsor>
+      Google Summer of Code
+    </sponsor>
+
+    <help>
+      <task>Share <tt>virtio-net</tt> header management code with the
+	<tt>if_vtnet</tt> driver.  In the current code, about 100 lines of
+	code have been copied and pasted from <tt>if_vtnet.c</tt>.</task>
+    </help>
+  </project>
+
+  <project cat='ports'>
+    <title>LXQt on &os;</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Olivier</given>
+	  <common>Duchateau</common>
+	</name>
+	<email>olivierd@FreeBSD.org</email>
+      </person>
+
+      <person>
+	<name>
+	  <given>Jesper</given>
+	  <common>Schmitz Mouridsen</common>
+	</name>
+	<email>jesper@schmitz.computer</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://wiki.FreeBSD.org/LXQt">&os; LXQt Project</url>
+      <url href="http://lxqt.org/">LXQt Project</url>
+      <url href="https://www.assembla.com/spaces/lxqt/subversion/source">LXQt Development Repository</url>
+    </links>
+
+    <body>
+      <p>LXQt is the Qt port of and the upcoming version of LXDE, the
+	Lightweight Desktop Environment.  It is the product of a merge
+	between the LXDE-Qt and Razor-qt projects.</p>
+
+      <p>The porting effort remains very much a work in progress: it
+	requires some components of Plasma 5, the new major KDE
+	workspace.</p>
+
+      <p>The porting of the 0.11 branch is now complete, with new ports
+	(compared to the previous release).  See our wiki page for a
+	complete list of applications.</p>
+
+      <p>We also have updates for:</p>
+
+      <ul>
+
+	<li><tt>x11-toolkits/qtermwidget</tt> (0.7.0)</li>
+
+	<li><tt>x11/qterminal</tt> (0.7.0)</li>
+
+	<li><tt>x11/qterminal-l10n</tt></li>
+      </ul>
+    </body>
+
+    <help>
+      <task> Improve &os; support in <tt>sysutils/lxqt-admin</tt>,
+	especially with respect to user management.</task>
+
+      <task>Add additional panel plugins.</task>
+    </help>
+  </project>
+
+  <project cat='ports'>
+    <title>Xfce on &os;</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>&os; Xfce Team</given>
+	</name>
+	<email>xfce@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://wiki.FreeBSD.org/Xfce">&os; Xfce Project</url>
+      <url href="https://www.assembla.com/spaces/xfce4/subversion/source">&os; Xfce Repository</url>
+    </links>
+
+    <body>
+      <p>Xfce is a free software desktop environment for Unix and
+	Unix-like platforms such as &os;.  It aims to be fast and
+	lightweight, while still being visually appealing and easy to
+	use.</p>
+
+      <p>During this quarter, the team has kept the following applications
+	up-to-date:</p>
+
+      <ul>
+	<li><tt>audio/xfmpc</tt> (0.2.3)</li>
+
+	<li><tt>deskutils/xfce4-notifyd</tt> (0.3.2)</li>
+
+	<li><tt>deskutils/xfce4-volumed-pulse</tt> (0.2.2)</li>
+
+	<li><tt>devel/thunar-vcs-plugin</tt> (0.1.5)</li>
+
+	<li><tt>misc/xfce4-weather-plugin</tt> (0.8.8)</li>
+
+	<li><tt>sysutils/xfce4-settings</tt> (4.12.1)</li>
+
+	<li><tt>x11/xfce4-clipman-plugin</tt> (1.4.0)</li>
+
+	<li><tt>x11/xfce4-dashboard</tt> (0.6.0)</li>
+
+	<li><tt>x11/xfce4-goodies</tt>, the meta-port for the Xfce4
+	  Goodies Project (plugins, applications)</li>
+
+	<li><tt>x11/xfce4-whiskermenu-plugin</tt> (1.6.0)</li>
+      </ul>
+
+      <p>We also follow the unstable releases; the current unstable
+	release brings support for Gtk3 (available in our experimental
+	repository) to:</p>
+
+      <ul>
+	<li><tt>audio/xfce4-mpc-plugin</tt> (0.4.99)</li>
+
+	<li><tt>sysutils/garcon</tt> (0.5.0)</li>
+
+	<li><tt>sysutils/xfce4-battery-plugin</tt> (1.0.99)</li>
+
+	<li><tt>sysutils/xfce4-diskperf-plugin</tt> (2.5.99)</li>
+
+	<li><tt>sysutils/xfce4-fsguard-plugin</tt> (1.0.99)</li>
+
+	<li><tt>sysutils/xfce4-netload-plugin</tt> (1.2.99)</li>
+
+	<li><tt>sysutils/xfce4-systemload-plugin</tt> (1.1.99)</li>
+
+	<li><tt>www/xfce4-smartbookmark-plugin</tt> (0.4.99)</li>
+
+	<li><tt>x11/libexo</tt> (0.11.1)</li>
+
+	<li><tt>x11/libxfce4menu</tt> (4.13.1)</li>
+
+	<li><tt>x11/xfce4-dashboard</tt> (0.7.0)</li>
+
+	<li><tt>x11/xfce4-terminal</tt> (0.6.92)</li>
+
+	<li><tt>x11/xfce4-whiskermenu-plugin</tt> (2.0.1)</li>
+
+	<li><tt>x11-clocks/xfce4-datetime-plugin</tt> (0.6.99)</li>
+      </ul>
+
+      <p>Currently, the unstable releases work fine with our Gtk3 ports
+	available in the ports tree, but in the future, support for 3.18
+	will be removed in preference of 3.20.x.</p>
+    </body>
+
+    <help>
+      <task>Continue working on unstable releases.</task>
     </help>
   </project>
 </report>
