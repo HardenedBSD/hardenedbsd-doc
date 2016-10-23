@@ -304,6 +304,12 @@ options	PAX_ASLR</programlisting>
 					</tbody>
 				</tgroup>
 			</informaltable>
+			<para>When a process forks, the child process
+			    inherits its parent's ASLR settings,
+			    including deltas. Only at image
+			    activation (execve) time does a process
+			    receive new deltas.
+			</para>
 		</sect2>
 		<sect2>
 			<title>Position-Independent Executables (PIEs)</title>
@@ -328,6 +334,31 @@ options	PAX_ASLR</programlisting>
 				<listitem><para>/usr/sbin/nologin</para>
 				</listitem>
 			</itemizedlist>
+		</sect2>
+		<sect2>
+			<title>Shared Library Load Order Randomization</title>
+			<para>Breaking ASLR remotely requires
+			    multiple vulnerabilities, including one
+			    or more information leakage
+			    vulnerabilities. Information leakage
+			    vulnerabilities expose data an attacker
+			    can use to determine the memory layout
+			    of the process. Code reuse attacks, like
+			    ROP and its variants, exist to attack
+			    exploit mitigations like PAGEEXEC/NOEXEC.
+			    Over the years, a lot of tooling for
+			    automated ROP gadget generation has been
+			    developed. The tools generally rely on
+			    gadgets found via shared libraries and
+			    require that those shared libraries be
+			    loaded in the same order. By randomizing
+			    the order in which shared libraries get
+			    loaded, ROP gadgets have a higher chance
+			    of failing. Shared library load order
+			    randomization is disabled by default, but
+			    can be opted in on a per-application
+			    basis using secadm.
+			</para>
 		</sect2>
 	</sect1>
 </chapter>
