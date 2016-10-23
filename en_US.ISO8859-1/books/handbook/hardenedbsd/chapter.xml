@@ -237,7 +237,7 @@ options	PAX_ASLR</programlisting>
 			    amount of entropy:
 			</para>
 			<informaltable frame="all" pgwide="0">
-				<tgroup cols="6">
+				<tgroup cols="8">
 					<thead>
 						<row>
 							<entry>Delta</entry>
@@ -246,6 +246,8 @@ options	PAX_ASLR</programlisting>
 							<entry>Compat</entry>
 							<entry>Tunable</entry>
 							<entry>Compat Tunable</entry>
+							<entry>Kernel Option</entry>
+							<entry>Compat Kernel Option</entry>
 						</row>
 					</thead>
 					<tbody>
@@ -256,6 +258,8 @@ options	PAX_ASLR</programlisting>
 							<entry>14 bits</entry>
 							<entry>hardening.pax.aslr.mmap_len</entry>
 							<entry>hardening.pax.aslr.compat.mmap_len</entry>
+							<entry>PAX_ASLR_DELTA_MMAP_DEF_LEN</entry>
+							<entry>PAX_ASLR_COMPAT_DELTA_MMAP_DEF_LEN</entry>
 						</row>
 						<row>
 							<entry>Stack</entry>
@@ -264,6 +268,8 @@ options	PAX_ASLR</programlisting>
 							<entry>14 bits</entry>
 							<entry>hardening.pax.aslr.stack_len</entry>
 							<entry>hardening.pax.aslr.compat.stack_len</entry>
+							<entry>PAX_ASLR_DELTA_STACK_DEF_LEN</entry>
+							<entry>PAX_ASLR_COMPAT_DELTA_STACK_DEF_LEN</entry>
 						</row>
 						<row>
 							<entry>PIE exec base</entry>
@@ -272,6 +278,8 @@ options	PAX_ASLR</programlisting>
 							<entry>14 bits</entry>
 							<entry>hardening.pax.aslr.exec_len</entry>
 							<entry>hardening.pax.aslr.compat.exec_len</entry>
+							<entry>PAX_ASLR_DELTA_EXEC_DEF_LEN</entry>
+							<entry>PAX_ASLR_COMPAT_DELTA_EXEC_DEF_LEN</entry>
 						</row>
 						<row>
 							<entry>VDSO</entry>
@@ -280,6 +288,8 @@ options	PAX_ASLR</programlisting>
 							<entry>8 bits</entry>
 							<entry>hardening.pax.aslr.vdso_len</entry>
 							<entry>hardening.pax.aslr.compat.vdso_len</entry>
+							<entry>PAX_ASLR_DELTA_VDSO_DEF_LEN</entry>
+							<entry>PAX_ASLR_COMPAT_DELTA_VDSO_DEF_LEN</entry>
 						</row>
 						<row>
 							<entry>MAP_32BIT</entry>
@@ -287,6 +297,8 @@ options	PAX_ASLR</programlisting>
 							<entry>18 bits</entry>
 							<entry>N/A</entry>
 							<entry>hardening.pax.aslr.map32bit_len</entry>
+							<entry>N/A</entry>
+							<entry>PAX_ASLR_DELTA_MAP32BIT_DEF_LEN</entry>
 							<entry>N/A</entry>
 						</row>
 					</tbody>
