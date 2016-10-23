@@ -361,4 +361,104 @@ options	PAX_ASLR</programlisting>
 			</para>
 		</sect2>
 	</sect1>
+	<sect1 xml:id="hardenedbsd-wxorx">
+		<title>PAGEEXEC and MPROECT</title>
+		<sect2>
+			<title>Introduction</title>
+			<para>PAGEEXEC and MPROTECT comprise what
+			    is more commonly called W^X (W xor X).
+			    The design and implementation is inspired
+			    by PaX's. PAGEEXEC prevents applications
+			    from creating memory mappings that are
+			    both writable (W) and executable (X) at
+			    &man.mmap.2; time. MPROTECT prevents
+			    applications from toggling memory
+			    mappings between writable and executable
+			    with &man.mprotect.2;. Combining both
+			    PAGEEXEC and MPROTECT prevents attackers
+			    from executing injected code, thus
+			    forcing attackers to utilize code reuse
+			    techniques like ROP and its variants.
+			    Code reuse techniques are very difficult
+			    to make reliable, especially when
+			    multiple exploit mitigation technologies
+			    are present and active.
+			</para>
+			<para>PaX's documentation for these features:
+				<itemizedlist>
+					<listitem><para><link
+					    xlink:href="https://github.com/HardenedBSD/pax-docs-mirror/blob/master/pageexec.txt">
+					    PAGEEXEC</link></para>
+			    		</listitem>
+					<listitem><para><link
+					    xlink:href="https://github.com/HardenedBSD/pax-docs-mirror/blob/master/mprotect.txt">
+					    MPROTECT</link></para>
+			    		</listitem>
+				</itemizedlist>
+			</para>
+		</sect2>
+		<sect2>
+			<title>PAGEEXEC</title>
+			<para>If an application requests a memory
+			    mapping via &man.mmap.2;, and the
+			    application requests PROT_WRITE and
+			    PROT_EXEC, then PROT_EXEC is dropped.
+			    The application will be able to write to
+			    the memory, but not execute what was
+			    written. When an application requests W|X
+			    mappings, the application is more likely
+			    to simply write to the mapping, but not
+			    execute it. Such is the case with certain
+			    Python scripts: the developer is simply
+			    asking for more permissions than is truly
+			    needed. The kernel keeps a concept of max
+			    protection. HardenedBSD drops PROT_EXEC
+			    from the max protection when PROT_WRITE
+			    is requested.
+			</para>
+		</sect2>
+		<sect2>
+			<title>MPROTECT</title>
+			<para>If an application requests that a
+			    writable mapping be changed to executable
+			    via &man.mprotect.2;, the request will
+			    fail and set errno to EPERM. The same
+			    applies to an executable mapping being
+			    changed to writable via &man.mprotect.2;.
+			    Applications and shared objects that
+			    utilize text relocations (TEXTRELs) have
+			    issues with the MPROTECT feature.
+			    TEXTRELs require that executable code be
+			    relocated to different locations in
+			    memory. During the relocation process,
+			    the newly allocated memory needs to be
+			    both writable and executable. Once the
+			    relocation process is finished, the
+			    mapping can be marked as
+			    PROT_READ|PROT_EXEC.
+			</para>
+			<para>Some applications with a JIT, most
+			    notably Firefox, opt to create writable
+			    memory mappings that are non-executable,
+			    but upgrade the mapping to executable
+			    when appropriate. This gets rid of the
+			    problem of having active memory mappings
+			    that are both writable and executable.
+			    This makes applications like Firefox work
+			    with PAGEEXEC, but still have an issue
+			    with MPROTECT.
+			</para>
+		</sect2>
+		<sect2>
+			<title>Conclusion</title>
+			<para>By combining both PAGEEXEC and
+			    MPROTECT, HardenedBSD enables a strict
+			    form of W^X. Some applications may have
+			    issues with PAGEEXEC, MPROTECT, or both.
+			    When issues arise, secadm can be used to
+			    disable either one or both for just that
+			    one application.
+			</para>
+		</sect2>
+	</sect1>
 </chapter>
