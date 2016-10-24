@@ -560,4 +560,617 @@
       <task>Continue working on unstable releases.</task>
     </help>
   </project>
+
+  <project cat='gsoc'>
+    <title>Non-BSM to BSM Conversion Tools</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Mateusz</given>
+	  <common>Piotrowski</common>
+	</name>
+	<email>0mp@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://wiki.FreeBSD.org/SummerOfCode2016/NonBSMtoBSMConversionTools">Wiki Page</url>
+      <url href="https://github.com/0mp/FreeBSD">GitHub Repository</url>
+      <url href="https://github.com/0mp/FreeBSD/pull/9">Pull Request With Consolidated Patch</url>
+    </links>
+
+    <body>
+      <p>This project was started during Google Summer of Code this year.
+	The aim was to create a library which can convert the audit trail
+	files in Linux Audit format or the format used by Windows to the BSM
+	format (the format &os; uses for its audit logs).  Apart from that,
+	I wanted to create a simple command-line tool and extend
+	<tt>auditdistd</tt> so that it is possible to send non-BSM logs to
+	<tt>auditdistd</tt> over a secure connection and save those audit
+	logs on disk, preferably in the BSM format.</p>
+
+      <p>So far, it is possible to reasonably convert some of the most
+	common Linux audit log events to BSM, but it still needs a lot of
+	work.  Secondly, I was able to configure <tt>auditdistd</tt> to
+	communicate with CentOS over an insecure connection.  Thirdly, the
+	command-line tool is usable but not perfect.</p>
+
+      <p>The present work focuses on configuring the secure TLS connection
+	between CentOS and <tt>auditdistd</tt>.  I've already tried using
+	rsyslogd but wasn't able to make it work.</p>
+    </body>
+
+    <sponsor>
+      Google Summer of Code
+    </sponsor>
+
+    <help>
+      <task>I need more examples of rare Linux Audit logs; please send me
+	some examples if you have any.  It is much easier to improve the
+	conversion process with real-life examples of the audit events you
+	try to convert.</task>
+
+      <task>Configure <tt>auditdistd</tt> to be able to communicate with some
+	software on CentOS over TLS in order to receive audit logs.  I
+	wasn't able to come up with a simple solution for that.</task>
+
+      <task>Additional open tasks are listed on the Wiki page and in the
+	TODO file in the root directory of the project.</task>
+    </help>
+  </project>
+
+  <project cat='proj'>
+    <title>Improvements to Non-Transparent Bridge Subsystem</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Alexander</given>
+	  <common>Motin</common>
+	</name>
+	<email>mav@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <body>
+      <p>Non-Transparent Bridges allow creation of memory windows between
+	different systems, using the regular PCIe links of CPUs as a
+	transport.  During the last quarter, the NTB subsystem gained a
+	significant set of improvements and fixes:</p>
+
+      <ul>
+	<li>The code was modularized, utilizing &os;'s NewBus interfaces
+	  to allow support for different hardware types with different
+	  drivers, support for multiple NTB instances in a system,
+	  using the <tt>ntb_transport</tt> module for consumers other
+	  than <tt>if_ntb</tt>, etc.</li>
+
+	<li>Support for splitting NTB resources between different
+	  applications was added, such as doing direct access to some range
+	  of remote memory and to a virtual network interface between nodes
+	  at the same time, etc.</li>
+
+	<li>The virtual network interface driver gained support for many
+	  modern features, such as multiple queues, new locking, etc.</li>
+
+	<li>NTB performance and SMP scalability was improved.</li>
+
+	<li>Multiple workarounds for hardware issues were added.</li>
+      </ul>
+
+      <p>The code is committed to the &os; head, stable/11 and stable/10
+	branches.</p>
+    </body>
+
+    <sponsor>
+      The project is sponsored by iXsystems, Inc.
+    </sponsor>
+
+    <help>
+      <task>Support for the next generation of Intel hardware.</task>
+
+      <task>Support for non-Intel hardware (AMD, PLX, etc.).</task>
+
+      <task>Support for I/OAT and other DMA offloads.</task>
+
+      <task>Creating a more efficient packet transport protocol.</task>
+
+      <task>Creating a greater variety of NTB applications.</task>
+    </help>
+  </project>
+
+  <project cat='proj'>
+    <title>ZFS Code Sync with Latest OpenZFS/Illumos</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Alexander</given>
+	  <common>Motin</common>
+	</name>
+	<email>mav@FreeBSD.org</email>
+      </person>
+
+      <person>
+	<name>
+	  <given>Andriy</given>
+	  <common>Gapon</common>
+	</name>
+	<email>avg@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <body>
+      <p>The ZFS code base in &os; regularly gets merges of new code,
+	staying in sync with latest OpenZFS/Illumos sources.  Among other
+	things, the latest merge included the following improvements:</p>
+
+      <ul>
+	<li>The ARC now mostly stores compressed data, the same as is
+	  stored on disks, decompressing them on demand.</li>
+
+	<li>The L2ARC now stores the same (compressed) data as ARC without
+	  recompression, and its RAM usage was further reduced.</li>
+
+	<li>The largest size of indirect block possible has been increased
+	  from 16KB fo 128KB, and speculative prefetching of indirect blocks
+	  is now performed.</li>
+
+	<li>Improved ordering of space allocation.</li>
+
+	<li>The SHA-512t256 and Skein hashing algorithms are now
+	  supported.</li>
+      </ul>
+    </body>
+  </project>
+
+  <project cat='arch'>
+    <title>&os; on Marvell Armada38x</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Marcin</given>
+	  <common>Wojtas</common>
+	</name>
+	<email>mw@semihalf.com</email>
+      </person>
+
+      <person>
+	<name>
+	  <given>Bartosz</given>
+	  <common>Szczepanek</common>
+	</name>
+	<email>bsz@semihalf.com</email>
+      </person>
+    </contact>
+
+
+    <body>
+      <p>&os; includes support for the Marvell Armada38x platform, which
+	has been tested and improved in order to gain production quality.
+	Most of this effort has been invested in development and
+	benchmarking of the on-chip Gigabit Ethernet (NETA) functionality.
+	Numerous bug fixes, as well as some new features, have been
+	introduced.</p>
+
+      <p>Work completed this quarter includes:</p>
+
+      <ul>
+	<li>NETA rework and improvements.</li>
+
+	<li>Enable multi-port support in PCIe 2.0 driver
+	  (<tt>mv_pci_ctrl</tt>).</li>
+
+	<li>Introduce an alternative, coherent, <tt>bus_dma</tt> for the
+	  armv7 arch.</li>
+
+	<li>AHCI controller support.</li>
+
+	<li>SDHCI controller support.</li>
+
+	<li>Improve the <tt>e6000sw</tt> etherswitch driver.</li>
+
+	<li>Fix Marvell bus configuration for numerous interfaces.</li>
+      </ul>
+
+      <p>Along with support for new boards (SolidRun ClearFog and
+	DB-88F6285-AP), all changes will be submitted upstream.</p>
+    </body>
+
+    <sponsor>
+      Stormshield
+    </sponsor>
+
+    <sponsor>
+      Semihalf
+    </sponsor>
+
+    <help>
+      <task>Finalize NETA and prepare for submission.</task>
+
+      <task>Submit remaining fixes and drivers.</task>
+    </help>
+  </project>
+
+  <project cat='kern'>
+    <title>&os; Driver for the Annapurna Labs ENA</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Jan</given>
+	  <common>Medala</common>
+	</name>
+	<email>jan@semihalf.com</email>
+      </person>
+
+      <person>
+	<name>
+	  <given>Jakub</given>
+	  <common>Palider</common>
+	</name>
+	<email>jpa@semihalf.com</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking.html">Amazon AWS Documentation of the ENA</url>
+    </links>
+
+    <body>
+      <p>The Elastic Network Adapter (ENA) is a 25G SmartNIC developed by
+	Annapurna Labs based on a custom ARMv8 chip.  This is a
+	high-performance networking card that is available to AWS virtual
+	machines.  It introduces enhancements in network utilization
+	scalability on EC2 machines running various operating systems, in
+	particular &os;.</p>
+
+      <p>The goal of &os; enablement is to provide top performance and a
+	wide range of monitoring and management features such as:</p>
+
+      <ul>
+	<li>multiple queue modes</li>
+
+	<li>various offload functionality</li>
+
+	<li>admin queue</li>
+
+	<li>asynchronous notification</li>
+
+	<li>robust hardware access</li>
+
+	<li>scalable number of MSI-X interrupts</li>
+
+	<li>counters</li>
+      </ul>
+
+      <p>The current state offers stable driver operation with good
+	performance on machines running &os; directly on the hardware.</p>
+    </body>
+
+    <sponsor>
+      Annapurna Labs &mdash; an Amazon company
+    </sponsor>
+
+    <help>
+      <task>Optimize performance for virtualized environments.</task>
+
+      <task>Prepare for submitting the driver as a Phabricator
+	review.</task>
+    </help>
+  </project>
+
+  <project cat='arch'>
+    <title>&os; on Annapurna Labs Alpine</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Jan</given>
+	  <common>Medala</common>
+	</name>
+	<email>jan@semihalf.com</email>
+      </person>
+
+      <person>
+	<name>
+	  <given>Michal</given>
+	  <common>Stanek</common>
+	</name>
+	<email>mst@semihalf.com</email>
+      </person>
+
+      <person>
+	<name>
+	  <given>Wojciech</given>
+	  <common>Macek</common>
+	</name>
+	<email>wma@semihalf.com</email>
+      </person>
+    </contact>
+
+    <body>
+      <p>Alpine is a family of Platform-on-Chip devices, including
+	multi-core 32-bit (first-gen Alpine) and 64-bit (Alpine V2) ARM
+	CPUs, developed by Annapurna Labs.</p>
+
+      <p>The primary focus areas of the Alpine platform are
+	high-performance networking, storage and embedded applications.  The
+	network subsystem features 10-, 25-, and 50-Gbit Ethernet
+	controllers with support for virtualization, load-balancing,
+	hardware offload and other advanced features.</p>
+
+      <p>A basic patch set has already been committed to HEAD including:</p>
+
+      <ul>
+	<li>PCIe Root Complex support</li>
+
+	<li>Cache Coherency Unit driver</li>
+
+	<li>North Bridge Service driver</li>
+
+	<li>Updated Alpine HAL</li>
+
+	<li>Extended MSI support in GICv2 and GICv3 code</li>
+     </ul>
+
+      <p>Additional work, such as an MSI-X driver and full Ethernet
+	support, is currently undergoing community review on Phabricator.</p>
+
+      <p>The multi-user SMP system is stable and fully working, along with
+	the 1G and 10G Ethernet links.</p>
+
+      <p>The interrupt management code has been adjusted to work with the
+	new INTRNG framework on both ARM32 and ARM64.</p>
+    </body>
+
+    <sponsor>
+      Annapurna Labs &mdash; an Amazon company
+    </sponsor>
+
+    <sponsor>
+      Semihalf
+    </sponsor>
+  </project>
+
+  <project cat='doc'>
+    <title>Documenting the History of Utilities in /bin and /sbin</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Sevan</given>
+	  <common>Janiyan</common>
+	</name>
+	<email>sevan@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="http://svnweb.FreeBSD.org/ports/head/textproc/igor">The <tt>igor</tt> Port.</url>
+      <url href="https://svnweb.FreeBSD.org/base/head/share/misc/bsd-family-tree?view=log">BSD Family Tree in Subversion</url>
+      <url href="http://www.tuhs.org">The UNIX Heritage Society</url>
+      <url href="http://man.cat-v.org">Cat-V Manual Library</url>
+    </links>
+
+    <body>
+      <p>For EuroBSDcon, I began looking into inconsistencies within
+	components inside our family of operating systems.  My workflow
+	consisted of reading the documentation for a given utility and
+	checking the history in the revision control system for missing
+	fixes or functionality in the trees of NetBSD, &os;, OpenBSD, and
+	DragonFly BSD.</p>
+
+      <p>One thing which became obvious very quickly, was the
+	inconsistency between operating systems about where and/or which
+	version a utility originated in, despite our common heritage.</p>
+
+      <p>I began with working through the man pages in &os;, verifying the
+	details in pages which already had a history section and making
+	patches for those which did not.</p>
+
+      <p>From there, changes were propogated out to NetBSD, OpenBSD and
+	Dragonfly BSD where applicable (not all utilities originated from
+	the same source or implimentation, for example).</p>
+
+      <p>This was a good exercise in:</p>
+
+      <ul>
+	<li>Becoming familiar with
+	  <a href="http://mdocml.bsd.lv/man">mandoc</a>.</li>
+
+	<li>Using tools such as the linting functionality in mandoc and
+	  the <tt>igor</tt> documentation script.</li>
+
+	<li>Becoming familiar with the locations where things are
+	  documented and with external sources of historical information,
+	  such as the BSD Family Tree which is included in the &os; base
+	  system, and projects like <a href="http://www.tuhs.org">The UNIX
+	    Heritage Society</a> and the <a href="http://man.cat-v.org">manual
+	    library</a> on <a href="http://cat-v.org">cat-v.org</a> which
+	  hosts copies of manuals such as those shipped with
+	  <a href="https://en.wikipedia.org/wiki/Research_Unix">Research
+	    UNIX</a>.  These manuals are not commonly available
+	  elsewhere.</li>
+      </ul>
+    </body>
+
+    <help>
+      <task>Cover the remaining manuals for userland utilities, and maybe
+	expand onto library and syscall APIs, though I say that without
+	estimating the feasibility &mdash; components originating from a
+	closed-source operating system are tricky to document the history
+	of, due to the lack of availability of sources or sometimes even
+	headers.</task>
+    </help>
+  </project>
+
+  <project cat='proj'>
+    <title>VirtualBox Shared Folders Filesystem</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Li-Wen</given>
+	  <common>Hsu</common>
+	</name>
+	<email>lwhsu@FreeBSD.org</email>
+      </person>
+
+      <person>
+	<name>
+	  <given>Oleksandr</given>
+	  <common>Tymoshenko</common>
+	</name>
+	<email>gonzo@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://github.com/lwhsu/FreeBSD-vboxfs">Project Repository</url>
+    </links>
+
+    <body>
+      <p>&os; provides an API for guest OSes to access shared folders on
+	the host OS so that the kernel driver can expose them to the
+	guest's userland.  This project aims to add such functionality to
+	the VirtualBox Guest Additions driver.</p>
+
+      <p>Good progress was made over last few months.  Developers were
+	able to mount a filesystem in read-only mode and, with some
+	limitations, in read-write mode.  The implementation still lacks
+	some critical pieces, but the roadmap is clear.</p>
+    </body>
+
+    <help>
+      <task>Finish the missing pieces.</task>
+      
+      <task>implement proper locking.</task>
+      
+      <task>general clean-up and bugfixes.</task>
+    </help>
+  </project>
+
+  <project cat='kern'>
+    <title>evdev Support</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Vladimir</given>
+	  <common>Kondratiev</common>
+	</name>
+	<email>wulf@cicgroup.ru</email>
+      </person>
+
+      <person>
+	<name>
+	  <given>Oleksandr</given>
+	  <common>Tymoshenko</common>
+	</name>
+	<email>gonzo@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://github.com/wulf7/&os;">evdev WIP Repository</url>
+      <url href="https://wiki.FreeBSD.org/SummerOfCode2014/evdev_Touchscreens">Original evdev Proposal</url>
+    </links>
+
+    <body>
+      <p><tt>evdev</tt> is a portable, API-compatible implementation of
+	the Linux <tt>/dev/input/eventX</tt> interface.  It covers a wide
+	variaty of input devices like keyboards, mice, and touchscreens
+	(with multitouch support), and support for it is implemented in a
+	lot of existing userland components like Qt, <tt>libinput</tt>, and
+	<tt>tslib</tt>.</p>
+
+      <p><tt>evdev</tt> support was started by Jakub Klama as a Google SoC
+	2014 project, and later picked up and finished by Vladimir
+	Kondratiev.  General API and <tt>evdev</tt> support bits for
+	<tt>ukbd</tt> and <tt>ums</tt> were committed to HEAD.  Support was
+	also added for TI's AM33xx touchstreen controller (the popular
+	BeagleBone is based on the AM33xx) and the official touschreen for
+	the Raspberry Pi.  Multitouch support for the Raspberry Pi was
+	successfully demoed using the lastest Qt development branch.</p>
+  </body>
+
+    <help>
+      <task>Documentation. In particular, manual pages are needed for the
+	KPI.</task>
+
+      <task>Support additional hardware.</task>
+
+      <task>Enable <tt>evdev</tt> support in existing ports, and add new
+	<tt>evdev</tt>-dependent ports.</task>
+    </help>
+  </project>
+
+  <project cat='arch'>
+    <title>&os;/arm64</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Andrew</given>
+	  <common>Turner</common>
+	</name>
+	<email>andrew@FreeBSD.org</email>
+      </person>
+
+      <person>
+	<name>
+	  <given>Jared</given>
+	  <common>McNeill</common>
+	</name>
+	<email>jmcneill@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://wiki.FreeBSD.org/arm64">&os; arm64 Wiki Entry</url>
+      <url href="https://github.com/wca/crochet/tree/add-pine64-support">Using Crochet to Build &os; Images</url>
+    </links>
+
+    <body>
+      <p>Transparent superpage support has been added.  This will allow
+	&os; to create 2MiB blocks with a single pagetable and TLB entry.
+	This has shown a small but significant improvement in the
+	buildworld time on ThunderX machines.  Superpages have been
+	enabled in head with and merged to stable/11, but they are
+	disabled by default on stable/11 due to a lack of testing
+	there.</p>
+
+      <p>Support for the pre-INTRNG interrupt framework has been
+	removed.  This means that arm64 requires INTRNG to even build.
+	This has allowed various cleanups within the arm64 drivers that
+	interact with the interrupt controller.</p>
+
+      <p>The cortex Strings library from Linaro has been imported.  The
+	parts of this that have been shown to be improvements over the
+	previous C code were attached to the libc build.</p>
+
+      <p>There is ongoing work to add ACPI support to the kernel.  On
+	ThunderX, &os; can get to the mountroot prompt, however, due to
+	incomplete ACPI tables the external PCIe support needed to support
+	the netboot setup in the test cluster is not functional.</p>
+
+      <p>Pine64 support has been committed to head.  &os; can now boot
+	to multiuser with SMP enabled.  This includes support for clocks,
+	the secure ID controller, USB Host controller, GPIOs, non-maskable
+	interrupts, the AXP81x power management unit, cpu freqency and
+	voltage scaling, MMC, UART, gigabit networking, the watchdog, and
+	the thermal sensors.</p>
+    </body>
+
+    <sponsor>
+      The FreeBSD Foundation
+    </sponsor>
+
+    <sponsor>
+      ABT Systems Ltd
+    </sponsor>
+  </project>
 </report>
