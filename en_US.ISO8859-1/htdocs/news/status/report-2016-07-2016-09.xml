@@ -1173,4 +1173,255 @@
       ABT Systems Ltd
     </sponsor>
   </project>
+
+  <project cat='ports'>
+    <title>KDE on &os;</title>
+
+    <contact>
+      <person>
+	<name>KDE on &os; team</name>
+	<email>kde@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://FreeBSD.kde.org/">KDE on &os; website</url>
+      <url href="https://FreeBSD.kde.org/area51.php">KDE ports staging area</url>
+      <url href="https://wiki.FreeBSD.org/KDE">KDE on &os; wiki</url>
+      <url href="https://mail.kde.org/mailman/listinfo/kde-FreeBSD">KDE/&os; mailing list</url>
+      <url href="http://src.mouf.net/area51/log/branches/plasma5">Development repository for integrating Plasma 5 and KDE Frameworks 5</url>
+      <url href="http://src.mouf.net/area51/log/branches/qt-5.7">Development repository for integrating Qt 5.7</url>
+    </links>
+
+    <body>
+      <p>The KDE on &os; team focuses on packaging the KDE software and
+	making sure that the experience of KDE and Qt on &os; is as good as
+	possible.</p>
+
+      <p>The following big updates were landed in the ports tree this
+	quarter:</p>
+
+      <ul>
+	<li>Added a Qt5 option to <tt>multimedia/mlt</tt>.</li>
+
+	<li>Added the <tt>devel/grantlee5</tt> port and, with it,
+	  <tt>Uses/grantlee.mk</tt>.</li>
+
+	<li>Added the <tt>multimedia/gstreamer1-qt5</tt> port.</li>
+
+	<li>Added the <tt>net-im/telepathy-qt5</tt> port.</li>
+
+	<li>CMake was updated to versions 3.6.1 and 3.6.2.</li>
+
+	<li>An important fix was made to <tt>qmake</tt>, where the clang
+	  version was not correctly detected.</li>
+
+	<li>Qt 5.6.1 was committed to ports.</li>
+
+	<li>Phonon and its backend to were updated to 4.9.0 in preparation
+	  for Qt 5.6.1.</li>
+
+	<li>Updated the <tt>net-im/telepathy-qt4</tt> port to 0.9.7.</li>
+
+	<li>Various LibreSSL related fixes by Matthew Rezny.</li>
+
+	<li>bsd.kde4.mk has been replaced by Uses/kde.mk.</li>
+
+	<li><tt>www/webkit-qt5</tt> was fixed to depend on the systems
+	  leveldb.</li>
+      </ul>
+
+      <p>In our development repository, we have done the following
+	work:</p>
+
+      <ul>
+	<li>The plasma5 branch has been kept up to date with KDE's upstream and
+	  contains ports for Frameworks 5.26.0, Plasma Desktop 5.8.0 and
+	  Applications 16.08.1 (branches/plasma5).</li>
+      </ul>
+
+    </body>
+  </project>
+
+  <project cat='team'>
+    <title>The &os; Core Team</title>
+
+    <contact>
+      <person>
+	<name>&os; Core Team</name>
+	<email>core@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <body>
+      <p>The third quarter started with the handover to the ninth Core
+	team as it took office.  With four members returning from the
+	previous core (Baptiste Daroussin, Ed Maste, George Neville-Neil
+	and Hiroki Sato); one returning member after a term away (John
+	Baldwin) and four members new to core (Allan Jude, Kris Moore,
+	Benedict Reuschling and Benno Rice) the new core team represents
+	just about the ideal balance between experience and fresh
+	blood.</p>
+
+      <p>Beyond handing over all of the ongoing business, reviewing
+	everything on Core's agenda and other routine changeover
+	activities, the first action of the new core was to respond to a
+	query from Craig Rodrigues concerning how hardware supplied to the
+	project through donations to the &os; Foundation was being
+	used.</p>
+
+      <p>The Foundation does keep records of what hardware has been
+	supplied over time and has some idea of the original purpose that
+	hardware was provisioned for, but does not track the current usage
+	of the project's hardware assets.  Cluster administration keep
+	their own configuration database, but this is not suitable for
+	general publication and covers much more than Foundation supplied
+	equipment.  After some discussion it was decided that updated
+	information about the current disposition of Foundation supplied
+	equipment should be incorporated in the Foundation's annual
+	report.</p>
+
+      <p>Ensuring that all of the &os; code base is supplied under open
+	and unencumbered licensing terms and that we do not infringe on
+	patent terms or otherwise act counter to any legal requirements
+	are some of Core's primary concerns.  During this quarter, there
+	were three items of this nature.</p>
+
+      <ul>
+	<li>Importing Concurrency Kit.  In consultation with the
+	  Foundation's legal counsel, it was determined that the relevant
+	  patents on the 'Read Copy Update' synchronization mechanisms
+	  have expired, and consequently the import of selected parts of
+	  concurrency kit was approved.</li>
+
+	<li>The proposal to create a shadow GPLv3 toolchain repository
+	  was put to the community.  Ultimately the whole idea has been
+	  rendered largely redundant by faster than anticipated progress
+	  at integrating the latest LLVM toolchain on most of the
+	  interesting system architectures.  The goal of a GPL-free base
+	  system is within our grasp.</li>
+
+	<li>Reports that GPL code has been pasted into linuxkpi sources
+	  are under investigation.  Core would like to stress that great
+	  care must be taken to avoid inadvertent license infringement,
+	  especially when implementing hardware interfaces or similar
+	  where there is limited scope to invent new constants or
+	  otherwise make it clear this is a novel implementation.</li>
+      </ul>
+
+      <p>Work on LLVM has thrown up problems with the presence of
+	certain pre-compiled binary-only drivers as part of the GENERIC
+	kernel.  Core has adopted the policy that such binary-only code
+	should be moved to loadable modules and that the GENERIC kernel
+	must be compiled entirely from original sources.</p>
+
+      <p>The item that has absorbed the largest portion of Core's
+	attention this quarter concerns the project's handling of security
+	vulnerabilities in bspatch(1), libarchive(3), FreeBSD-update(8)
+	and portsnap(8).  A partial fix was applied in
+	&os;-SA-16:25.bspatch but this lacks fixes to libarchive code
+	that were not yet available from upstream.</p>
+
+      <p>SecTeam receives privileged early reports of many
+	vulnerabilities and consequently has a strict policy of not
+	commenting publicly until an advisory and patches have been
+	published.  Early access to information about vulnerabilities is
+	contingent on their ability to avoid premature disclosure, and
+	without such, they could not have security advisories and
+	patches ready to go immediately the vulnerability is
+	published.</p>
+
+      <p>However, in this case, vulnerabilities were already public and
+	the lack of any official response from the &os; project was
+	leading to concern amongst users and some critical press coverage.
+	Core stepped in and published a statement clarifying the situation
+	and the particular difficulties involved in securely modifying the
+	mechanisms used to deliver security patches.  Core believes that
+	prompt notification and discussion of the implications and
+	possible workarounds to any <i>public</i> vulnerability should not wait
+	on the availability of formal OS patches.</p>
+
+      <p>The OpenSSH project has deprecated DSA keys upstream.  &os; had
+	kept DSA keys enabled in the later 10.x releases for compatibility
+	reasons, but with the release of 11.0 the time has come to
+	synchronise again with upstream.  Since there are numerous DSA
+	keys in use in the &os; cluster this has necessitated an
+	exercise to get replacement keys installed.  Core would like to
+	thank David Wolfskill and the accounts team for handling the surge
+	in key changes with a great deal of aplomb.</p>
+
+      <p>During this quarter we welcomed Michael Zhilin, Imre Vadasz,
+	Steve Kiernan and Toomas Soome as new source committers.  Over the
+	same period, we said farewell to Martin Wilke and Erwin Lansing
+	who have handed in their commit bits.  We wish them well in their
+	future endeavours and hope to see them return as soon as they
+	can.</p>
+    </body>
+  </project>
+
+  <project cat='kern'>
+    <title>Timekeeping Code Improvements</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Konstantin</given>
+	  <common>Belousov</common>
+	</name>
+	<email>kib@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <body>
+      <p>Work was done to properly lock the time-keeping code.  The
+	existing code correctly interoperated with readers, both kernel-
+	and user-space, giving them lock-less access to the actual data
+	('timehands') needed to derive the time of day from the
+	timecounter hardware, in the presence of updaters.  But updates
+	of the timehands, which are performed by periodic clock
+	interrupts, the ntpd-driven sys_ntp_adjtime(2) syscall, the
+	settimeofday(2) syscall, pps sync, and possibly other sources,
+	were not coordinated.  Moreso, the NTP code was locked by Giant,
+	which did not really serve any purpose.</p>
+
+      <p>As result of the work, locking was applied to ensure that any
+	timehands adjustments are performed by single mutator.  An
+	interesting case is the parallel modification of the timehands
+	from the top of the kernel, for instance the settimeoday(2)
+	syscall, and a simultaneous clock tick event, where the syscall
+	has already acquired the resources.  In this case, it is highly
+	desirable to not block (spin) in the tick handler, and the
+	required adjustments are performed by the already executing call
+	from top half.  There, the typical trylock operation is desired,
+	which was surprisingly lacking from our spinlock implementation.
+	mtx_trylock_spin(9) was implemented and is used for this
+	purpose.</p>
+
+      <p>The userspace getttimeofday(2) implementation was enhanced to
+	allow syscall-less operation on machines that use HPET hardwire
+	for timecounters.  The HPET algorithm coexists with older
+	RDTSC-based code, allowing dynamic switching of timecounters.
+	HPET registers a page that is mmap(2)-ed readonly by libc into
+	userland application programs' address space as needed.
+	Measurements demonstrated modest improvements in gettimeofday(2)
+	performance, but not unexpectedly even the syscall-less HPET
+	timecounter is slower than invoking a syscall for RDTSC.</p>
+
+      <p>Some not strictly interwined but related code is the
+	time-bound sleep implementation.  Handling of races between
+	callouts and the top-half code that sets and processes the
+	timeouts depended on the many fine details of the
+	callout_stop(9) KPI (kernel programming interface).  In
+	particular, races or unpunctual KPI changes usually result in
+	the &quot;catch-all&quot; unkillable thread state with the
+	&quot;-&quot; waitchain bug.  The sleepqueue timeout code was
+	rewritten to stop depending on the KPI details, which removed
+	the source of recurring bugs, and also surprisingly simplified
+	the code.</p>
+    </body>
+
+    <sponsor>
+      The FreeBSD Foundation
+    </sponsor>
+  </project>
 </report>
