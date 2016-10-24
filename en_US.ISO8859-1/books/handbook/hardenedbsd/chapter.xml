@@ -195,6 +195,26 @@
 			    <programlisting>options	PAX
 options	PAX_ASLR</programlisting>
 			</para>
+			<para>If the kernel has been compiled with
+			    <programlisting>options	PAX_SYSCTLS</programlisting>
+			    then the sysctl node security.hardening.pax.aslr.status
+			    will be available. The following values
+			    determine the enforcement of ASLR:
+			</para>
+			<itemizedlist>
+				<listitem><para>0 - Force disabled
+				    </para></listitem>
+				<listitem><para>1 - Disabled by
+				    default. User must opt
+				    applications in.</para>
+				</listitem>
+				<listitem><para>2 - Enabled by
+				    default. User must opt
+				    applications out.</para>
+			    	</listitem>
+				<listitem><para>3 - Force enabled
+				    </para></listitem>
+			</itemizedlist>
 		</sect2>
 		<sect2>
 			<title>Implementation</title>
