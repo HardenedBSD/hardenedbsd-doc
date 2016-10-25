@@ -434,7 +434,12 @@ options	PAX_ASLR</programlisting>
 			    needed. The kernel keeps a concept of max
 			    protection. HardenedBSD drops PROT_EXEC
 			    from the max protection when PROT_WRITE
-			    is requested.
+			    is requested. When PROT_EXEC is
+			    requested, PROT_WRITE is dropped from the
+			    max protection. When both are requested,
+			    PROT_WRITE is given priority and
+			    PROT_EXEC is dropped from both the
+			    request and the max protection.
 			</para>
 		</sect2>
 		<sect2>
