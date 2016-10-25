@@ -431,7 +431,9 @@ options	PAX_ASLR</programlisting>
 			    execute it. Such is the case with certain
 			    Python scripts: the developer is simply
 			    asking for more permissions than is truly
-			    needed. The kernel keeps a concept of max
+			    needed.
+			</para>
+			<para>The kernel keeps a concept of max
 			    protection. HardenedBSD drops PROT_EXEC
 			    from the max protection when PROT_WRITE
 			    is requested. When PROT_EXEC is
