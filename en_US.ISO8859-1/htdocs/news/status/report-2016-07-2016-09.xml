@@ -1635,4 +1635,590 @@
 	running on &os; with patches in the ports tree.</p>
     </body>
   </project>
+
+  <project cat='team'>
+    <title>The FreeBSD Foundation</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Deb</given>
+	  <common>Goodkin</common>
+	</name>
+	<email>deb@FreeBSDFoundation.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://www.FreeBSDFoundation.org/">FreeBSD Foundation Website</url>
+    </links>
+
+    <body>
+      <p>The FreeBSD Foundation is a 501(c)(3) non-profit organization
+	dedicated to supporting and promoting the &os; Project and
+	community worldwide.  Funding comes from individual and
+	corporate donations and is used to fund and manage software
+	development projects, conferences and developer summits, and
+	provide travel grants to &os; contributors.  The Foundation
+	purchases hardware to improve and maintain &os; infrastructure
+	and publishes &os; white papers and marketing material to
+	promote, educate, and advocate for the &os; Project.  The
+	Foundation also represents the &os; Project in executing
+	contracts, license agreements, and other legal arrangements that
+	require a recognized legal entity.</p>
+
+      <p>Here are some highlights of what we did to help &os; last
+	quarter:</p>
+
+      <p>Fundraising Efforts</p>
+
+      <p>Our work is 100% funded by your donations.  Our spending
+	budget for 2016 is $1,250,000 and we have raised $271,500 so
+	far.  Our Q1-Q3 financial reports will be posted in early
+	November.  As you can see, we need your donations in order to
+	continue supporting &os; at our current level.  Please consider
+	making a donation at <a
+	  href="https://www.FreeBSDfoundation.org/donate/">https://www.FreeBSDfoundation.org/donate/</a>.</p>
+
+      <p>OS Improvements</p>
+
+      <p>The Foundation improves &os; by funding software development
+	projects approved through our proposal submission process, and
+	our internal software developer staff members.  Two
+	Foundation-funded projects continued last quarter; one project
+	is to port NetBSD's <tt>blacklistd</tt> daemon and related
+	elements to &os;, and the second is phase two of the &os;/arm64
+	port.</p>
+
+      <p>Foundation staff members were responsible for many changes
+	over the quarter.  Kostik Belousov accomplished the following
+	work last quarter:</p>
+
+      <ul>
+	<li>Provided kernel support for EFI Runtime Services calls.</li>
+
+	<li>Implemented getttimeofday(2) purely in userspace for HPET
+	  timers</li>
+
+	<li>Implemented fdatasync(2)</li>
+
+	<li>Improved the locking of the time keeping code</li>
+
+	<li>Made the sleepqueue code immune to rapid callout changes</li>
+
+	<li>Made many stability fixes, the most important of which
+	  were UFS issues and an i386 bug</li>
+
+	<li>Improved the process management and ptrace code</li>
+      </ul>
+
+      <p>Ed Maste, our Project Development Director, accomplished the
+	following work last quarter:</p>
+
+      <ul>
+	<li>Worked on &os;/arm64 issues and Cavium ThunderX
+	  deployment (including RMAs)</li>
+
+	<li>Worked with upstream developers to test works in progress
+	  and prepare LLD as the replacement linker in the &os; base
+	  system</li>
+
+	<li>Switched to using LLVM's <tt>libunwind</tt> in the base system</li>
+
+	<li>Improved the reproducibility of builds in &os; base system
+	  and ports</li>
+
+	<li>Reviewed the <tt>blacklistd</tt> work that is in
+	  progress</li>
+
+	<li>Attended BSDCam 2016, with a primary focus on toolchain
+	  discussions</li>
+
+	<li>Participated in ongoing Capsicum calls, and helped with the
+	  Capsicumization of several base system utilities</li>
+
+	<li>Fixed a number of ELF Tool Chain issues, and integrated a new
+	  upstream version into the &os; base system</li>
+
+	<li>Hosted biweekly graphics calls to coordinate work in
+	  progress by funded and volunteer developers</li>
+
+	<li>Implemented fixes for security issues in some &os; update
+	  tools, and coordinated their integration into the stable and
+	  release branches</li>
+      </ul>
+
+      <p>George Neville-Neil continued hosting a bi-weekly Transport
+	conference call (notes at <a
+	  href="https://wiki.FreeBSD.org/TransportProtocols">https://wiki.FreeBSD.org/TransportProtocols</a>)
+	and the bi-weekly DTrace conference call (notes at <a
+	  href="https://wiki.FreeBSD.org/DTrace">https://wiki.FreeBSD.org/DTrace</a>).</p>
+
+      <p>Release Engineering</p>
+
+      <p>Foundation staff member Glen Barber  worked with the Release
+	Engineering team to continue finalizing the 11.0-RELEASE cycle,
+	which was delayed to address several last-minute issues.</p>
+
+      <p>As part of the Cluster Administration team, Glen worked with
+	the amazing on-site staff at NYI to rack and install two Cavium
+	ThunderX machines, one of which is used for native package
+	builds for the &os;/aarch64 architecture, and the other of which
+	is targeted to be used as a reference machine in the &os;
+	infrastructure.</p>
+
+      <p>Getting Started with &os; Project</p>
+
+      <p>We hired a summer intern, with no experience on &os;, Linux,
+	or any command-line operating system, to figure out on his own
+	how to install and use &os;.  He wrote easy-to-follow how-to
+	guides to help make the new-user experience straightforward and
+	positive.  He submitted bug reports and reported issues through
+	the appropriate channels, and worked with Glen Barber and Brad
+	Davis to improve the new user information on FreeBSD.org to make
+	it easier for new people to get started with &os;.  You can find
+	his how-to guides at <a
+	  href="https://www.FreeBSDfoundation.org/FreeBSD/how-to-guides/">https://www.FreeBSDfoundation.org/FreeBSD/how-to-guides/</a>
+	and check out his interview on BSDNow at <a
+	  href="http://www.bsdnow.tv/episodes/2016_08_24-the_fresh_bsd_experience">http://www.bsdnow.tv/episodes/2016_08_24-the_fresh_bsd_experience</a>.</p>
+
+      <p>Supporting &os; Infrastructure</p>
+
+      <p>We provide hardware and support for &os; infrastructure.
+	Last quarter we purchased and brought up two 48-core Cavium
+	ThunderX machines to build &os; package sets for the arm64
+	platform.  We also purchased more servers to help with
+	continuous integration efforts.</p>
+
+      <p>&os; Advocacy and Education</p>
+
+      <p>A large part of our efforts are dedicated to advocating for
+	the Project.  This includes promoting work being done by others
+	using &os;; producing advocacy literature to teach people about
+	&os; and easing the path to starting out with &os; and contributing
+	to the Project; and attending and getting other &os;
+	contributors to volunteer to run &os; events, staff &os; tables,
+	and give &os; presentations.</p>
+
+      <p>We created new handouts to promote TeachBSD.org (<a
+	  href="https://www.FreeBSDfoundation.org/wp-content/uploads/2016/08/TeachBSD_half_final.pdf">https://www.FreeBSDfoundation.org/wp-content/uploads/2016/08/TeachBSD_half_final.pdf</a>)
+	and the Google Summer of Code program (<a
+	  href="https://www.FreeBSDfoundation.org/wp-content/uploads/2016/08/GSOC-flyerv2.pdf">https://www.FreeBSDfoundation.org/wp-content/uploads/2016/08/GSOC-flyerv2.pdf</a>).</p>
+
+      <p>We published the July/August issue of the &os; Journal: <a
+	  href="https://www.FreeBSDfoundation.org/past-issues/FreeBSD-and-rtems/">https://www.FreeBSDfoundation.org/past-issues/FreeBSD-and-rtems/</a>.</p>
+
+      <p>We also published monthly newsletters to highlight work being
+	done to support &os;, tell you about upcoming events, and other
+	information to keep you in the loop of what we’re doing to
+	support the &os; Project and community <a
+	  href="https://www.FreeBSDfoundation.org/news-and-events/newsletter/">https://www.FreeBSDfoundation.org/news-and-events/newsletter/</a>.</p>
+
+      <p>Conferences and Events</p>
+
+      <p>The FreeBSD Foundation sponsors many conferences, events, and
+	summits around the globe.  These events can be BSD-related, open
+	source, or technology events geared towards underrepresented
+	groups.</p>
+
+      <p>We support the &os;-focused events to help provide a venue
+	for sharing knowledge, to work together on projects, and
+	facilitate collaboration between developers and commercial
+	users.  This all helps provide a healthy ecosystem.  We support
+	the non-&os; events to promote and raise awareness about &os;,
+	to increase the use of &os; in different applications, and to
+	recruit more contributors to the Project.</p>
+
+      <p>This quarter, we sponsored and/or attended the following events:</p>
+
+      <ul>
+	<li>Texas Linux Fest, July 8-9, 2016, Austin, TX
+	  (<a href="http://2016.texaslinuxfest.org/">http://2016.texaslinuxfest.org/</a>)</li>
+
+	<li>The Eleventh HOPE, July 22-24, 2016, New York, NY
+	  (<a href="https://hope.net/index.html">https://hope.net/index.html</a>)</li>
+
+	<li>BSDCam 2016, August 15-17, 2016, Cambridge, UK (sponsor,
+	  organizer, and participated) (<a
+	    href="https://wiki.FreeBSD.org/201608DevSummit">https://wiki.FreeBSD.org/201608DevSummit</a>)</li>
+
+	<li>FOSSCON 2016, August 20, 2016, Philadelphia, PA
+	  (<a href="https://fosscon.us/">https://fosscon.us/</a>)</li>
+
+	<li>womENcourage 2016, September 12-13, 2016, Linz, Austria
+	  (Silver Sponsor) (<a
+	    href="http://womencourage.acm.org">http://womencourage.acm.org</a>)</li>
+
+	<li>SNIA Storage Developer Conference 2016, September 19-22,
+	  2016, Santa Clara, CA (Industry Partner Sponsor) (<a
+	    href="http://www.snia.org/events/storage-developer">http://www.snia.org/events/storage-developer</a>)</li>
+
+	<li><p>EuroBSDcon 2016 and &os; Developer Summit, September
+	  22-25, 2016, Belgrade, Serbia (Silver Sponsor) (<a
+	    href="https://2016.eurobsdcon.org/">https://2016.eurobsdcon.org/</a>)</p>
+
+	  <p>Our EuroBSDCon involvement included:</p>
+
+	  <ul>
+	    <li>Held a Women in Tech BoF in partnership with ACM-W
+	      Europe</li>
+	    <li>Bennedict organized the EuroBSDCon Developer
+	    Summit</li>
+
+	    <li>Deb gave a Foundation Update talk and Hiroki Sato and
+	      Benedict Reuschling joined her for a Q&amp;A session.</li>
+
+	    <li>Kirk McKusick taught his two-day &os; tutorial (<a
+		href="https://2016.eurobsdcon.org/speakers/#kirkmckusick">https://2016.eurobsdcon.org/speakers/#kirkmckusick</a>)</li>
+
+	    <li>George Neville-Neil taught a tutorial on Tracing &os;
+	      for DevOps and Developers (<a
+		href="https://2016.eurobsdcon.org/speakers/#georgenevilleneil">https://2016.eurobsdcon.org/speakers/#georgenevilleneil</a>)</li>
+
+	    <li>George also gave the Keynote talk, titled The Coming
+	      Decades of BSD</li>
+
+	    <li>Phillip Paeps was one of the primary organizers for
+	      this conference.</li>
+	  </ul>
+	</li>
+
+	<li><p>OpenZFS Developer Summit 2016, September 26-27, 2016,
+	  San Francisco, CA (Silver) (<a
+	    href="http://open-zfs.org/wiki/OpenZFS_Developer_Summit">http://open-zfs.org/wiki/OpenZFS_Developer_Summit</a>)</p>
+
+	  <ul>
+	    <li>Justin Gibbs gave a talk on Fault Management (<a
+		href="http://open-zfs.org/wiki/Fault_Management">http://open-zfs.org/wiki/Fault_Management</a>)</li>
+	  </ul>
+	</li>
+      </ul>
+
+      <p>We sponsored three &os; contributors to attend EuroBSDCon.</p>
+
+      <p>Legal/&os; IP</p>
+
+      <p>The Foundation owns the &os; trademarks, and it is our
+	responsibility to protect them.  We continued to review requests
+	and grant permission to use the trademarks.</p>
+
+      <p>&os; Community Engagement</p>
+
+      <p>Anne Dickison, our Marketing Director, has been overseeing
+	the efforts to rewrite the Project's Code of Conduct to help
+	make this a safe, inclusive, and welcoming community.</p>
+
+      <p>Other Stuff We Did</p>
+
+      <p>We welcomed Kylie Liange and Philip Paeps to the Board of
+	Directors.  More information and interviews can be found at: <a
+	  href="https://www.FreeBSDfoundation.org/blog/FreeBSD-foundation-welcomes-new-board-members/">https://www.FreeBSDfoundation.org/blog/FreeBSD-foundation-welcomes-new-board-members/</a>.</p>
+
+      <p>George attended the ARM Partner Meeting in Cambridge.</p>
+    </body>
+  </project>
+
+  <project cat='proj'>
+    <title>Capsicum Update</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Allan</given>
+	  <common>Jude</common>
+	</name>
+	<email>allanjude@FreeBSD.org</email>
+      </person>
+
+      <person>
+	<name>
+	  <given>Baptiste</given>
+	  <common>Daroussin</common>
+	</name>
+	<email>bapt@FreeBSD.org</email>
+      </person>
+
+      <person>
+	<name>
+	  <given>Conrad</given>
+	  <common>Meyer</common>
+	</name>
+	<email>cem@FreeBSD.org</email>
+      </person>
+
+      <person>
+	<name>
+	  <given>Ed</given>
+	  <common>Maste</common>
+	</name>
+	<email>emaste@FreeBSD.org</email>
+      </person>
+
+      <person>
+	<name>
+	  <given>Mariusz</given>
+	  <common>Zaborski</common>
+	</name>
+	<email>oshogbo@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://wiki.FreeBSD.org/Capsicum">Capsicum Wiki Page</url>
+    </links>
+
+    <body>
+      <p>Several developers have undertaken a recent effort to
+	sandbox additional applications in the base system.
+	This work is proceeding nicely and one of the goals is to target
+	basic utilities used in security sensitive applications, like
+	<tt>freebsd-update</tt> and <tt>portsnap</tt>.</p>
+
+      <p>This work higlighted two longstanding challenges in
+	applying Capsicum.  First, there are a number of common
+	constructs shared by many simple programs, such as limiting
+	capability rights on the stdio file descriptors.  To address
+	this, a set of capsicum helper routines have been added for
+	these common cases.</p>
+
+      <p>Second, a common challenge occurs where applications need
+	to open an arbitrarily large number of files, possibly from
+	various directories, where preopening the file descriptors may
+	not be suitable.  Several possible solutions for this are in
+	discussion.</p>
+
+      <p>Recently Capsicumized utilities include:</p>
+
+      <ul>
+	<li><tt>bspatch</tt></li>
+
+	<li><tt>cmp</tt></li>
+
+	<li><tt>ident</tt></li>
+
+	<li><tt>primes</tt></li>
+
+	<li><tt>tee</tt></li>
+
+	<li><tt>tr</tt></li>
+
+	<li><tt>write</tt></li>
+      </ul>
+
+      <p>Additional Capsicum changes are in review:</p>
+
+      <ul>
+	<li><tt>b64decode</tt>, <tt>b64encode</tt>,
+	  <tt>uudecode</tt>, <tt>uuencode</tt></li>
+
+	<li><tt>brandelf</tt></li>
+
+	<li>dma-mbox-create</li>
+
+	<li>elf2aout</li>
+
+	<li><tt>file</tt></li>
+
+	<li><tt>head</tt></li>
+
+	<li><tt>hexdump</tt></li>
+
+	<li><tt>iconv</tt></li>
+
+	<li><tt>ident</tt></li>
+
+	<li><tt>jot</tt></li>
+
+	<li><tt>ktrdump</tt></li>
+
+	<li><tt>lam</tt></li>
+
+	<li><tt>last</tt></li>
+
+	<li><tt>ministat</tt></li>
+
+	<li><tt>praudit</tt></li>
+
+	<li><tt>strings</tt></li>
+      </ul>
+
+      <p>An additional syscall (<tt>getdtablesize</tt>) and
+	additional sysctls (<tt>kern.proc.nfds</tt>,
+	<tt>kern.hostname</tt>, etc.) are now permitted in capability
+	mode.  </p>
+
+      <p>Capability rights are now propagated to child descriptors on
+	accept(2).</p>
+
+      <p>Capsicum is now enabled in the 32-bit compatibility syscall
+	layer.</p>
+
+      <p>Per-process (<tt>procctl</tt>) and global (<tt>sysctl</tt>)
+	settings have been added to aid in debugging while
+	Capsicumizing existing applications.  When enabled, instead of
+	returning ENOTCAPABLE or ECAPMODE for a system call, the
+	kernel will issue a SIGTRAP to generate a core dump or enter
+	the debugger.  </p>
+    </body>
+
+    <sponsor>
+      Dell EMC Isilon
+    </sponsor>
+
+    <sponsor>
+      ScaleEngine Inc.
+    </sponsor>
+
+    <sponsor>
+      The FreeBSD Foundation
+    </sponsor>
+  </project>
+
+  <project cat='proj'>
+    <title>Using <tt>lld</tt>, the LLVM Linker, to Link &os;</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Ed</given>
+	  <common>Maste</common>
+	</name>
+	<email>emaste@freebsd.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://wiki.freebsd.org/LLD">LLD Wiki Page</url>
+    </links>
+
+    <body>
+      <p><tt>lld</tt> is the linker in the LLVM family of projects.
+	It is a high-performance linker that supports the ELF, COFF,
+	and Mach-O object formats.  Where possible, <tt>lld</tt>
+	maintains command-line and functional compatibility with the
+	existing GNU BFD ld and gold linkers. However, the authors of
+	<tt>lld</tt> are not constrained by strict compatibility where
+	it would hamper performance or desired functionality.</p>
+
+      <p>Compared to the GNU ld 2.17.50 currently in the base system,
+	<tt>lld</tt> will bring:</p>
+
+      <ul>
+	<li>AArch64 (arm64) support</li>
+
+	<li>Link Time Optimization (LTO)</li>
+
+	<li>New ABI support</li>
+
+	<li>Other linker optimizations</li>
+
+	<li>Much faster link times</li>
+
+	<li>Maintained code base</li>
+      </ul>
+
+      <p>The upstream <tt>lld</tt> project has now implemented
+	nearly all of the functionality required to link the amd64
+	FreeBSD base system, including the kernel.  The boot loader
+	components and <tt>rescue</tt> utilities currently do not
+	build with <tt>lld</tt>.</p>
+    </body>
+
+    <help>
+      <task>Merge <tt>lld</tt> to FreeBSD head as part of the Clang
+	3.9.0 import.</task>
+
+      <task>Request a ports exp-run with <tt>lld</tt> installed as
+	<tt>/usr/bin/ld</tt>.</task>
+
+      <task>Fix building the boot loader with <tt>lld</tt>.</task>
+
+      <task>Fix building <tt>rescue</tt> with <tt>lld</tt>.</task>
+
+      <task>Test and iterate making <tt>lld</tt> fixes for
+	additional architectures.</task>
+    </help>
+
+    <sponsor>
+      The FreeBSD Foundation
+    </sponsor>
+  </project>
+
+  <project cat='team'>
+    <title>Ports Collection</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Ren&eacute;</given>
+	  <common>Ladan</common>
+	</name>
+	<email>portmgr-secretary@FreeBSD.org</email>
+      </person>
+
+      <person>
+	<name>&os; Ports Management Team</name>
+	<email>portmgr@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://www.FreeBSD.org/ports/">&os; Ports Website</url>
+      <url href="https://www.FreeBSD.org/doc/en_US.ISO8859-1/articles/contributing/ports-contributing.html">How to Contribute</url>
+      <url href="http://portsmon.FreeBSD.org/index.html">Ports Monitoring Website</url>
+      <url href="https://www.FreeBSD.org/portmgr/index.html">Ports Management Team Website</url>
+      <url href="https://twitter.com/FreeBSD_portmgr/">Ports Management Team on Twitter</url>
+      <url href="https://www.facebook.com/portmgr">Ports Management Team on Facebook</url>
+      <url
+      href="https://plus.google.com/communities/108335846196454338383">Ports Management Team on Google+</url>
+    </links>
+
+    <body>
+      <p>The Ports Tree currently contains over 26,300 ports, with the
+	PR count around 2,150.  Of these PRs, 516 are unassigned.  The
+	last quarter saw 5,295 commits by 117 active committers.
+	Compared to the preceding quarter, there is both a slight
+	increase in the number of PRs and the number of unassigned PRs,
+	and a slight decrease in the number of committers.</p>
+
+      <p>In the last quarter, four commits bits were taken in for safe
+	keeping: erwin, miwi, and sem left by their own request and jase
+	was inactive for more than 18 months.  We welcomed two new
+	committers: Tobias Berner (tcberner) and Joseph Mingrone
+	(jrm).</p>
+
+      <p>On the management side, erwin and miwi left portmgr.  bapt
+	also left portmgr but is still the liaison for core.</p>
+
+      <p>On the infrastructure side, three new USES (grantlee, kde,
+	linux) and one new Keyword (javavm) were introduced.  The
+	default version of the Linux ports is now CentOS 6, with the
+	Fedora 10 ports scheduled for removal at the end of the year.
+	The license framework has been extended with a NONE license to
+	indicate that a port has no clearly defined licensing terms.
+	For those ports, no packages or distribution files are
+	distributed.  Also, support for the complete set of Creative
+	Commons licenses has been added.</p>
+
+      <p>Some major user-visible ports were updated: Firefox to 49.0
+	and Firefox Extended Service Release to 45.4.0; Chromium to
+	52.0.2743.116; the default version of <tt>gcc</tt> to 4.8.5; and
+	<tt>pkg</tt> itself to 1.8.7.</p>
+
+      <p>Behind the scenes, antoine ran 24 exp-runs to validate various
+	package updates, framework changes, and changes to the base
+	system.  bdrewery added two new package building machines,
+	supervised the package builds for 11.0-RELEASE, and added support
+	for building arm64 packages.</p>
+
+      <p>At EuroBSDCon, rene visited a presentation by Landry Breuil
+	&lt;landry@openbsd.org&gt; explaining how packages are built in
+	the OpenBSD world and explaining various design decisions.</p>
+    </body>
+
+    <help>
+      <task>If you have some spare time, please take up a PR for
+	testing and committing.</task>
+    </help>
+  </project>
 </report>
