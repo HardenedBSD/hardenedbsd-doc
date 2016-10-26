@@ -136,6 +136,17 @@
 			</listitem>
 		</itemizedlist>
 	</sect1>
+	<sect1 xml:id="hardenedbsd-kernopts">
+		<title>Generic Kernel Options</title>
+		<para>All of HardenedBSD's features that rely on
+		    kernel code require the following kernel option:
+		    <programlisting>options	PAX</programlisting>
+		    Additionally, the following kernel option is not
+		    required, but exposes extra &man.sysctl.8;
+		    nodes:
+		    <programlisting>options	PAX_SYSCTLS</programlisting>
+		</para>
+	</sect1>
 
 	<sect1 xml:id="hardenedbsd-aslr">
 		<title>Address Space Layout Randomization (ASLR)</title>
@@ -210,7 +221,7 @@ options	PAX_ASLR</programlisting>
 				</listitem>
 				<listitem><para>2 - Enabled by
 				    default. User must opt
-				    applications out.</para>
+				    applications out (default).</para>
 			    	</listitem>
 				<listitem><para>3 - Force enabled
 				    </para></listitem>
@@ -415,6 +426,27 @@ options	PAX_ASLR</programlisting>
 					    MPROTECT</link></para>
 			    		</listitem>
 				</itemizedlist>
+			</para>
+			<para>The PAGEEXEC and MPROTECT features can
+			    be enabled with the following kernel
+			    option, which is enabled by default in the
+			    <filename>HARDENEDBSD</filename>
+			    kernel:
+			    <programlisting>options	PAX_NOEXEC</programlisting>
+			    If the PAX_SYSCTLS option is also
+			    enabled, two new sysctl nodes will be
+			    created, which follow the same symantics
+			    as the hardening.pax.aslr.status sysctl:
+			    <itemizedlist>
+				    <listitem>
+					<para>hardening.pax.pageexec.status
+						<itemizedlist><listitem><para>Default: 2</para></listitem></itemizedlist>
+				    	</para></listitem>
+				    <listitem>
+					<para>hardening.pax.mprotect.status
+						<itemizedlist><listitem><para>Default: 2</para></listitem></itemizedlist>
+				    	</para></listitem>
+			    </itemizedlist>
 			</para>
 		</sect2>
 		<sect2>
