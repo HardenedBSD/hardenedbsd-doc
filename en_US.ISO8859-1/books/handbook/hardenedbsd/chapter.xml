@@ -365,6 +365,10 @@ options	PAX_ASLR</programlisting>
 				<listitem><para>/usr/sbin/nologin</para>
 				</listitem>
 			</itemizedlist>
+			<para>Compiling all of base as PIEs can be
+			    turned off by setting WITHOUT_PIE=yes in
+			    &man.src.conf.5;
+			</para>
 		</sect2>
 		<sect2>
 			<title>Shared Library Load Order Randomization</title>
