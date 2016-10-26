@@ -98,9 +98,6 @@
 				<para>PaX-inspired NOEXEC</para>
 			</listitem>
 			<listitem>
-				<para>PaX-inspired PAGEEXEC</para>
-			</listitem>
-			<listitem>
 				<para>PaX-inspired ASLR bruteforce
 				    protection (SEGVGUARD)
 				</para>
@@ -178,13 +175,6 @@
 			    found
 			    <link xlink:href="https://github.com/HardenedBSD/pax-docs-mirror/blob/master/aslr.txt">
 			        here</link>.
-			    Work on HardenedBSD's ASLR started in
-			    2013 when Oliver Pinter and Shawn Webb
-			    teamed up to implement it. Oliver had the
-			    start of an existing patch and Shawn Webb
-			    enhanced it by adding per-jail support and
-			    Position-Independent Executable (PIE) base
-			    randomization.
 			</para>
 			<para>On 13 July 2015, HardenedBSD's ASLR
 			    implementation was completed with full
@@ -397,7 +387,7 @@ options	PAX_ASLR</programlisting>
 		</sect2>
 	</sect1>
 	<sect1 xml:id="hardenedbsd-wxorx">
-		<title>PAGEEXEC and MPROECT</title>
+		<title>PAGEEXEC and MPROECT (aka, NOEXEC)</title>
 		<sect2>
 			<title>Introduction</title>
 			<para>PAGEEXEC and MPROTECT comprise what
