@@ -387,7 +387,7 @@ options	PAX_ASLR</programlisting>
 		</sect2>
 	</sect1>
 	<sect1 xml:id="hardenedbsd-wxorx">
-		<title>PAGEEXEC and MPROECT (aka, NOEXEC)</title>
+		<title>PAGEEXEC and MPROTECT (aka, NOEXEC)</title>
 		<sect2>
 			<title>Introduction</title>
 			<para>PAGEEXEC and MPROTECT comprise what
