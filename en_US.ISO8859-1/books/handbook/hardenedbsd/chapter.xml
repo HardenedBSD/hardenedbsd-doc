@@ -514,4 +514,47 @@ options	PAX_ASLR</programlisting>
 			</para>
 		</sect2>
 	</sect1>
+	<sect1 xml:id="hardenedbsd-secadm">
+		<title>Security Administration (secadm)</title>
+		<sect2>
+			<title>Introduction</title>
+			<para>secadm is a tool, distributed via ports,
+			    that allows users to toggle exploit
+			    mitigations on a per-application and
+			    per-jail basis. Users will typically use
+			    secadm to disable PAGEEXEC and/or
+			    MPROTECT restrictions.
+			</para>
+			<para>secadm also includes a feature known as
+			    Integriforce. Integriforce is an
+			    implementation of verified execution. It
+			    enforces hash-based signatures for
+			    binaries and their dependent shared
+			    objects. Integriforce can be set in
+			    whitelisting mode. When there is at least
+			    one Integriforce rule enabled, all
+			    desired applications and their dependent
+			    shared objects must also have rules. If
+			    an application and its shared objects are
+			    not included in the ruleset, execution of
+			    that application will be disallowed. This
+			    also affects shared objects loaded via
+			    &man.dlopen.3;.
+			</para>
+		</sect2>
+		<sect2>
+			<title>Downloading and Installing secadm</title>
+			<para>secadm is not currently part of base,
+			    though that is planned in the near
+			    future. secadm can be installed either
+			    through the package repo:
+			    <screen>&prompt.root; <userinput>pkg install secadm-kmod secadm</userinput></screen>
+			    or by using HardenedBSD's ports tree:
+			    <screen>&prompt.root; <userinput>cd /usr/ports/hardenedbsd/secadm</userinput>
+&prompt.root; <userinput>make install clean</userinput>
+&prompt.root; <userinput>cd /usr/ports/hardenedbsd/secadm-kmod</userinput>
+&prompt.root; <userinput>make install clean</userinput></screen>
+			</para>
+		</sect2>
+	</sect1>
 </chapter>
