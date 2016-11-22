@@ -556,5 +556,47 @@ options	PAX_ASLR</programlisting>
 &prompt.root; <userinput>make install clean</userinput></screen>
 			</para>
 		</sect2>
+		<sect2>
+			<title>Configuring secadm</title>
+			<para>By default, secadm looks for a config
+			    file at <filename>/usr/local/etc/secadm.rules</filename>.
+			    For purposes of this documentation, that
+			    file will be simply referenced as <filename>secadm.rules</filename>.
+			    secadm does not install or manage the
+			    <filename>secadm.rules</filename> file.
+			    It simply reads the file, if it exists,
+			    passing the parsed data to the kernel
+			    module. secadm can be configured either
+			    via the command-line or
+			    <filename>secadm.rules</filename>. Both
+			    secadm and <filename>secadm.rules</filename>
+			    contain manual pages. Once installed,
+			    users can look at the secadm manpage in
+			    section 8 and secadm.rules in section 5.
+			</para>
+			<para><filename>secadm.rules</filename> should
+			    be in a format that libucl can parse as
+			    secadm uses libucl to parse
+			    <filename>secadm.rules</filename>.
+			</para>
+			<para>An example <filename>secadm.rules</filename>
+			    would look like this:
+			</para>
+			<programlisting>secadm {
+	pax {
+		path: "/usr/local/lib/firefox/firefox",
+		mprotect: false,
+	},
+	pax {
+		path: "/usr/local/lib/firefox/plugin-container",
+		mprotect: false,
+	},
+}</programlisting>
+			<para>Once secadm is configured, it can be
+			    started via the &man.rc.8; system:
+			    <screen>&prompt.root; <userinput>sysrc secadm_enable=YES</userinput>
+&prompt.root; <userinput>service secadm start</userinput></screen>
+			</para>
+		</sect2>
 	</sect1>
 </chapter>
