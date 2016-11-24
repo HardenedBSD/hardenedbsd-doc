@@ -143,6 +143,152 @@
 		    nodes:
 		    <programlisting>options	PAX_SYSCTLS</programlisting>
 		</para>
+		<para>Generic system hardening can be enabled with
+		    the following kernel option:
+		    <programlisting>options	PAX_HARDENING</programlisting>
+		</para>
+	</sect1>
+	<sect1 xml:id="hardenedbsd-hardening">
+		<title>Generic System Hardening</title>
+		<sect2>
+			<title>Introduction</title>
+			<para>HardenedBSD implements generic system
+			    hardening with the PAX_HARDENING kernel
+			    option. Many of these hardening features
+			    deal with restricting what non-root users
+			    are permitted to do. When the kernel is
+			    compiled with the PAX_HARDENING kernel
+			    option, certain &man.sysctl.8; nodes are
+			    modified from their defaults.
+			</para>
+			<para>&man.procfs.5; and &man.linprocfs.5;
+			    are modified to prevent arbitrary writes
+			    to a process's registers. This behavior
+			    is controlled by the hardening.procfs_harden
+			    &man.sysctl.8; node;
+			</para>
+			<para>&man.kld.4; related system calls are
+			    restricted to non-jailed, root-only users.
+			    Attempting to list kernel modules using
+			    &man.modfind.2;, &man.kldfind.2;, and the
+			    other KLD_related system calls will
+			    result in permission denied if used by a
+			    non-root or jailed user.
+			</para>
+		</sect2>
+		<sect2>
+			<title>Modified sysctl Nodes</title>
+			<para>These are the nodes that are modified
+			    from their original defaults when
+			    PAX_HARDENING is enabled in the kernel:
+			</para>
+			<informaltable frame="all" pgwide="0">
+				<tgroup cols="5">
+					<thead>
+						<row>
+							<entry>Node</entry>
+							<entry>Description</entry>
+							<entry>Type</entry>
+							<entry>Original Value</entry>
+							<entry>Hardened Value</entry>
+						</row>
+					</thead>
+					<tbody>
+						<row>
+							<entry>kern.msgbuf_show_timestamp</entry>
+							<entry>Show timestamp in msgbuf</entry>
+							<entry>Integer</entry>
+							<entry>0</entry>
+							<entry>1</entry>
+						</row>
+						<row>
+							<entry>kern.randompid</entry>
+							<entry>Random PID modulus</entry>
+							<entry>Integer</entry>
+							<entry>0, read+write</entry>
+							<entry>Randomly set at boot and made read-only</entry>
+						</row>
+						<row>
+							<entry>net.inet.ip.random_id</entry>
+							<entry>Assign random IP ID values</entry>
+							<entry>Integer</entry>
+							<entry>0</entry>
+							<entry>1</entry>
+						</row>
+						<row>
+							<entry>net.inet6.ip6.use_deprecated</entry>
+							<entry>Allow the use of addresses whose preferred lifetimes have expired</entry>
+							<entry>Integer</entry>
+							<entry>1</entry>
+							<entry>0</entry>
+						</row>
+						<row>
+							<entry>net.inet6.ip6.use_tempaddr</entry>
+							<entry>Use IPv6 temporary addresses with SLAAC</entry>
+							<entry>Integer</entry>
+							<entry>0</entry>
+							<entry>1</entry>
+						</row>
+						<row>
+							<entry>net.inet6.ip6.prefer_tempaddr</entry>
+							<entry>Prefer IPv6 temporary address generated last</entry>
+							<entry>Integer</entry>
+							<entry>0</entry>
+							<entry>1</entry>
+						</row>
+						<row>
+							<entry>security.bsd.see_other_gids</entry>
+							<entry>Unprivileged processes may see subjects/objects with different real gid</entry>
+							<entry>Integer</entry>
+							<entry>1</entry>
+							<entry>0</entry>
+						</row>
+						<row>
+							<entry>security.bsd.see_other_uids</entry>
+							<entry>Unprivileged processes may see subjects/objects with different real uid</entry>
+							<entry>Integer</entry>
+							<entry>1</entry>
+							<entry>0</entry>
+						</row>
+						<row>
+							<entry>security.bsd.hardlink_check_gid</entry>
+							<entry>Unprivileged processes cannot create hard links to files owned by other groups</entry>
+							<entry>Integer</entry>
+							<entry>0</entry>
+							<entry>1</entry>
+						</row>
+						<row>
+							<entry>security.bsd.hardlink_check_uid</entry>
+							<entry>Unprivileged processes cannot create hard links to files owned by other users</entry>
+							<entry>Integer</entry>
+							<entry>0</entry>
+							<entry>1</entry>
+						</row>
+						<row>
+							<entry>security.bsd.stack_guard_page</entry>
+							<entry>Insert stack guard page ahead of the growable segments</entry>
+							<entry>Integer</entry>
+							<entry>0</entry>
+							<entry>1</entry>
+						</row>
+						<row>
+							<entry>security.bsd.unprivileged_proc_debug</entry>
+							<entry>Unprivileged processes may use process debugging and tracing facilities</entry>
+							<entry>Integer</entry>
+							<entry>1</entry>
+							<entry>0</entry>
+						</row>
+						<row>
+							<entry>security.bsd.unprivileged_read_msgbuf</entry>
+							<entry>Unprivileged processes may read the kernel message buffer</entry>
+							<entry>Integer</entry>
+							<entry>1</entry>
+							<entry>0</entry>
+						</row>
+					</tbody>
+				</tgroup>
+			</informaltable>
+		</sect2>
 	</sect1>
 
 	<sect1 xml:id="hardenedbsd-aslr">
