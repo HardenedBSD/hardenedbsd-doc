@@ -131,6 +131,12 @@
 			<listitem>
 				<para>Randomized PIDs</para>
 			</listitem>
+			<listitem>
+				<para>SafeStack in base</para>
+			</listitem>
+			<listitem>
+				<para>SafeStack available in ports</para>
+			</listitem>
 		</itemizedlist>
 	</sect1>
 	<sect1 xml:id="hardenedbsd-kernopts">
@@ -659,6 +665,48 @@ options	PAX_ASLR</programlisting>
 			    one application.
 			</para>
 		</sect2>
+	</sect1>
+	<sect1 xml:id="hardenedbsd-safestack">
+		<title>SafeStack</title>
+		<para>SafeStack is an exploit mitigation technique
+		    that creates two stacks: one for data that needs
+		    to be kept safe, such as return addresses and
+		    function pointers; and an unsafe stack for
+		    everything else. SafeStack promises a low
+		    performance penalty (typically around 0.1%).
+		</para>
+		<para>SafeStack requires both ASLR and W^X in order to
+		    be effective. With HardenedBSD satisfying both of
+		    those prerequisites, SafeStack was deemed to be
+		    an excellent candidate for default inclusion in
+		    HardenedBSD. Starting with HardenedBSD 12-CURRENT,
+		    it is enabled by default for amd64. Support for
+		    non-amd64 architectures is limited by upstream
+		    clang.
+		</para>
+		<para>As of 28 November 2016, with clang 3.9.0,
+		    SafeStack only supports being applied to
+		    applications and not shared libraries. Multiple
+		    patches have been submitted to clang by third
+		    parties to add support for shared libraries. As
+		    such, SafeStack is still undergoing active
+		    development.
+		</para>
+		<para>SafeStack has been made available to the
+		    HardenedBSD ports tree as well. Unlike PIE and
+		    RELRO+BIND_NOW, it is not enabled globally for
+		    the ports tree. Some ports, like ports-mgmt/pkg
+		    have SafeStack enabled by default. Only those
+		    ports that have been tested to work fine will
+		    have SafeStack enabled by default. Users are
+		    able to toggle SafeStack by using the config
+		    target. Additionally, the SafeStack option is
+		    only applicable to amd64 architectures.
+		    Attempting to enable SafeStack for a non-amd64
+		    port build will result in a NO-OP. SafeStack will
+		    simply not be applied.
+		</para>
+
 	</sect1>
 	<sect1 xml:id="hardenedbsd-secadm">
 		<title>Security Administration (secadm)</title>
