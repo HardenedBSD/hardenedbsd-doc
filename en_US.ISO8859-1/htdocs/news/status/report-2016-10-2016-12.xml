@@ -83,4 +83,309 @@
     <description>Miscellaneous</description>
   </category>
 
+  <project cat='arch'>
+    <title>&os;/EC2</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Colin</given>
+	  <common>Percival</common>
+	</name>
+	<email>cperciva@FreeBSD.org</email>
+      </person>
+    </contact>
+
+
+    <body>
+      <p>This report covers work since the last &os;/EC2 status report
+	(2015Q1).</p>
+
+      <p>&os;/EC2 is now part of the regular &os; release build,
+	with snapshots and releases being automatically uploaded and
+	copied to all available regions.  Due to legal restrictions
+	this does not currently include the GovCloud or China
+	(Beijing) regions; anyone wishing to use &os; in those regions
+	is encouraged to contact the author.</p>
+
+      <p>The AWS Marketplace reports that approximately 800 users
+	are running roughly 2000 &os; EC2 instances.  This does not
+	count the likely significantly larger number of EC2 instances
+	launched "directly" through the EC2 API and Console, but at
+	least places a lower bound on usage.</p>
+
+      <p>&os; 11.0-RELEASE shipped with support for the "enhanced
+	networking" support in EC2 C3, C4, R3, I2, D2, and M4
+	(excluding m4.16xlarge) instances; this provides significantly
+	higher network performance than the virtual networking
+	available on older EC2 instances and with older versions of
+	&os;.</p>
+
+      <p>&os; 11.0-RELEASE and later also use indirect segment disk
+	I/Os, which yield ~20% higher throughput with equal or lower
+	latency, and support the 128-vCPU x1.32xlarge instance
+	type.</p>
+
+      <p> &os; now supports the Amazon Simple Systems Manager service
+	(&quot;run command&quot;).</p>
+    </body>
+
+    <help>
+      <task>Complete a pending reorganization of the accounts used for &os;/EC2
+	releases.</task>
+
+      <task>Support &quot;second generation enhanced networking&quot; via
+	the new Elastic Network Adapter found in P2, R4, X1, and
+	m4.16xlarge instances.</task>
+
+      <task>Provide tools for improved functionality via the Simple
+	Systems Manager service: Listing installed packages, checking
+	for updates, adding/removing users, [your favourite sysadmin
+	task goes here].</task>
+
+      <task>Add support for EC2's IPv6 networking to the default &os;/EC2
+	configuration.</task>
+
+      <task>Continue ongoing interoperability testing between &os;'s
+	NFS client and Amazon Elastic File System
+	(NFS-as-a-service).</task>
+    </help>
+  </project>
+
+  <project cat='proj'>
+    <title>Sysctl Exporter for Prometheus</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Ed</given>
+	  <common>Schouten</common>
+	</name>
+	<email>ed@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://prometheus.io/">The Prometheus Project</url>
+      <url href="https://github.com/prometheus/node_exporter">Node Exporter</url>
+      <url href="https://svnweb.FreeBSD.org/base/head/usr.sbin/prometheus_sysctl_exporter/">Sysctl Exporter</url>
+    </links>
+
+    <body>
+      <p>Prometheus is an Open Source monitoring system that was
+	originally built at SoundCloud in 2012.  Since 2016, this project is
+	part of the Cloud Native Computing Foundation, together with other
+	projects like Kubernetes.</p>
+
+      <p>Prometheus scrapes its targets by periodically sending HTTP GET
+	requests.  Targets then respond by sending key-value pairs of metrics
+	and their sample value.  Prometheus has a query language, PromQL,
+	that can be used to aggregate sample values and specify alerting
+	conditions.  Tools like Grafana can be used to create fancy
+	dashboards using such queries.</p>
+
+      <p>The Prometheus project provides a utility called the
+	node_exporter that gathers basic system metrics and serves them
+	over HTTP.  This utility tends to be rather complex, as it has
+	to extract metrics from many different sources.  On Linux, files
+	in <tt>/proc</tt> have no uniform format, meaning that for every
+	kernel framework a custom collector needs to be written.</p>
+
+      <p>On &os; the sitiuation is better, as the data exported
+	through <tt>sysctl</tt> is already structured in such a way that
+	it can easily be translated to Prometheus' metrics format.  The
+	goal of this project is thus to provide a generic exporter for
+	the entire sysctl tree.  Not only does this prevent unnecessary
+	bloat and indirection, it may also make the life of a kernel
+	developer a lot easier.  One can easily use Prometheus to graph
+	the occurrence of an event over time by (temporarily) adding a
+	counter to the kernel.</p>
+
+      <p>An initial version of the sysctl exporter has been integrated
+	into the &os; base system in December.  It can be run through
+	<tt>inetd</tt> by uncommenting the example provided in
+	<tt>inetd.conf</tt>.  Unfortunately, this exporter cannot be
+	merged back to &os; 10.x/11.x, as it depends on KBI-breaking
+	changes to <tt>sysctl(9)</tt>.</p>
+    </body>
+
+    <help>
+      <task>Are you using Prometheus or are you interested in using
+	it?  Be sure to give both Prometheus and this <tt>sysctl</tt>
+	exporter a try!</task>
+
+      <task>It would be nice if we created a set of useful alerting
+	rules and placed those in /usr/share/examples.  For example, how
+	can one use this exporter to monitor the state of GEOM-based
+	RAID arrays?  Is such information even exported through
+	<tt>sysctl</tt>?</task>
+
+      <task>Prometheus uses a pretty nifty format for exporting
+	histograms.  Histograms are useful for expressing the amount of
+	time taken to complete certain events (for example, disk
+	operations).  Would it be possible to add histograms as native
+	datatypes to sysctl?  If so, is there any chance they can be
+	implemented without picking up any kernel locks?</task>
+    </help>
+  </project>
+
+  <project cat='arch'>
+    <title>&os; on ARM boards</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Ganbold</given>
+	  <common>Tsagaankhuu</common>
+	</name>
+	<email>ganbold@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://wiki.FreeBSD.org/FreeBSD/arm/Allwinner">&os; on Allwinner (Sunxi) Systems</url>
+      <url href="https://svnweb.FreeBSD.org/base?view=revision&amp;revision=307984">&os; Commit Adding Support for IR Interfaces</url>
+    </links>
+
+    <body>
+      <p>The changes necessary to support the Allwinner Consumer IR
+      interface in &os; have been committed.  The receive (RX) side is
+      supported now and the driver is using the <tt>evdev</tt>
+      framework.  It was tested on the Cubieboard2 (A20 SoC) using
+      <tt>lirc</tt> with dfrobot's simple IR remote controller.</p>
+    </body>
+  </project>
+
+  <project cat='bin'>
+    <title>libarchive</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Tim</given>
+	  <common>Kientzle</common>
+	</name>
+	<email>kientzle@FreeBSD.org</email>
+      </person>
+
+      <person>
+	<name>
+	  <given>Martin</given>
+	  <common>Matuska</common>
+	</name>
+	<email>mm@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="http://www.libarchive.org">Official Libarchive Homepage</url>
+      <url href="https://github.com/libarchive/libarchive">Libarchive on GitHub</url>
+    </links>
+
+    <body>
+      <p>Libarchive is a BSD-licensed archive and compression library
+	originally developed as part of &os;.  It supports a wide
+	variety of input and output formats and also includes three
+	command-line tools: <tt>bsdcat</tt>, <tt>bsdcpio</tt> and
+	<tt>bsdtar</tt>. The &os; <tt>tar</tt> and <tt>cpio</tt>
+	utilities are taken directly from Libarchive, and many other
+	important utilities like <tt>ar</tt>, <tt>unzip</tt>, and the
+	<tt>pkg</tt> package manager make use of <tt>libarchive</tt>'s
+	functions.</p>
+
+      <p>Libarchive development in 2016 has been focusing on bug fixes
+	and code cleanup, including fixing several critical security
+	issues.  Automated testing with Travis CI and Jenkins has been
+	introduced and <tt>libarchive</tt> has been added to the Google
+	OSS-Fuzz project.  Fuzzing helped detect several hidden problems
+	like buffer overflows and memory leaks.</p>
+
+      <p>Over the last few months, NFSv4 ACL support for the pax and
+	restricted pax (the default for <tt>bsdtar</tt>) formats has
+	been completed and merged to &os;-CURRENT.  NFSv4 ACL entries
+	can now be stored to and restored from tar archives.</p>
+    </body>
+
+    <help>
+      <task>More extensive CI testing with &os; on different platforms
+	and releases.  Currently only 11.0-RELEASE-amd64 gets tested via
+	an automated Jenkins job.</task>
+
+      <task>As every commit to libarchive may influence the build
+	process of &os; ports, the ability to trigger a (semi-)automated
+	exp-run for the ports tree would be great.</task>
+    </help>
+  </project>
+
+  <project cat='kern'>
+    <title>&os; on Hyper-V and Azure</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Sepherosa</given>
+	  <common>Ziehau</common>
+	</name>
+	<email>sepherosa@gmail.com</email>
+      </person>
+
+      <person>
+	<name>
+	  <given>Hongjiang</given>
+	  <common>Zhang</common>
+	</name>
+	<email>honzhan@microsoft.com</email>
+      </person>
+
+      <person>
+	<name>
+	  <given>Dexuan</given>
+	  <common>Cui</common>
+	</name>
+	<email>decui@microsoft.com</email>
+      </person>
+
+      <person>
+	<name>
+	  <given>Kylie</given>
+	  <common>Liang</common>
+	</name>
+	<email>kyliel@microsoft.com</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://wiki.FreeBSD.org/HyperV">&os; Virtual Machines on Microsoft Hyper-V</url>
+      <url href="https://technet.microsoft.com/en-us/library/dn531030.aspx">Supported Linux and &os; Virtual Machines for Hyper-V on Windows</url>
+    </links>
+
+    <body>
+      <p>Per-ring polling, multi-packet RNDIS messages, and system RSS
+	integration have been implemented, further optimizing the
+	throughput and latency of the Hyper-V network driver.</p>
+
+      <p>Live virtual machine backup is implemented (for now, only for
+	UFS), after the VSS (Volume Shadow Copy Service), which it
+	depends on, was implemented.</p>
+
+      <p>PCIe pass-through is implemented, and the patches to
+      implement NIC SR-IOV are being reviewed on Phabricator.</p>
+
+      <p>vDSO support for speeding up <tt>gettimeofday(2)</tt> is now
+	implemented.</p>
+
+      <p>The &os; 11.0 image on Azure (<a
+	  href="https://azure.microsoft.com/en-us/marketplace/partners/microsoft/FreeBSD110/">https://azure.microsoft.com/en-us/marketplace/partners/microsoft/FreeBSD110/</a>)
+	is also available now, in addition to the existing 10.3
+	image.</p>
+
+      <p>We fixed an issue where SCSI disks would sometimes fail to
+	attach, resolving bug 215171 ([Hyper-V] Fail to attach SCSI disk
+	from LUN 8 on Win2008R2/Win2012/Win2012R2).</p>
+    </body>
+
+    <sponsor>
+      Microsoft
+    </sponsor>
+  </project>
 </report>
