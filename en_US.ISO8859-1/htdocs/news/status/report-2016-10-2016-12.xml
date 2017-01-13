@@ -514,4 +514,374 @@
 	date and time settings).</task>
     </help>
   </project>
+
+  <project cat='ports'>
+    <title>Xfce on &os;</title>
+
+    <contact>
+      <person>
+	<name>&os; Xfce Team</name>
+	<email>xfce@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://wiki.FreeBSD.org/Xfce">&os; Xfce Project</url>
+      <url href="https://www.assembla.com/spaces/xfce4/subversion/source">&os; Xfce Repository</url>
+    </links>
+
+    <body>
+      <p>Xfce is a free software desktop environment for Unix and
+	Unix-like platforms such as &os;.  It aims to be fast and
+	lightweight, while still being visually appealing and easy to
+	use.</p>
+
+      <p>During this quarter, the team has kept these applications up-to-date:</p>
+
+      <ul>
+	<li><tt>audio/xfce4-mpc-plugin</tt> 0.5.0 (committed in devel
+	  repository)</li>
+
+	<li><tt>deskutils/xfce4-notifyd</tt> 0.3.4</li>
+
+	<li><tt>graphics/ristretto</tt> 0.8.1</li>
+
+	<li><tt>sysutils/xfce4-diskperf-plugin</tt> 2.6.0</li>
+
+	<li><tt>sysutils/xfce4-battery-plugin</tt> 1.1.0 (committed in
+	  devel repository)</li>
+
+	<li><tt>sysutils/xfce4-fsguard-plugin</tt> 1.1.0 (committed in
+	  devel repository)</li>
+
+	<li><tt>sysutils/xfce4-netload-plugin</tt> 1.3.0 (committed in
+	  devel repository)</li>
+
+	<li><tt>sysutils/xfce4-systemload-plugin</tt> 1.2.0 (committed
+	  in devel repository)</li>
+
+	<li><tt>sysutils/xfce4-wavelan-plugin</tt> 0.6.0 (committed in
+	  devel repository)</li>
+
+	<li><tt>x11/xfce4-clipman-plugin</tt> 1.4.1</li>
+
+	<li><tt>x11/xfce4-conf</tt> 4.12.1</li>
+
+	<li><tt>x11/xfce4-dashboard</tt> 0.6.1</li>
+
+	<li><tt>x11/xfce4-terminal</tt> 0.8.2</li>
+
+	<li><tt>x11/xfce4-whiskermenu-plugin</tt> 1.6.2</li>
+
+	<li><tt>x11-clocks/xfce4-datetime-plugin</tt> 0.7.0 (committed
+	  in devel repository)</li>
+
+	<li><tt>x11-wm/xfce4-panel</tt> 4.12.1</li>
+
+	<li><tt>www/xfce4-smartbookmark-plugin</tt> 0.5.0 (committed
+	  in devel repository)</li>
+      </ul>
+
+      <p>We also follow the unstable releases (available in our
+	experimental repository) of:</p>
+
+      <ul>
+	<li><tt>sysutils/xfce4-settings</tt> 4.13.0 (it requires Gtk+ &gt; 3.20)</li>
+	<li><tt>x11/libexo</tt> 0.11.2</li>
+	<li><tt>x11/xfce4-whiskermenu-plugin</tt> 2.0.3</li>
+      </ul>
+    </body>
+
+    <help>
+      <task>Apply the changes discussed in
+	<a href="https://reviews.FreeBSD.org/D8416">D8416</a> (simplify the
+	<tt>MASTER_SITES</tt> macro in port Makefiles)</task>
+
+      <task>Commit the stable panel plugins</task>
+    </help>
+  </project>
+
+  <project cat='proj'>
+    <title>OpenBSM</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Christian</given>
+	  <common>Brueffer</common>
+	</name>
+	<email>brueffer@FreeBSD.org</email>
+      </person>
+
+      <person>
+	<name>
+	  <given>Robert</given>
+	  <common>Watson</common>
+	</name>
+	<email>rwatson@FreeBSD.org</email>
+      </person>
+
+      <person>
+	<name>
+	  <given>TrustedBSD Audit Mailing Mist</given>
+	</name>
+	<email>trustedbsd-audit@TrustedBSD.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="http://www.openbsm.org">OpenBSM: Open Source Basic Security Module (BSM) Audit Implementation</url>
+      <url href="https://github.com/openbsm/openbsm">OpenBSM on GitHub</url>
+      <url href="https://www.FreeBSD.org/doc/en_US.ISO8859-1/books/handbook/audit.html">&os; Audit Handbook Chapter</url>
+      <url href="https://lists.FreeBSD.org/pipermail/trustedbsd-announce/2016-December/000008.html">OpenBSM 1.2 alpha 5 announcement</url>
+      <url href="https://www.cl.cam.ac.uk/research/security/cadets/">CADETS project</url>
+    </links>
+
+    <body>
+      <p>OpenBSM is a BSD-licensed implementation of Sun's Basic
+	Security Module (BSM) API and file format.  It is the user-space
+	side of the CAPP Audit implementations in &os; and Mac OS X.
+	Additionally, the audit trail processing tools are expected to
+	work on Linux.</p>
+
+      <p>This quarter saw increased development activity, fueled by
+	the CADETS project, resulting in the release of OpenBSM 1.2
+	alpha 5.  Among this release's changes are the ability to
+	specify the kernel's maximum audit queue length, sandboxing
+	support for <tt>auditreduce(1)</tt> and <tt>praudit(1)</tt> on
+	&os; and other systems that support Capsicum, as well as the
+	addition of event identifiers for more &os; system calls.  The
+	complete list of changes is documented in the <a
+	href="https://github.com/openbsm/openbsm/blob/master/NEWS">NEWS</a>
+	file on GitHub.  The new release will be merged into &os; HEAD
+	and the supported STABLE branches shortly.</p>
+      </body>
+
+    <help>
+      <task>Test the new release on different versions of &os;, Mac OS
+	X, and Linux.  In particular, testing on the latest versions of Mac
+	OS X would be greatly appreciated.</task>
+
+      <task>Fix problems that have been reported via GitHub and the
+	&os; bug tracker.</task>
+
+      <task>Implement the features mentioned in the
+	<a href="https://github.com/openbsm/openbsm/blob/master/TODO">TODO</a>
+	list on GitHub.</task>
+    </help>
+  </project>
+
+  <project cat='team'>
+    <title>The &os; Core Team</title>
+
+    <contact>
+      <person>
+	<name>&os; Core Team</name>
+	<email>core@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <body>
+      <p>The major concern for Core during the last quarter of 2016 has
+	been about maintaining the effectiveness of secteam.  The team is
+	primarily in need of better project management, both to improve
+	communication generally and to allow the other team members to
+	concentrate on the technical aspects of handling
+	vulnerabilities.</p>
+
+      <p>To that end, there has been agreement in principle for either
+	the FreeBSD Foundation or one of the companies that are major
+	&os; users to employ someone specifically in this role.</p>
+
+      <p>Core confirmed that the new support model would go into effect
+	with 11.0-RELEASE despite the postponement of the switch to a
+	packaged base release mechanism.  For details of the new support
+	model, please follow the links from the <a
+	  href="https://www.FreeBSD.org/security/security.html">security</a>
+	page of the &os; website.</p>
+
+      <p>Core requested the removal of the <tt>misc/jive</tt> port, on
+	the grounds that it had no function other than to turn text into
+	an offensively racist parody.  This proved controversial, with
+	many seeing this as a first step in bowdlerizing the entire ports
+	tree.  That is certainly not Core's intention.  Core's aim here is
+	to help secure the future of the &os; project by making it
+	welcoming to all contributors, regardless of ethnicity, gender,
+	sexuality or other improper bases for discrimintation.  While
+	<tt>misc/jive</tt> may once have been seen as harmless fun, today
+	the implicit approval implied by having it in the ports tree sends
+	a message at odds with the project's aims.</p>
+
+      <p>The Marketing team and the associated marketing@FreeBSD.org
+	mailing list were wound up, due to lack of activity.  Messages to
+	marketing@FreeBSD.org will be forwarded to the
+	FreeBSD Foundation's marketing team instead.</p>
+
+      <p>Core member Allan Jude, who was already the clusteradm liason,
+	became a full member of clusteradm.</p>
+
+      <p>An emergency correction to the 11.0 release notes was
+	authorised, as it was giving the misleading impression that
+	802.11n wireless support had only just been added, and this
+	misapprehension was being repeated in the press.  In reality, &os;
+	has had 802.11n support for many years, and the announcement
+	should have said that support had been added to many additional
+	device drivers.</p>
+
+      <p>Discussions about a proposal to improve Unicode support are
+	on-going.  &os; is already standards conformant, but the
+	propsal is to switch to a <tt>__STDC_ISO_10646_</tt>
+	implementation, similar to what Linux glibc currently uses.
+	Opinions are divided on the technical merits of the new
+	approach.</p>
+
+      <p>There were the usual quota of queries about licensing and other
+	legal matters:</p>
+
+      <ul>
+	<li>Plans to create a GPLv3 overlay for the base system were
+	  shelved in the light of faster than expected progress at
+	  enabling building the world using an external toolchain.</li>
+
+	<li>The trademarks page on the website was updated to show the
+	  current owners of a number of trademarks in their approved
+	  form.</li>
+
+	<li>In the absense of a tool to extract and summarize all of the
+	  relevant information, the obligation in the BSD license that
+	  &quot;Redistributions in binary form must reproduce the above
+	  copyright notice, this list of conditions and the following
+	  disclaimer in the documentation and/or other materials provided
+	  with the distribution.&quot; is fulfilled by providing a tarball of
+	  the system sources with their embedded copyright
+	  statements.</li>
+
+	<li>The European Court of Justice's &quot;Right to be
+	  Forgotten&quot; only applies to search engines, and the &os;
+	  project is not one of those, so need not take any action.</li>
+
+	<li>Core is following closely discussions within the LLVM
+	  project regarding a change of license which if implemented,
+	  might require an audit of the
+	  entire ports tree to discover all packages that contain binaries
+	  linked against libc++ and ensure that they are licensed
+	  compatibly with LLVM.  However, indications are that the LLVM
+	  project will not adopt such changes.</li>
+
+	<li>The &quot;Open Source Exception&quot; in the firmware
+	  license means that committing a &quot;binary blob&quot; driver
+	  for the Nvidia Jetson TK1 XHCI device is acceptable.</li>
+      </ul>
+
+      <p>During this quarter four new commit bits were awarded.  Please
+	welcome Dexuan Cui, David Bright, Konrad Witaszczyk, and Piotr
+	Stefaniak.  We were sorry to see Edwin Lansing hang up his commit
+	bits and step down from portmgr.</p>
+    </body>
+  </project>
+
+  <project cat='team'>
+    <title>Ports Collection</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>René</given>
+	  <common>Ladan</common>
+	</name>
+	<email>portmgr-secretary@FreeBSD.org</email>
+      </person>
+
+      <person>
+	<name>&os; Ports Management Team</name>
+	<email>portmgr@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://www.FreeBSD.org/ports/">About &os; Ports</url>
+      <url href="https://www.FreeBSD.org/doc/en_US.ISO8859-1/articles/contributing/ports-contributing.html">Contributing to Ports</url>
+      <url href="http://portsmon.FreeBSD.org/index.html">&os; Ports Monitoring</url>
+      <url href="https://www.FreeBSD.org/portmgr/index.html">Ports Management Team</url>
+      <url href="https://twitter.com/FreeBSD_portmgr/">&os; portmgr on Twitter (@FreeBSD_portmgr)</url>
+      <url href="https://www.facebook.com/portmgr">&os; Ports Management Team on Facebook</url>
+      <url href="https://plus.google.com/communities/108335846196454338383">&os; Ports Management Team on Google+</url>
+    </links>
+
+    <body>
+      <p>The Ports Tree has reached the marker of 27,000 ports, with the PR count
+	risen slightly to around 2,250.  Of these PRs, 572 are unassigned.  The
+	last quarter saw 6871 commits by 176 committers.  The number of open and
+	the number of unassigned PRs both increased lightly since last quarter.</p>
+
+      <p>Two commit bits were taken in for safe keeping in the last quarter:
+	jmg after 19 months of inactivity, and edwin at his own request.  We
+	welcomed three new committers: Nikolai Lifanov (lifanov), Jason Bacon,
+	and Mikhail Pchelin (misha).</p>
+
+     <p>On the management side, adamw and feld were elected as new portmgr
+       members, and rene was promoted to full member.  feld is already involved in
+       ports-secteam.</p>
+
+     <p>On the infrastructure side, two new USES (lxqt and varnish) were
+       introduced.  Some default versions were also updated: varnish 4 (new), GCC
+       4.8 to 4.9, Perl 5.20 to 5.24, and Python 3.4 to 3.5.  Two major ports
+       reached their end-of-life at December 31st and were removed: Perl 5.18 and
+       Linux Fedora 10 (the default is Linux CentOS 6).  Because &os; 9.3,
+       10.1, and 10.2 also reached end-of-life, support for those versions was
+       removed from the Ports Tree.</p>
+
+     <p>Some major ports were updated to their latest versions: pkg to
+       1.9.4, Firefox to 50.1.0, Firefox-esr to 45.6.0, Chromium to
+       54.0.2840.100, and Ruby to 2.1.10 / 2.2.6 / 2.3.3.
+       <tt>www/node</tt> was updated to version 7; version 6 was split
+       off as <tt>www/node6</tt> for long-term support.</p>
+
+     <p>Behind the scenes, antoine ran 39 exp-runs to verify package updates,
+       framework changes, and changes to the base system.  bdrewery installed new
+       package builders and added builds for &os; 11 for mips, mips64, and
+       armv6.  He also improved the balancing, monitoring, automation of the
+       package builders.</p>
+    </body>
+
+    <help>
+      <task>If you have some spare time, please take up a PR for testing and
+	committing.</task>
+    </help>
+  </project>
+
+  <project cat='kern'>
+    <title>I2C, GPIO, and SPI support for MinnowBoard</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Oleksandr</given>
+	  <common>Tymoshenko</common>
+	</name>
+	<email>gonzo@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://kernelnomicon.org/?p=767">Blog Post</url>
+      <url href="https://www.minnowboard.org">MinnowBoard Website</url>
+    </links>
+
+    <body>
+      <p>The Minnowboard is an Atom-based x86 board (Intel E38xx
+	Series SoC) in a maker-friendly form-factor: it provides
+	convenient access to pins that can be used to connect
+	peripherals using one of the standard buses: GPIO, SPI, or I2C.
+	These buses are more common in the ARM/MIPS world than in x86,
+	so while &os; was able to boot just fine, it lacked support for
+	these buses on the MinnowBoard.</p>
+
+      <p>As of r310645, HEAD support all three buses via
+	<tt>ig4(4)</tt>, <tt>bytgpio(4)</tt>, and <tt>intelspi</tt>
+	drivers.  The <tt>ig4(4)</tt> and <tt>bytgpio(4)</tt> changes
+	were backported to 11-STABLE; <tt>intelspi</tt> will be MFCed in
+	couple of weeks.</p>
+    </body>
+  </project>
 </report>
