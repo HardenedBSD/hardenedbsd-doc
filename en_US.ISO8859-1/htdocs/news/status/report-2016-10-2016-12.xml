@@ -1660,7 +1660,7 @@
 	<li>A server to reduce the build time from over an hour to 20
 	  minutes for the continuous integration process.  You can
 	  find out more information here:
-	  <a href="https://jenkins.FreeBSD.org/">https://jenkins.FreeBSD.org/</a>.</li>
+	  <a href="https://ci.FreeBSD.org/">https://ci.FreeBSD.org/</a>.</li>
 
 	<li>Two ThunderX servers for native package builds for the
 	  &os;/arm64 architecture.</li>
