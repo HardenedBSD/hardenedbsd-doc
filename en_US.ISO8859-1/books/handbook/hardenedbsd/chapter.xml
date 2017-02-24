@@ -915,7 +915,7 @@ options	PAX_ASLR</programlisting>
 		mode: "hard",
 	}
 }
-
+</programlisting>
 		</sect2>
 	</sect1>
 </chapter>
