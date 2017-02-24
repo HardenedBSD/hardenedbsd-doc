@@ -514,7 +514,7 @@ options	PAX_ASLR</programlisting>
 		</sect2>
 		<sect2>
 			<title>Shared Library Load Order Randomization</title>
-			<para>Breaking ASLR remotely requires
+			<para>Breaking ASLR remotely requires chaining
 			    multiple vulnerabilities, including one
 			    or more information leakage
 			    vulnerabilities. Information leakage
@@ -682,7 +682,8 @@ options	PAX_ASLR</programlisting>
 		    HardenedBSD. Starting with HardenedBSD 12-CURRENT,
 		    it is enabled by default for amd64. Support for
 		    non-amd64 architectures is limited by upstream
-		    clang.
+		    clang. SafeStack can be enabled in 11-STABLE by
+		    setting WITH_SAFESTACK in &man.src.conf.5;
 		</para>
 		<para>As of 28 November 2016, with clang 3.9.0,
 		    SafeStack only supports being applied to
@@ -791,6 +792,130 @@ options	PAX_ASLR</programlisting>
 			    <screen>&prompt.root; <userinput>sysrc secadm_enable=YES</userinput>
 &prompt.root; <userinput>service secadm start</userinput></screen>
 			</para>
+		</sect2>
+		<sect2>
+			<title>All secadm configuration options</title>
+			<para>These are the available pax options:</para>
+			<informaltable frame="all" pgwide="0">
+				<tgroup cols="4">
+					<thead>
+						<row>
+							<entry>Option</entry>
+							<entry>Requirement</entry>
+							<entry>Type</entry>
+							<entry>Description</entry>
+						</row>
+					</thead>
+					<tbody>
+						<row>
+							<entry>path</entry>
+							<entry>Required</entry>
+							<entry>String</entry>
+							<entry>Fully-qualified path of the executable</entry>
+						</row>
+						<row>
+							<entry>aslr</entry>
+							<entry>Optional</entry>
+							<entry>Boolean</entry>
+							<entry>Toggle ASLR</entry>
+						</row>
+						<row>
+							<entry>disallow_map32bit</entry>
+							<entry>Optional</entry>
+							<entry>Boolean</entry>
+							<entry>Toggle the ability to use the MAP_32BIT &man.mmap.2; flag on 64-bit systems</entry>
+						</row>
+						<row>
+							<entry>mprotect</entry>
+							<entry>Optional</entry>
+							<entry>Boolean</entry>
+							<entry>Toggle mprotect restrictions</entry>
+						</row>
+						<row>
+							<entry>pageexec</entry>
+							<entry>Optional</entry>
+							<entry>Boolean</entry>
+							<entry>Toggle pageexec restrictions</entry>
+						</row>
+						<row>
+							<entry>segvguard</entry>
+							<entry>Optional</entry>
+							<entry>Boolean</entry>
+							<entry>Toggle SEGVGUARD</entry>
+						</row>
+						<row>
+							<entry>shlibrandom</entry>
+							<entry>Optional</entry>
+							<entry>Boolean</entry>
+							<entry>Toggle shared library load order randomization</entry>
+						</row>
+					</tbody>
+				</tgroup>
+			</informaltable>
+			<para>Example pax configuration:
+			</para>
+			<programlisting>secadm {
+	pax {
+		path: "/usr/local/lib/firefox/firefox",
+		mprotect: false,
+	},
+	pax {
+		path: "/usr/local/lib/firefox/plugin-container",
+		mprotect: false,
+	},
+}</programlisting>
+			<para>These are the available integriforce options:</para>
+			<informaltable frame="all" pgwide="0">
+				<tgroup cols="4">
+					<thead>
+						<row>
+							<entry>Option</entry>
+							<entry>Requirement</entry>
+							<entry>Type</entry>
+							<entry>Description</entry>
+						</row>
+					</thead>
+					<tbody>
+						<row>
+							<entry>path</entry>
+							<entry>Required</entry>
+							<entry>String</entry>
+							<entry>Fully-qualified path of the executable or shared library</entry>
+						</row>
+						<row>
+							<entry>hash</entry>
+							<entry>Required</entry>
+							<entry>String</entry>
+							<entry>&man.sha1.1; or &man.sha256.1; hash of the file</entry>
+						</row>
+						<row>
+							<entry>type</entry>
+							<entry>Required</entry>
+							<entry>String</entry>
+							<entry>Type of hash. Either "sha1" or "sha256".</entry>
+						</row>
+						<row>
+							<entry>mode</entry>
+							<entry>Required</entry>
+							<entry>String</entry>
+							<entry>Either "soft" or "hard". In soft mode, if the hash doesn't match,
+							    a warning is printed in syslog and execution is allowed. In hard
+							    mode, if the hash doesn't match, an error is printed in syslog and
+							    execution is denied.</entry>
+						</row>
+					</tbody>
+				</tgroup>
+			</informaltable>
+			<para>Example integriforce configuration:</para>
+			<programlisting>secadm {
+	integriforce {
+		path: "/bin/ls",
+		hash: "7dee472b6138d05b3abcd5ea708ce33c8e85b3aac13df350e5d2b52382c20e77",
+		type: "sha256",
+		mode: "hard",
+	}
+}
+
 		</sect2>
 	</sect1>
 </chapter>
