@@ -584,4 +584,309 @@
 	support is in progress.</task>
     </help>
   </project>
+
+  <project cat='kern'>
+    <title>&os; on Hyper-V and Azure</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Sepherosa</given>
+	  <common>Ziehau</common>
+	</name>
+	<email>sepherosa@gmail.com</email>
+      </person>
+
+      <person>
+	<name>
+	  <given>Hongjiang</given>
+	  <common>Zhang</common>
+	</name>
+	<email>honzhan@microsoft.com</email>
+      </person>
+
+      <person>
+	<name>
+	  <given>Dexuan</given>
+	  <common>Cui</common>
+	</name>
+	<email>decui@microsoft.com</email>
+      </person>
+
+      <person>
+	<name>
+	  <given>Kylie</given>
+	  <common>Liang</common>
+	</name>
+	<email>kyliel@microsoft.com</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://wiki.FreeBSD.org/HyperV">&os; Virtual Machines on Microsoft Hyper-V</url>
+      <url href="https://technet.microsoft.com/en-us/library/dn531030.aspx">Supported Linux and &os; virtual machines for Hyper-V on Windows</url>
+    </links>
+
+    <body>
+      <p>SR-IOV support for NICs is implemented.  So far, we have only
+	tested with the Mellanox ConnectX-3 VF card, which works
+	despite some issues (Bug 216493: <a
+	  href="https://bugs.FreeBSD.org/bugzilla/show_bug.cgi?id=216493">https://bugs.FreeBSD.org/bugzilla/show_bug.cgi?id=216493</a>).</p>
+
+      <p>Updates for UEFI VMs (i.e.,  Hyper-V Generation 2 VM):</p>
+
+      <ol>
+	<li>After the loader issue (Bug 211746) is fixed, UEFI VMs can
+	  now boot with Secure Boot disabled;</li>
+
+	<li>A synthetic keyboard driver has been added.  Currently it
+	  is only in HEAD, but MFCs to stable/10 and stable/11 are
+	  planned to occur soon;</li>
+
+	<li>A SCSI DVD detection issue (Bug 218248) was fixed.
+	  Without the fix, the VM would fail to boot.</li>
+      </ol>
+    </body>
+
+    <sponsor>Microsoft</sponsor>
+  </project>
+
+  <project cat="proj">
+    <title>Porting Software to CloudABI: Sandboxed Bitcoin!</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Ed</given>
+	  <common>Schouten</common>
+	</name>
+	<email>ed@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://nuxi.nl/cloudabi/FreeBSD/">How to use CloudABI on &os;</url>
+      <url href="https://nuxi.nl/blog/2017/02/18/porting-leveldb-to-cloudabi.html">LevelDB for CloudABI</url>
+      <url href="https://nuxi.nl/blog/2017/03/15/sandboxed-memcached.html">Memcached for CloudABI</url>
+      <url href="https://laanwj.github.io/2017/03/02/porting-bitcoin-core-to-cloudabi.html">Bitcoin for CloudABI</url>
+    </links>
+
+    <body>
+      <p>CloudABI is a framework that allows you to develop strongly
+	sandboxed applications a lot more easily.  It is a programming
+	environment that exclusively uses &os;'s Capsicum facilities.  Any
+	features incompatible with Capsicum have been removed entirely,
+	which means that it is easier to determine how code needs to be
+	adjusted to behave correctly while sandboxed.  In essence, you only
+	need to patch up the code until it builds.</p>
+
+      <p>Last year we've managed to port a lot of exciting libraries over
+	to CloudABI.  Highlights include sandboxing aware versions of
+	<a href="http://www.boost.org/">Boost</a> and
+	<a href="http://leveldb.org/">LevelDB</a>.  Now that these
+	libraries are readily available, we're at the point where we can
+	shift focus towards porting full applications.</p>
+
+      <p>Late February one of the lead developers of
+	<a href="https://github.com/bitcoin/bitcoin">the Bitcoin reference
+	  implementation</a> got in touch, as he is very interested in
+	creating a copy of Bitcoin that is better protected against
+	security bugs.  You do not want a security bug in the
+	networking/consensus code allowing an attacker to steal coins from
+	your local wallet.</p>
+
+      <p>As I think that this is a use case that demonstrates the strength
+	of CloudABI well, I've made addressing any issues reported by the
+	Bitcoin developers a top priority.  Once the Bitcoin port is
+	complete, we want to provide binary packages of it as well.</p>
+    </body>
+
+    <sponsor>Nuxi, the Netherlands</sponsor>
+
+    <help>
+      <task>Though getting Bitcoin to work is pretty awesome, don't let
+	that distract us from porting other pieces of software over as
+	well!  Are you the maintainer of a piece of software that could
+	benefit from sandboxing?  Be sure to try building it using the
+	CloudABI toolchain!</task>
+
+      <task>One of the pieces of software that got ported over to
+	CloudABI some time ago is Memcached.  Are you a user of
+	Memcached? If so, feel free to give the sandboxed version of
+	Memcached for CloudABI a try!</task>
+
+      <task>So far CloudABI can be used to run software written in C, C++
+	and Python.  Would you like to see any other programming language
+	work on CloudABI as well?  Be sure to help out!</task>
+    </help>
+  </project>
+
+  <project cat='team'>
+    <title>Ports Collection</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>René</given>
+	  <common>Ladan</common>
+	</name>
+	<email>portmgr-secretary@FreeBSD.org</email>
+      </person>
+
+      <person>
+	<name>&os; Ports Management Team</name>
+	<email>portmgr@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://www.FreeBSD.org/ports/">About &os; Ports</url>
+      <url href="https://www.FreeBSD.org/doc/en_US.ISO8859-1/articles/contributing/ports-contributing.html">Contributing to Ports</url>
+      <url href="http://portsmon.FreeBSD.org/index.html">&os; Ports Monitoring</url>
+      <url href="https://www.FreeBSD.org/portmgr/index.html">Ports Management Team</url>
+      <url href="https://twitter.com/FreeBSD_portmgr/">&os; portmgr on Twitter (@FreeBSD_portmgr)</url>
+      <url href="https://www.facebook.com/portmgr">&os; Ports Management Team on Facebook</url>
+      <url href="https://plus.google.com/communities/108335846196454338383">&os; Ports Management Team on Google+</url>
+    </links>
+
+    <body>
+      <p>The number of ports is currently just 500 short of 30,000.  The current
+	number of PRs is close to 2,400, of which 620 are unassigned.  The last
+	quarter saw 6656 commits from 167 comitters.  Both the number of ports and
+	the number of unassigned PRs have increased in the last quarter.</p>
+
+      <p>In the last quarter, we welcomed 7 new committers: Eugene Grosbein
+	(eugen), Johannes Dieterich (jmd), Larry Rosenman (ler), Mahdi Mokhtari
+	(mmohki), Matthew Rezny (rezny), Tobias Kortkamp (tobik), and Vladimir
+	Krstulja (?).  dumbbell@ was already a src committer and got an extension
+	for the Ports Tree.  We also welcomed back krion@ and miwi@.  We took 6
+	bits in for safe-keeping: itetcu@, leeym@, mva@, olivierd@, pgollucci@,
+	and sanpei@.</p>
+
+      <p>There were no changes to the membership of portmgr.</p>
+
+      <p>antoine@ worked on <tt>USES=samba</tt> to prepare for the
+	removal of the long-outdated Samba 3.6 ports and replace them
+	with modern versions.  The new default versions are:
+	FreePascal 3.0.2, Ruby 2.3, and Samba 4.4.  A new variable
+	<tt>USE_LOCALE</tt> was createdto add the <tt>LANG</tt> and
+	<tt>LC_ALL</tt> environment variables to all builds.
+	Out-of-tree patches can now be added with the new
+	<tt>EXTRA_PATCH_TREE</tt> variable.  The error messages for
+	invalid <tt>SINGLE</tt> options were improved.</p>
+
+      <p>Some of the major port updates last quarter were: pkg 1.10.1, linux
+	c6_64, Firefox 52.0.2, Chromium 57.0.2987.110, GCC 4.9.4, Gnome 3.18.0,
+	Xorg 1.18.4, Qt 4.8.7 and 5.7.1, and PHP 7.1.</p>
+
+      <p>antoine@ ran 31 exp-runs to test version updates and under-the-hood
+	changes.</p>
+    </body>
+
+    <help>
+      <task>The number of unassigned and open PRs is still growing, so if you
+	have some spare time, please close some of those.</task>
+    </help>
+  </project>
+
+  <project cat="ports">
+    <title>Rust</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Jean-Sébastien</given>
+	  <common>Pédron</common>
+	</name>
+	<email>dumbbell@FreeBSD.org</email>
+      </person>
+
+      <person>
+	<name>
+	  <given>Thomas</given>
+	  <common>Zander</common>
+	</name>
+	<email>riggs@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://wiki.FreeBSD.org/Rust">Wiki Portal</url>
+      <url href="https://gist.github.com/dumbbell/b587da50ef014078da9e732a4331ebad">Guide to Bootstrap Rust on &os;</url>
+      <url href="https://bugs.FreeBSD.org/bugzilla/show_bug.cgi?id=216143">Bug Report to Track Progress on Bootstrapping</url>
+    </links>
+
+    <body>
+      <p>In the Ports Collection, Rust was updated to 1.16.0 and Cargo
+	to 0.17.0, the latest versions at the time of this writing.</p>
+
+      <p><tt>lang/rust-nightly</tt> was also updated to a snapshot from
+	February and it is now enabled on <tt>i386</tt>.  It is
+	lagging a bit behind upstream, but <a
+	href="https://rustup.rs/">Rustup</a> works nicely on &os; if
+	you need to try any versions/channels of Rust.</p>
+
+      <p>Work has started to bootstrap Rust on non-<tt>x86</tt> architectures.
+	Patches to add &os;/aarch64 support were submitted and accepted
+	upstream.  &os;/sparc64 is in progress.  The <tt>lang/rust-nightly</tt>
+	port is also being adapted to compile natively on &os;/aarch64.  This
+	work is critical, in particular because Firefox will shortly require
+	Rust.  If you want to help, please refer to the guide linked above.</p>
+
+      <p>The compiler, <tt>rustc</tt>, is crashing sometimes when there is a
+	compilation error.  Therefore, there is a bit of work to do to improve
+	stability.</p>
+
+      <p>There is some code duplication between <tt>lang/rust*</tt> and
+	<tt>devel/cargo</tt>.  Those Makefiles deserve a bit of cleanup.  It
+	might be useful to create a <tt>USES=rust</tt> Makefile helper.</p>
+    </body>
+
+    <help>
+      <task>Bootstrap Rust on more platforms.</task>
+
+      <task>Investigate compiler crashes.</task>
+
+      <task>Create a <tt>USES=rust</tt> Makefile helper and simplify
+	Rust and Cargo ports.</task>
+
+      <task>Investigate how to speed up <tt>lang/rust*</tt>
+	compilation time.</task>
+    </help>
+  </project>
+
+  <project cat='team'>
+    <title>&os; Release Engineering Team</title>
+
+    <contact>
+      <person>
+	<name>&os;&nbsp;Release Engineering Team</name>
+	<email>re@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://www.freebsd.org/releases/11.1R/schedule.html">&os;&nbsp;11.1-RELEASE Schedule</url>
+      <url href="http://ftp.freebsd.org/pub/FreeBSD/snapshots/ISO-IMAGES/">&os; development Snapshots</url>
+    </links>
+
+    <body>
+      <p>The &os; Release Engineering Team is responsible for setting
+	and publishing release schedules for official project releases
+	of &os;, announcing code freezes and maintaining the
+	respective branches, among other things.</p>
+
+      <p>The &os;&nbsp;Release Engineering Team continued producing
+	weekly development snapshots for the 12-CURRENT, 11-STABLE,
+	and 10-STABLE branches.</p>
+
+      <p>In addition, the &os;&nbsp;11.1-RELEASE schedule was added to
+	the Project website.  Please note, however, the schedule on
+	the website is still subject to change.</p>
+    </body>
+
+    <sponsor>
+	The &os; Foundation
+    </sponsor>
+  </project>
 </report>
