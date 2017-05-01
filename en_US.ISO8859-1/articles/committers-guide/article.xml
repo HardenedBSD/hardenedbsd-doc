@@ -4457,9 +4457,11 @@ Relnotes:           yes</programlisting>
 	      that time, build problems were fixed, and the release
 	      packages were built.  This practice is no longer used,
 	      as the packages for the releases are built from the
-	      current stable, quarterly branch.  For more information
-	      on how to merge commits to the quarterly branch, see
-	      <xref linkend="ports-qa-misc-request-mfh"/>.</para>
+	      current stable, quarterly branch.</para>
+
+	    <para>For more information on how to merge commits to the
+	      quarterly branch, see <xref
+		linkend="ports-qa-misc-request-mfh"/>.</para>
 	  </answer>
 	</qandaentry>
       </qandadiv>
@@ -4487,7 +4489,16 @@ Relnotes:           yes</programlisting>
 	      to the &a.ports-secteam; and the &a.portmgr; with the revision
 	      number and a small description of why the commit needs
 	      to be merged.</para>
+	  </answer>
+	</qandaentry>
 
+	<qandaentry xml:id="ports-qa-misc-commit-mfh">
+	  <question>
+	    <para>What is the procedure for merging commits to the
+	      quarterly branch?</para>
+	  </question>
+
+	  <answer>
 	    <para>A script is provided to automate merging a specific
 	      commit: <filename>ports/Tools/scripts/mfh</filename>.
 	      It is used as follows:</para>
@@ -4571,12 +4582,14 @@ Do you want to commit? (no = start a shell) [y/n]</screen>
 		revision at a time.  If there have been other updates
 		to the port since the branch was created that have not
 		been merged because they were not security related.
-		Add the different revisions in the order they were
-		committed on the <command>mfh</command> command line.
+		Add the different revisions <emphasis>in the order
+		  they were committed</emphasis> on the
+		<command>mfh</command> command line.
 		The new commit log message will contain the combined
 		log messages from all the original commits.  These
-		messages must be edited to show what is actually being
-		done with the new commit.</para>
+		messages <emphasis>must</emphasis> be edited to show
+		what is actually being done with the new
+		commit.</para>
 
 	      <screen>&prompt.user; <userinput>/usr/ports/Tools/scripts/mfh r407208 r407713 r407722 r408567 r408943 r410728</userinput></screen>
 	    </tip>
@@ -4584,10 +4597,13 @@ Do you want to commit? (no = start a shell) [y/n]</screen>
 	    <note>
 	      <para>The mfh script can also take an optional first
 		argument, the branch where the merge is being done.
-		It does, however, select the latest branch, so
-		specifying the branch is discouraged.</para>
+		Only the latest quarterly branch is supported, so
+		specifying the branch is discouraged.  To be safe, the
+		script will give a warning if the quarterly branch is
+		not the latest:</para>
 
-	      <screen>&prompt.user; <userinput>/usr/ports/Tools/scripts/mfh 2016Q1 r407208 r407713</userinput></screen>
+	      <screen>&prompt.user; <userinput>/usr/ports/Tools/scripts/mfh 2016Q1 r407208 r407713</userinput>
+/!\ The latest branch is 2016Q2, do you really want to commit to 2016Q1? [y/n]</screen>
 	    </note>
 	  </answer>
 	</qandaentry>
