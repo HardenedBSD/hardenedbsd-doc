@@ -709,6 +709,53 @@ options	PAX_ASLR</programlisting>
 		</para>
 
 	</sect1>
+	<sect1 xml:id="hardenedbsd-cfi">
+		<title>Control-Flow Integrity</title>
+		<para>Control-Flow Integrity (CFI) is an exploit mitigation
+		    technique that prevents unwanted transfer of control
+		    from branch instructions to arbitrary valid memory
+		    locations. The CFI implementation from clang/llvm
+		    comes in two forms: Cross-DSO CFI and non-Cross-DSO
+		    CFI. HardenedBSD 12-CURRENT enables non-Cross-DSO CFI
+		    by default on amd64 for base.
+		</para>
+		<para>CFI requires a linker that supports Link Time
+		    Optimization (LTO). HardenedBSD 12-CURRENT includes
+		    clang/llvm 4.0.0 and lld 4.0.0. HardenedBSD has enabled
+		    lld as the default linker for arm64 and amd64. lld gives
+		    HardenedBSD a linker that natively supports LTO.
+		</para>
+		<para>Non-Cross-DSO CFI adds checks both before and after
+		    every branch instruction in the application itself.
+		    If an application loads libraries via &man.dlopen.3;
+		    and resolves functions via &man.dlsym.3; and calls
+		    those functions, the application will abort. Some
+		    applications, like &man.bhyveload.8; do this and thus
+		    have the cfi-icall scheme disabled, allowing it to call
+		    the function resolved via &man.dlsym.3;. Thus, if a user
+		    finds that an application crashes in HardenedBSD
+		    12-CURRENT, the user should file a bug report. The
+		    cfi-icall scheme can be disabled when building world by
+		    adding a CFI override in that application's Makefile.
+		</para>
+		<para>As of 20 May 2017, Cross-DSO CFI is being actively
+		    researched. However, support for Cross-DSO CFI is not
+		    available in HardenedBSD, yet. Cross-DSO CFI would allow
+		    functions resolved through &man.dlopen.3;/&man.dlsym.3;
+		    to work since CFI would be able to be applied between
+		    Dynamic Shared Object (DSO) boundaries.
+		</para>
+		<para>Note that Non-Cross-DSO CFI does not require ASLR and
+		    strict W^X. Given that Cross-DSO CFI keeps metadata and
+		    state information, Cross-DSO CFI does require ASLR and
+		    W^X in order to be effective.
+		</para>
+		<para>Non-Cross-DSO CFI support has been added to HardenedBSD's
+		    ports framework. However, it is not enabled by default.
+		    Support for CFI in ports is still very premature and is only
+		    available for those brave users who want to experiment.
+		</para>
+	</sect1>
 	<sect1 xml:id="hardenedbsd-secadm">
 		<title>Security Administration (secadm)</title>
 		<sect2>
