@@ -1069,17 +1069,17 @@ before running "/usr/sbin/freebsd-update install"</screen>
     </sect2>
   </sect1>
 
-  <sect1 xml:id="updating-src">
-    <title>Updating &os; from Source</title>
+  <sect1 xml:id="makeworld">
+    <title xml:id="updating-src">Updating &os; from Source</title>
 
     <para>Updating &os; by compiling from source offers several
       advantages over binary updates.  Code can be built with options
       to take advantage of specific hardware.  Parts of the base
       system can be built with non-default settings, or left out
       entirely where they are not needed or desired.  The build
-      process takes longer to update a system than just installing binary updates, but
-      allows complete customization to produce a tailored version of
-      &os;.</para>
+      process takes longer to update a system than just installing
+      binary updates, but allows complete customization to produce
+      a tailored version of &os;.</para>
 
     <sect2 xml:id="updating-src-quick-start">
       <title>Quick Start</title>
@@ -1097,6 +1097,8 @@ before running "/usr/sbin/freebsd-update install"</screen>
 &prompt.root; <userinput>cd /usr/src</userinput>          <co xml:id="updating-src-qs-cd"/>
 &prompt.root; <userinput>make -j<replaceable>4</replaceable> buildworld</userinput>  <co xml:id="updating-src-qs-buildworld"/>
 &prompt.root; <userinput>make -j<replaceable>4</replaceable> kernel</userinput>      <co xml:id="updating-src-qs-kernel"/>
+&prompt.root; <userinput>shutdown -r now</userinput>      <co xml:id="updating-src-qs-reboot"/>
+&prompt.root; <userinput>cd /usr/src</userinput>          <co xml:id="updating-src-qs-cd2"/>
 &prompt.root; <userinput>make installworld</userinput>    <co xml:id="updating-src-qs-installworld"/>
 &prompt.root; <userinput>mergemaster -Ui</userinput>      <co xml:id="updating-src-qs-mergemaster"/>
 &prompt.root; <userinput>shutdown -r now</userinput>      <co xml:id="updating-src-qs-shutdown"/></screen>
@@ -1110,9 +1112,9 @@ before running "/usr/sbin/freebsd-update install"</screen>
 	    </callout>
 
 	    <callout arearefs="updating-src-qs-review-updating">
-	      <para>Any manual steps required before or after building
-		from source are shown in
-		<filename>/usr/src/UPDATING</filename>.</para>
+	      <para>Check <filename>/usr/src/UPDATING</filename>
+		for any manual steps required before or after building
+		from source.</para>
 	    </callout>
 
 	    <callout arearefs="updating-src-qs-cd">
@@ -1126,9 +1128,16 @@ before running "/usr/sbin/freebsd-update install"</screen>
 
 	    <callout arearefs="updating-src-qs-kernel">
 	      <para>Compile and install the kernel.  This is
-		equivalent to
-		<buildtarget>buildkernel</buildtarget>
-		<buildtarget>installkernel</buildtarget>.</para>
+		equivalent to <command>make buildkernel
+		  installkernel</command>.</para>
+	    </callout>
+
+	    <callout arearefs="updating-src-qs-reboot">
+	      <para>Reboot the system to the new kernel.</para>
+	    </callout>
+
+	    <callout arearefs="updating-src-qs-cd2">
+	      <para>Go to the source directory.</para>
 	    </callout>
 
 	    <callout arearefs="updating-src-qs-installworld">
@@ -1205,13 +1214,13 @@ Working Copy Root Path: /usr/src
 	    <tbody>
 	      <row>
 		<entry><literal><replaceable>X.Y</replaceable>-RELEASE</literal></entry>
-		<entry><literal>base/releng/</literal><replaceable>X</replaceable></entry>
+		<entry><literal>base/releng/</literal><replaceable>X.Y</replaceable></entry>
 		<entry>The Release version plus only critical security
 		  and bug fix patches.  This branch is recommended
 		  for most users.</entry>
 	      </row>
 
-	      <row>
+	      <row xml:id="STABLE">
 		<entry><literal><replaceable>X.Y</replaceable>-STABLE</literal></entry>
 		<entry><literal>base/stable/</literal><replaceable>X</replaceable></entry>
 		<entry>
@@ -1251,12 +1260,12 @@ Working Copy Root Path: /usr/src
 
 	<para>Based on
 	  <xref linkend="updating-src-obtaining-src-repopath"/>, the
-	  source used to update <literal>10.3-RELEASE</literal> has a
-	  repository path of <literal>base/releng/10</literal>.  That
-	  path is used when checking out the source:</para>
+	  source used to update <literal>10.3-RELEASE</literal> has
+	  a repository path of <literal>base/releng/10.3</literal>.
+	  That path is used when checking out the source:</para>
 
-        <screen>&prompt.root; <userinput>mv /usr/src /usr/src.bak</userinput>  <co xml:id="updating-src-obtaining-src-mv"/>
-&prompt.root; <userinput>svn checkout https://svn.freebsd.org/base/<replaceable>releng/10</replaceable> /usr/src</userinput>  <co xml:id="updating-src-obtaining-src-checkout-cmd"/></screen>
+	<screen>&prompt.root; <userinput>mv /usr/src /usr/src.bak</userinput>  <co xml:id="updating-src-obtaining-src-mv"/>
+&prompt.root; <userinput>svn checkout https://svn.freebsd.org/base/<replaceable>releng/10.3</replaceable> /usr/src</userinput>  <co xml:id="updating-src-obtaining-src-checkout-cmd"/></screen>
 
 	<calloutlist>
 	  <callout arearefs="updating-src-obtaining-src-mv">
@@ -1279,7 +1288,7 @@ Working Copy Root Path: /usr/src
     <sect2 xml:id="updating-src-building">
       <title>Building from Source</title>
 
-      <para xml:id="makeworld">The <emphasis>world</emphasis>, or all
+      <para>The <emphasis>world</emphasis>, or all
 	of the operating system except the kernel, is compiled.  This
 	is done first to provide up-to-date tools to build the kernel.
 	Then the kernel itself is built:</para>
@@ -1302,7 +1311,8 @@ Working Copy Root Path: /usr/src
 	  <filename>/usr/obj</filename>.  This can speed up later
 	  builds by avoiding recompiling code that has not changed.
 	  To force a clean rebuild of everything, use
-	  <buildtarget>cleanworld</buildtarget> before starting a build:</para>
+	  <buildtarget>cleanworld</buildtarget> before starting
+	  a build:</para>
 
 	<screen>&prompt.root; <userinput>make cleanworld</userinput></screen>
       </sect3>
@@ -1369,7 +1379,7 @@ Working Copy Root Path: /usr/src
 	  <para><filename>/usr/src</filename> can be deleted or
 	    recreated, so it is preferable to keep custom kernel
 	    config files in a separate directory, like
-	    <filename>/root</filename>. Link the kernel config file
+	    <filename>/root</filename>.  Link the kernel config file
 	    into the <filename>conf</filename> directory.  If that
 	    directory is deleted or overwritten, the kernel config
 	    can be re-linked into the new one.</para>
@@ -1404,13 +1414,21 @@ Working Copy Root Path: /usr/src
 	completed, the new kernel and world are installed:</para>
 
       <screen>&prompt.root; <userinput>cd /usr/src</userinput>
-&prompt.root; <userinput>make installkernel installworld</userinput></screen>
+&prompt.root; <userinput>make installkernel</userinput>
+&prompt.root; <userinput>shutdown -r now</userinput>
+&prompt.root; <userinput>cd /usr/src</userinput>
+&prompt.root; <userinput>make installworld</userinput>
+&prompt.root; <userinput>shutdown -r now</userinput></screen>
 
       <para>If a custom kernel was built, <varname>KERNCONF</varname>
 	must also be set to use the new custom kernel:</para>
 
       <screen>&prompt.root; <userinput>cd /usr/src</userinput>
-&prompt.root; <userinput>make installkernel installworld KERNCONF=STORAGESERVER</userinput></screen>
+&prompt.root; <userinput>make installkernel KERNCONF=STORAGESERVER</userinput>
+&prompt.root; <userinput>shutdown -r now</userinput>
+&prompt.root; <userinput>cd /usr/src</userinput>
+&prompt.root; <userinput>make installworld</userinput>
+&prompt.root; <userinput>shutdown -r now</userinput></screen>
     </sect2>
 
     <sect2 xml:id="updating-src-completing">
@@ -1436,8 +1454,9 @@ Working Copy Root Path: /usr/src
 	<screen>&prompt.root; <userinput>mergemaster -Ui</userinput></screen>
 
 	<para>If a file must be manually merged, an interactive
-	  display allows the user to choose which portions of the files are
-	  kept.  See &man.mergemaster.8; for more information.</para>
+	  display allows the user to choose which portions of the
+	  files are kept.  See &man.mergemaster.8; for more
+	  information.</para>
       </sect3>
 
       <sect3 xml:id="updating-src-completing-check-old">

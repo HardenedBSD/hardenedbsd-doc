@@ -324,6 +324,9 @@
 <!ENTITY a.brd "Brad Davis">
 <!ENTITY a.brd.email "&a.brd; <email xmlns='http://docbook.org/ns/docbook'>brd@FreeBSD.org</email>">
 
+<!ENTITY a.bhughes "Bradley T. Hughes">
+<!ENTITY a.bhughes.email "&a.bhughes; <email xmlns='http://docbook.org/ns/docbook'>bhughes@FreeBSD.org</email>">
+
 <!ENTITY a.brian "Brian Somers">
 <!ENTITY a.brian.email "&a.brian; <email xmlns='http://docbook.org/ns/docbook'>brian@FreeBSD.org</email>">
 
@@ -363,7 +366,7 @@
 <!ENTITY a.bz "Bjoern A. Zeeb">
 <!ENTITY a.bz.email "&a.bz; <email xmlns='http://docbook.org/ns/docbook'>bz@FreeBSD.org</email>">
 
-<!ENTITY a.carl "Carl Delsey"> 
+<!ENTITY a.carl "Carl Delsey">
 <!ENTITY a.carl.email "&a.carl; <email xmlns='http://docbook.org/ns/docbook'>carl@FreeBSD.org</email>">
 
 <!ENTITY a.carvay "J. Vicente Carrasco Vay&aacute;">
@@ -1893,6 +1896,9 @@
 <!ENTITY a.rink "Rink Springer">
 <!ENTITY a.rink.email "&a.rink; <email xmlns='http://docbook.org/ns/docbook'>rink@FreeBSD.org</email>">
 
+<!ENTITY a.rlibby "Ryan Libby">
+<!ENTITY a.rlibby.email "&a.rlibby; <email xmlns='http://docbook.org/ns/docbook'>rlibby@FreeBSD.org</email>">
+
 <!ENTITY a.rm "Ruslan Makhmatkhanov">
 <!ENTITY a.rm.email "&a.rm; <email xmlns='http://docbook.org/ns/docbook'>rm@FreeBSD.org</email>">
 
@@ -2309,7 +2315,7 @@
 
 <!ENTITY a.tz "Torsten Zuehlsdorff">
 <!ENTITY a.tz.email "&a.tz; <email xmlns='http://docbook.org/ns/docbook'>tz@FreeBSD.org</email>">
-  
+
 <!ENTITY a.uch "Yasushi UCHIYAMA">
 <!ENTITY a.uch.email "&a.uch; <email xmlns='http://docbook.org/ns/docbook'>uch@FreeBSD.org</email>">
 
@@ -2324,6 +2330,9 @@
 
 <!ENTITY a.ulf "Ulf Zimmermann">
 <!ENTITY a.ulf.email "&a.ulf; <email xmlns='http://docbook.org/ns/docbook'>ulf@FreeBSD.org</email>">
+
+<!ENTITY a.ultima "Richard Gallamore">
+<!ENTITY a.ultima.email "&a.ultima; <email xmlns='http://docbook.org/ns/docbook'>ultima@FreeBSD.org</email>">
 
 <!ENTITY a.ume "Hajimu UMEMOTO">
 <!ENTITY a.ume.email "&a.ume; <email xmlns='http://docbook.org/ns/docbook'>ume@FreeBSD.org</email>">
@@ -2515,7 +2524,7 @@
 <!ENTITY a.irc.email "<email xmlns='http://docbook.org/ns/docbook'>irc@FreeBSD.org</email>">
 
 <!-- FreeBSD Ports Manager Team -->
-<!ENTITY a.portmgr.members '&a.mat;, &a.antoine;, &a.bdrewery;, &a.feld;, &a.rene;, &a.swills;, &a.adamw;'>
+<!ENTITY a.portmgr.members '&a.mat;, &a.antoine;, &a.bapt;, &a.bdrewery;, &a.feld;, &a.rene;, &a.swills;, &a.adamw;'>
 
 <!-- FreeBSD Release Engineering Teams -->
 <!ENTITY a.re "re@FreeBSD.org">

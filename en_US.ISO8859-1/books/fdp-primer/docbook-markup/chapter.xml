@@ -28,7 +28,6 @@
      ANY WAY OUT OF THE USE OF THIS DOCUMENTATION, EVEN IF ADVISED OF THE
      POSSIBILITY OF SUCH DAMAGE.
 
-     $FreeBSD$
 -->
 
 <chapter xmlns="http://docbook.org/ns/docbook"
@@ -1106,6 +1105,7 @@ int
 main(void)
 {
     printf("hello, world\n");
+    return 0;
 }<tag class="endtag">programlisting</tag></programlisting>
 
 	<para>Notice how the angle brackets in the
@@ -1122,6 +1122,7 @@ int
 main(void)
 {
     printf("hello, world\n");
+    return 0;
 }</programlisting>
       </example>
     </sect2>

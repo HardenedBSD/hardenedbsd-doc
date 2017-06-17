@@ -135,6 +135,7 @@
   <ul>
     <li>&a.mat.email; (Cluster Administration Team Liaison)</li>
     <li>&a.antoine.email;</li>
+    <li>&a.bapt.email; (Core Team Liaison)</li>
     <li>&a.bdrewery.email; (Release Engineering Team Liaison)</li>
     <li>&a.feld.email;</li>
     <li>&a.rene.email; (Secretary)</li>
@@ -422,10 +423,9 @@
     against the HEAD revision of the &os; Source Code.</p>
 
   <ul>
-    <li>Ahmed Kamal &lt;<a
-      href="mailto:email.ahmedkamal@googlemail.com"
-      >email.ahmedkamal@googlemail.com</a>&gt;</li>
     <li>&a.bapt.email; (Core Team Liaison)</li>
+    <li>&a.brd.email;</li>
+    <li>&a.brooks.email;</li>
     <li>&a.lwhsu.email;</li>
     <li>&a.rodrigc.email;</li>
     <li>&a.swills.email;</li>

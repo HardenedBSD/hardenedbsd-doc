@@ -30,6 +30,21 @@
   <info>
     <title>&os; Release Engineering</title>
 
+    <authorgroup>
+      <author>
+	<personname>
+	  <firstname>Glen</firstname>
+	  <surname>Barber</surname>
+	</personname>
+	<affiliation>
+	  <orgname class="nonprofit"> <link
+	      xlink:href="https://www.freebsdfoundation.org">The
+	      &os;&nbsp;Foundation</link></orgname>
+	  <address><email>gjb@FreeBSD.org</email></address>
+	</affiliation>
+      </author>
+    </authorgroup>
+
     <legalnotice xml:id="trademarks" role="trademarks">
       &tm-attrib.freebsd;
       &tm-attrib.intel;
@@ -377,6 +392,13 @@
       <para>In most cases, the <filename>schedule.xml</filename> can
 	be copied from a prior release and updated accordingly.</para>
     </note>
+
+    <para>In addition to adding <filename>schedule.xml</filename> to
+      the website, <filename>head/share/xml/navibar.ent</filename> and
+      <filename>head/share/xml/release.ent</filename> are also updated
+      to add the link to the schedule to various subpages, as well as
+      enabling the link to the schedule on the Project website index
+      page.</para>
 
     <para>The schedule is also linked from
       <filename>head/en_US.ISO8859-1/htdocs/releng/index.xml</filename>.</para>

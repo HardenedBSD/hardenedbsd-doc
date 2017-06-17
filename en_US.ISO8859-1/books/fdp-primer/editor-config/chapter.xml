@@ -25,7 +25,6 @@
     OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
     EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-    $FreeBSD$
 -->
 <chapter xmlns="http://docbook.org/ns/docbook"
   xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0"
@@ -203,8 +202,9 @@ http://www.freshports.org/textproc/igor/."
 
       <screen>&prompt.user; <userinput>cp /usr/local/share/nano/xml.nanorc ~/.nanorc</userinput></screen>
 
-      <para>Add these lines to the new
-	<filename>~/.nanorc</filename>.</para>
+      <para>Use an editor to replace the lines in the
+	<filename>~/.nanorc</filename> <literal>syntax "xml"</literal>
+	block with these rules:</para>
 
       <programlisting>syntax "xml" "\.([jrs]html?|xml|xslt?)$"
 # trailing whitespace

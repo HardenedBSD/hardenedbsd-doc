@@ -661,6 +661,11 @@
       &pgpkey.sgalabov;
     </sect2>
 
+    <sect2 xmlns="http://docbook.org/ns/docbook" xml:id="pgpkey-ultima">
+      <title>&a.ultima.email;</title>
+      &pgpkey.ultima;
+    </sect2>
+
     <sect2 xmlns="http://docbook.org/ns/docbook" xml:id="pgpkey-avg">
       <title>&a.avg.email;</title>
       &pgpkey.avg;
@@ -864,6 +869,11 @@
     <sect2 xmlns="http://docbook.org/ns/docbook" xml:id="pgpkey-pho">
       <title>&a.pho.email;</title>
       &pgpkey.pho;
+    </sect2>
+
+    <sect2 xmlns="http://docbook.org/ns/docbook" xml:id="pgpkey-bhughes">
+      <title>&a.bhughes.email;</title>
+      &pgpkey.bhughes;
     </sect2>
 
     <sect2 xmlns="http://docbook.org/ns/docbook" xml:id="pgpkey-mich">
@@ -1294,6 +1304,11 @@
     <sect2 xmlns="http://docbook.org/ns/docbook" xml:id="pgpkey-ijliao">
       <title>&a.ijliao.email;</title>
       &pgpkey.ijliao;
+    </sect2>
+
+    <sect2 xmlns="http://docbook.org/ns/docbook" xml:id="pgpkey-rlibby">
+      <title>&a.rlibby.email;</title>
+      &pgpkey.rlibby;
     </sect2>
 
     <sect2 xmlns="http://docbook.org/ns/docbook" xml:id="pgpkey-lidl">
