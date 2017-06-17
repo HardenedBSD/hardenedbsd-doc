@@ -965,4 +965,92 @@ options	PAX_ASLR</programlisting>
 </programlisting>
 		</sect2>
 	</sect1>
+	<sect1 xml:id="hardenedbsd-contributing">
+		<title>Contributing to HardenedBSD</title>
+		<sect2>
+			<title>Submitting Bug Reports</title>
+			<para>HardenedBSD uses GitHub for source control and bug reports. Users can
+			    submit bug reports for the HardenedBSD base source code
+			    <link xlink:href="https://github.com/HardenedBSD/hardenedbsd/issues">here</link>
+			    and for ports
+			    <link xlink:href="https://github.com/HardenedBSD/hardenedbsd-ports/issues">here</link>.
+			    When submitting bug reports, please include the version of HardenedBSD
+			    and the architecture. If a kernel panic is being reported, please
+			    include a backtrace along with any other relevant debugging information.
+			</para>
+		</sect2>
+		<sect2>
+			<title>HardenedBSD Development Process</title>
+			<para>HardenedBSD uses three repositories during the development process:</para>
+			<informaltable frame="all" pgwide="0">
+				<tgroup cols="2">
+					<thead>
+						<row>
+							<entry>Repository</entry>
+							<entry>Purpose</entry>
+						</row>
+					</thead>
+					<tbody>
+						<row>
+							<entry><link xlink:href="https://github.com/HardenedBSD/hardenedBSD">HardenedBSD</link></entry>
+							<entry>Main development repository</entry>
+						</row>
+						<row>
+							<entry><link xlink:href="https://github.com/HardenedBSD/hardenedBSD-stable">HardenedBSD-STABLE</link></entry>
+							<entry>Stable builds repository (read-only)</entry>
+						</row>
+						<row>
+							<entry><link xlink:href="https://github.com/HardenedBSD/hardenedBSD-playground">HardenedBSD-Playground</link></entry>
+							<entry>Highly experimental and third-party code repository</entry>
+						</row>
+					</tbody>
+				</tgroup>
+			</informaltable>
+			<para>HardenedBSD development branches:</para>
+			<informaltable frame="all" pgwide="0">
+				<tgroup cols="4">
+					<thead>
+						<row>
+							<entry>Branch</entry>
+							<entry>Repository</entry>
+							<entry>Binary Updates</entry>
+							<entry>Purpose</entry>
+						</row>
+					</thead>
+					<tbody>
+						<row>
+							<entry>hardened/current/master</entry>
+							<entry>HardenedBSD</entry>
+							<entry>amd64, arm64</entry>
+							<entry>Main development branch (12-CURRENT)</entry>
+						</row>
+						<row>
+							<entry>hardened/11-stable/master</entry>
+							<entry>HardenedBSD</entry>
+							<entry>amd64</entry>
+							<entry>11-STABLE development</entry>
+						</row>
+						<row>
+							<entry>hardened/10-stable/master</entry>
+							<entry>HardenedBSD</entry>
+							<entry>amd64</entry>
+							<entry>10-STABLE development</entry>
+						</row>
+						<row>
+							<entry>hardened/current/drm-next</entry>
+							<entry>HardenedBSD-Playground</entry>
+							<entry>amd64</entry>
+							<entry>HardenedBSD 12-CURRENT with drm-next bits merged in</entry>
+						</row>
+						<row>
+							<entry>hardened/current/safestack-arm64</entry>
+							<entry>HardenedBSD-Playground</entry>
+							<entry>arm64</entry>
+							<entry>HardenedBSD 12-CURRENT with SafeStack ported to arm64</entry>
+						</row>
+					</tbody>
+				</tgroup>
+			</informaltable>
+		</sect2>
+	</sect1>
 </chapter>
