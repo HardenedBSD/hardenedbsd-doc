@@ -974,9 +974,13 @@ options	PAX_ASLR</programlisting>
 			    <link xlink:href="https://github.com/HardenedBSD/hardenedbsd/issues">here</link>
 			    and for ports
 			    <link xlink:href="https://github.com/HardenedBSD/hardenedbsd-ports/issues">here</link>.
-			    When submitting bug reports, please include the version of HardenedBSD
-			    and the architecture. If a kernel panic is being reported, please
-			    include a backtrace along with any other relevant debugging information.
+			    When submitting bug reports, please include the following information:
+			    <itemizedlist>
+				    <listitem><para>HardenedBSD version</para></listitem>
+				    <listitem><para>Architecture</para></listitem>
+				    <listitem><para>If the report concers a kernel panic, the backtrace of the panic</para></listitem>
+				    <listitem><para>Steps to reproduce the bug</para></listitem>
+			    </itemizedlist>
 			</para>
 		</sect2>
 		<sect2>
@@ -1047,6 +1051,12 @@ options	PAX_ASLR</programlisting>
 							<entry>HardenedBSD-Playground</entry>
 							<entry>arm64</entry>
 							<entry>HardenedBSD 12-CURRENT with SafeStack ported to arm64</entry>
+						</row>
+						<row>
+							<entry>hardened/current/cross-dso-cfi</entry>
+							<entry>HardenedBSD-Playground</entry>
+							<entry>N/A</entry>
+							<entry>HardenedBSD 12-CURRENT with Cross-DSO-CFI support</entry>
 						</row>
 					</tbody>
 				</tgroup>
