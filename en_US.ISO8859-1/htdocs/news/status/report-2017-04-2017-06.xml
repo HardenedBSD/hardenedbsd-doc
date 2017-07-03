@@ -460,4 +460,197 @@
 	the goal is to remove it before &os; 12.0.</p>
     </body>
   </project>
+
+  <project cat='proj'>
+    <title>DTS Updates</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Emmanuel</given>
+	  <common>Vadot</common>
+	</name>
+	<email>manu@FreeBSD.org</email>
+      </person>
+    </contact>
+
+
+    <body>
+      <p>DTS (Device Tree Source) files provide a human-readable
+	source description of the hardware resources for a given
+	computer system (such as ARM- or MIPS-based embedded boards).
+	The DTS source representation must be compiled into a binary
+	format in order to be linked into the kernel and used to
+	locate devices at runtime.</p>
+
+      <p>The DTS files in &os; were updated to match the versions from
+	Linux 4.11, to represent more modern devices and provide more
+	accurate representations.</p>
+    </body>
+  </project>
+
+  <project cat='ports'>
+    <title>Updating Port Metadata for non-x86 Architectures</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Mark</given>
+	  <common>Linimon</common>
+	</name>
+	<email>linimon@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="http://thunderx1.nyi.FreeBSD.org/jail.html?mastername=110arm64-default">aarch64 Poudriere Machine</url>
+      <url href="http://beefy8.nyi.FreeBSD.org/jail.html?mastername=head-armv6-default">armv6 Poudriere Machine</url>
+    </links>
+
+    <body>
+      <p>I have been analyzing the error logs from ports builds for
+	all non-x86 architectures, including both the logs published
+	on the package build cluster and also other builds of
+	powerpc64 and sparc64.</p>
+
+      <p>From this analysis, I have marked almost all the failing
+	ports as either <tt>BROKEN</tt> or
+	<tt>NOT_FOR</tt>/<tt>ONLY_FOR</tt>, as appropriate.</p>
+
+      <p>The intent of this work is not to make life harder for
+	anyone, but rather, in fact, the opposite.  With these
+	definitions in place, it is possible to scan the poudriere
+	bulk build output (the &quot;Ignored ports&quot; portion, in
+	particular) and see quickly what ports are failing to build
+	and why.  Previously, finding the exact reason why a build
+	failed needed some research (<tt>portsmon</tt> only models
+	failure messages on amd64).  Additionally, it is extremely
+	difficult to work through several hundred logs that simply say
+	&quot;failed to compile&quot;, &quot;failed to link&quot;, and
+	so forth.</p>
+
+      <p>This is part of an effort to identify where we need further
+	work to bring sufficient Ports Collection support to, e.g.,
+	armv6 and aarch64 to bring them closer to true Tier-1
+	status.</p>
+
+      <p>To further facilitate locating patterns in the Poudriere
+	output, I have begun reworking some existing
+	<tt>BROKEN</tt>/<tt>NOT_FOR</tt>/<tt>ONLY_FOR</tt> messages so
+	that they will sort more easily.  This includes sorting the
+	order of the <tt>ARCH</tt> definitions.</p>
+
+      <p>Many people have been doing great work on fixing the
+	individual ports.  I hope that my work makes their jobs
+	somewhat easier.</p>
+    </body>
+  </project>
+
+  <project cat='kern'>
+    <title>&os; Driver for the Annapurna Labs ENA</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Marcin</given>
+	  <common>Wojtas</common>
+	</name>
+	<email>mw@semihalf.com</email>
+      </person>
+
+      <person>
+	<name>
+	  <given>Michał</given>
+	  <common>Krawczyk</common>
+	</name>
+	<email>mk@semihalf.com</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking.html">Enhanced Networking Guide</url>
+    </links>
+
+    <body>
+      <p>ENA (Elastic Network Adapter) is a 25G SmartNIC developed by
+	Annapurna Labs and is based on a custom ARMv8 chip.  This is a
+	high performance networking card available in AWS offering.
+	It introduces enhancements in network utilization scalability
+	on EC2 machines under control of various operating systems, in
+	particular &os;.</p>
+
+      <p>The goal of &os; enablement is to provide top performance and
+	a wide range of monitoring and management features such
+	as:</p>
+
+      <ul>
+	<li>multiple queue modes</li>
+
+	<li>hardware offloads (rx and tx checksum)</li>
+
+	<li>admin queue</li>
+
+	<li>asynchronous notifications</li>
+
+	<li>robust hardware access</li>
+
+	<li>a scalable number of MSI-X vectors</li>
+
+	<li>hardware counters</li>
+
+	<li>watchdog mechanism</li>
+
+	<li>LRO</li>
+
+	<li>RSS</li>
+      </ul>
+
+      <p>The driver is now available in kernel source tree since
+	r318647.</p>
+    </body>
+
+    <sponsor>Annapurna Labs &mdash; an Amazon company</sponsor>
+
+    <help>
+      <task>Add RSS configuration from userspace (sysctls).</task>
+
+      <task>Add support for LLQ mechanisms.</task>
+    </help>
+  </project>
+
+  <project cat='doc'>
+    <title>Absolute &os;, 3rd Edition</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Michael</given>
+	  <common>Lucas</common>
+	</name>
+	<email>mwlucas@michaelwlucas.com</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://blather.michaelwlucas.com/archives/2972">Status as of 30 June</url>
+      <url href="https://www.michaelwlucas.com/os/af2e">Second Edition</url>
+      <url href="https://twitter.com/search?q=%23af3e&amp;src=typd">Trivial Updates</url>
+    </links>
+
+    <body>
+      <p>I'm working on a third edition of <i>Absolute &os;</i>. This
+	will be a nearly complete rewrite, thanks to the addition of
+	little details like ZFS, GPT, <tt>dma</tt>, GELI, new boot
+	stuff, disk labeling, <tt>pkg(8)</tt>, <tt>blacklistd</tt>,
+	jails, etc..</p>
+
+      <p>My current (delusional) plan is to have a first draft
+	finished by the end of October 2017, so we can have print
+	copies for BSDCan 2018.</p>
+    </body>
+
+    <help>
+      <task>Write the remaining 75% of the book.</task>
+    </help>
+  </project>
 </report>
