@@ -653,4 +653,372 @@
       <task>Write the remaining 75% of the book.</task>
     </help>
   </project>
+
+  <project cat="kern">
+    <title>pNFS Werver Plan B</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Rick</given>
+	  <common>Macklem</common>
+	</name>
+	<email>rmacklem@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="http://people.FreeBSD.org/~rmacklem/pnfs-planb-setup.txt">Testing Instructions</url>
+    </links>
+
+    <body>
+      <p>Parallel NFS (pNFS) is an extension to the NFSv4 protocol that
+	allows for file accesses within a single logical mount to be
+	performed against multiple file servers, with the potential
+	for data access to occur in parallel.  The pNFS
+	&quot;layout&quot; in use specifies how the division occurs, with
+	metadata operations occurring against the main server, and
+	bulk data operations (read/write/setattr/etc.) occurring via
+	a layout-specific scheme between the client and data
+	servers.</p>
+
+      <p>My first attempt at a pNFS server using GlusterFS was a dud.
+	It worked, but performance was so poor that it was not
+	usable.  This attempt that I call &quot;Plan B&quot;, only
+	uses &os;, with one &os; server handling the metadata
+	operations and multiple &os; servers configured to serve
+	data, is now ready for third party testing.  If testing by
+	third parties goes well, I anticipate the code will be
+	merged into &os; head in time for &os;&nbsp;12.  Fairly
+	recent &os; or Linux systems should be usable as pNFS
+	clients for testing.  This server supports the File Layout,
+	which is supported by both of these clients.</p>
+
+      <p>There is no support for the Flex Files Layout or mirroring
+	at this time.  I hope to use the Flex Files Layout to add
+	mirroring support over the next year or so.  Striping is not
+	supported, and I have no plans for implementing this at the
+	moment.</p>
+
+      <p>The patched &os; sources may now be accessed for testing
+	via either Subversion or download of a gzipped tarball.
+	They consist of a patched kernel plus nfsd daemon and can be
+	used on any &os;&nbsp;11 or later system.</p>
+    </body>
+
+    <help>
+      <task>Testing by others will be needed, now that the code is
+	available.</task>
+    </help>
+  </project>
+
+  <project cat='doc'>
+    <title>New Xen Handbook Section</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Benedict</given>
+	  <common>Reuschling</common>
+	</name>
+	<email>bcr@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://www.FreeBSD.org/doc/en_US.ISO8859-1/books/handbook/virtualization-host-xen.html">Handbook Section About &os; as a Xen Host</url>
+      <url href="https://reviews.freebsd.org/D10774">Original Phabricator Review</url>
+    </links>
+
+    <body>
+      <p>&os; supports the Xen hypervisor, with DomU support since
+	&os;&nbsp;8.0 and Dom0 available since &os;&nbsp;11.0.  The
+	&os; Handbook was lacking instructions on how to run a Xen
+	host and VMs.  The steps were outlined in the &os; wiki, but
+	needed some extra bits of text from the upstream Xen wiki in
+	order to form a complete guide.  The new handbook section
+	briefly explains what Xen is, how it differs from other
+	hypervisors, and what features are currently available in
+	&os;.  It then goes on to describe how to set up the Dom0, as
+	well as detailing the guest VM support known as DomU.</p>
+
+      <p>Reviewers Nikolai Lifanov, Roger Pau Monné, and Warren Block
+	provided valuable feedback on the initial version in
+	Phabricator.  Additional corrections were found by Björn
+	Heidotting while translating the section into German.</p>
+    </body>
+
+    <help>
+      <task>More options for the Dom0 and DomU could be provided.</task>
+
+      <task>People should test these instructions on their hardware
+	and provide feedback.  This would also help us get better
+	testing of the Xen port for &os;.</task>
+    </help>
+  </project>
+
+  <project cat='ports'>
+    <title>Xfce on &os;</title>
+
+    <contact>
+      <person>
+	<name>&os; Xfce Team</name>
+	<email>xfce@FreeBSD.org</email>
+      </person>
+
+      <person>
+	<name>
+	  <given>Olivier</given>
+	  <common>Duchateau</common>
+	</name>
+	<email>duchateau.olivier@gmail.com</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://wiki.FreeBSD.org/Xfce">&os; Xfce Project</url>
+      <url href="https://www.assembla.com/spaces/xfce4/subversion/source">Ports Development Repository</url>
+    </links>
+
+    <body>
+      <p>Xfce is a free software desktop environment for Unix and
+	Unix-like platforms such as &os;.  It aims to be fast and
+	lightweight, while still being visually appealing and easy to
+	use.</p>
+
+      <p>During this quarter, we have kept these applications up-to-date:</p>
+
+      <ul>
+	<li><tt>audio/xfce4-pulseaudio-plugin</tt> (0.2.5, <a
+	    href="https://bugs.FreeBSD.org/bugzilla/show_bug.cgi?id=219357">PR219357</a>)</li>
+
+	<li><tt>deskutils/xfce4-tumbler</tt> (0.1.32, <a
+	    href="https://bugs.FreeBSD.org/bugzilla/show_bug.cgi?id=219848">PR219848</a>)</li>
+
+	<li><tt>deskutils/xfce4-xkb-plugin</tt> (0.8.0, <a
+	    href="https://bugs.FreeBSD.org/bugzilla/show_bug.cgi?id=220071">PR220071</a>)</li>
+
+	<li><tt>sysutils/garcon</tt> (0.6.1, <a
+	    href="https://bugs.FreeBSD.org/bugzilla/show_bug.cgi?id=219928">PR219928</a>,
+	  and <a
+	    href="https://bugs.FreeBSD.org/bugzilla/show_bug.cgi?id=219334">PR219334</a>
+	  for <tt>Mk/Uses/xfce.mk</tt>)</li>
+
+	<li><tt>textproc/xfce4-dict-plugin</tt> (0.8.0, <a
+	    href="https://bugs.FreeBSD.org/bugzilla/show_bug.cgi?id=220266">PR220266</a>)</li>
+
+	<li><tt>x11/xfce4-terminal</tt> (0.8.5.1, <a
+	    href="https://bugs.FreeBSD.org/bugzilla/show_bug.cgi?id=219312">PR219312</a>)</li>
+
+	<li><tt>x11/xfce4-whiskermenu-plugin</tt> (1.7.2, <a
+	    href="https://bugs.FreeBSD.org/bugzilla/show_bug.cgi?id=219347">PR219347</a>)</li>
+
+	<li><tt>x11-wm/xfce4-desktop</tt> (4.12.4, <a
+	    href="https://bugs.FreeBSD.org/bugzilla/show_bug.cgi?id=220290">PR220290</a>)</li>
+      </ul>
+
+      <p>We have created new Subversion tag (<em>4.13</em>) in order
+	to follow the unstable releases (due to changes in <tt>USES=
+	xfce</tt> infrastucture, and not backward compatible new API
+	in <tt>xfconf</tt>).  Ports following unstable release
+	are:</p>
+
+      <ul>
+	<li><tt>deskutils/xfce4-tumbler</tt> (0.1.92.1)</li>
+
+	<li><tt>multimedia/xfce4-parole</tt> (0.9.2)</li>
+
+	<li><tt>sysutils/xfce4-settings</tt> (4.13.1)</li>
+
+	<li><tt>x11/libexo</tt> (0.11.3)</li>
+
+	<li><tt>x11/libxfce4menu</tt> (4.13.2)</li>
+
+	<li><tt>x11/libxfce4util</tt> (4.13.1)</li>
+
+	<li><tt>x11/xfce4-conf</tt> (4.13.2)</li>
+
+	<li><tt>x11/xfce4-dashboard</tt> (0.7.2)</li>
+
+	<li><tt>x11/xfce4-screenshooter</tt> (1.9.1)</li>
+
+	<li><tt>x11/xfce4-whiskermenu-plugin</tt> (2.1.2)</li>
+
+	<li><tt>x11-wm/xfce4-desktop</tt> (4.13.1)</li>
+
+	<li><tt>x11-wm/xfce4-panel</tt> (4.13.0)</li>
+
+	<li><tt>x11-wm/xfce4-session</tt> (4.13.0)</li>
+
+	<li><tt>x11-wm/xfce4-wm</tt> (4.13.0)</li>
+      </ul>
+    </body>
+
+    <help>
+      <task>Make the transition to Gtk3 smoother for end users.</task>
+    </help>
+  </project>
+
+  <project cat='ports'>
+    <title>GNOME on &os;</title>
+
+    <contact>
+      <person>
+	<name>&os; GNOME Team</name>
+	<email>FreeBSD-gnome@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="http://www.FreeBSD.org/gnome">&os; GNOME Website</url>
+      <url href="https://github.com/&os;/FreeBSD-ports-gnome">Development Repository</url>
+      <url href="https://wiki.gnome.org/Projects/Jhbuild/&os;">Upstream Build Bot</url>
+      <url href="https://www.FreeBSD.org/doc/en_US.ISO8859-1/books/porters-handbook/using-gnome.html"><tt>USE_GNOME</tt> Porter's Handbook Chapter</url>
+    </links>
+
+    <body>
+      <p>The &os; GNOME Team maintains the GNOME, MATE, and CINNAMON
+	desktop environments and graphical user interfaces for &os;.
+	GNOME 3 is part of the GNU Project.  MATE is a fork of the
+	GNOME 2 desktop.  CINNAMON is a desktop environment using
+	GNOME 3 technologies but with a GNOME 2 look and feel.</p>
+
+      <p>After a period of not much activity, this quarter we
+	started a little experiment in how we merge ports from the
+	development repo to the &os; Ports Collection.  Instead of
+	merging everything in one big commit, we have been updating
+	the GNOME ports one at a time or in small groups.  For
+	example, the GTK+ stack and the Evolution Suite were updated
+	as groups, and all the gnome-games were done in one commit.
+	It might be a bit more work preparing and testing the
+	updates, but on the plus side, it easy to keep track of what
+	is going on, and allows us to pay attention to the details.
+	And it should be easier to commit smaller changes.</p>
+
+      <p>This quarter started with the update of GTK+ 3 to 3.22.15,
+	and the underlying libraries to their latest stable
+	versions.  After the GTK+ update, work started on getting
+	newer versions of other GNOME applications updated.</p>
+
+      <p>The <tt>webkit2-gtk3</tt> port was first updated to the
+	2.14 series and later to 2.16.3, which is the latest stable
+	version.  This step was needed because 2.16 couldn't be
+	built on &os;&nbsp;10.3 without some required framework
+	changes.</p>
+
+      <p><tt>harfbuzz-icu</tt> was split off from the main
+	<tt>harfbuzz</tt> port.  This drops the heavy <tt>icu</tt>
+	dependency from the main <tt>harfbuzz</tt> port.</p>
+
+      <p>A longstanding GLib/<tt>gio</tt> bug was fixed that had
+	previously caused crashes of <tt>gnome-shell</tt> and other
+	applications when <tt>share/applications</tt> was modified,
+	as happens on <tt>pkg install</tt> or
+	<tt>deinstall</tt>.</p>
+
+      <p>Many of these updates are based on work previous.y done in
+	the Gnome development branch by Ruslan Makhmatkhanov, Gustau
+	Perez and Koop Mast.</p>
+    </body>
+
+    <help>
+      <task>Porting of Mutter/Gnome-shell/GDM 3.24 is complete.
+	Unfortunately, GDM is blocking the update because of a
+	&quot;handoff&quot; bug to the session after login.</task>
+
+      <task>Fix the control-center printer sub menu.  As a
+	workaround, <tt>system-config-printer</tt> can be used to
+	configure printers.</task>
+
+      <task>MATE 1.18 is being QA tested and should arrive in early
+	July.</task>
+    </help>
+  </project>
+
+  <project cat='ports'>
+    <title>TensorFlow</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Jov</given>
+	</name>
+	<email>amutu@amutu.com</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://bugs.FreeBSD.org/bugzilla/show_bug.cgi?id=219609">TensorFlow PR</url>
+      <url href="https://reviews.FreeBSD.org/D11194">Phabricator Review</url>
+      <url href="https://github.com/amutu/tf-FreeBSD-pkg">Prebuilt Packages</url>
+      <url href="https://www.tensorflow.org">TensorFlow Upstream</url>
+    </links>
+
+    <body>
+      <p>As described on its website, &quot;TensorFlow is an open
+	source software library for numerical computation using data
+	flow graphs.  Nodes in the graph represent mathematical
+	operations, while the graph edges represent the
+	multidimensional data arrays (tensors) communicated between
+	them.  The flexible architecture allows you to deploy
+	computation to one or more CPUs or GPUs in a desktop, server,
+	or mobile device with a single API.  TensorFlow was originally
+	developed by researchers and engineers working on the Google
+	Brain Team within Google's Machine Intelligence research
+	organization for the purposes of conducting machine learning
+	and deep neural networks research, but the system is general
+	enough to be applicable in a wide variety of other domains as
+	well.&quot;</p>
+
+      <p>TensorFlow now is the most popular platform/library for machine
+	learning and AI.  There are official binaries for Linux, Mac,
+	Windows, and Android, but no official support for &os;.  For
+	the last several months, I have done some work to make
+	TensorFlow available on &os;.  Some notable work:</p>
+
+      <ul>
+	<li>Patch <tt>bazel</tt> to not depend on <tt>/proc</tt> at
+	  build time. <tt>bazel</tt> is a build tool made by Google.
+	  It uses <tt>/proc</tt> to get path-to-self when building C++
+	  code, but mounting <tt>/proc</tt> is usually not allowed
+	  when building as an unprivileged user.</li>
+
+	<li>TensorFlow can now be built on &os;&nbsp;10.x by using
+	  <tt>clang38</tt> as the default <tt>bazel</tt> cross-build
+	  tool.</li>
+
+	<li>Patch the <tt>bazel</tt> workspace files to allow
+	  TensorFlow to be built using offline third-party
+	  dependencies.  This work is needed because the &os; Ports
+	  framework does not allow network access except during the
+	  fetch stage.</li>
+
+	<li>Fix the build on &os; i386.</li>
+
+	<li>Make TensorFlow build with either Python 2 or Python 3.</li>
+
+	<li>Update to the latest version, which is
+	  <tt>tensorflow</tt>-1.2.0.</li>
+      </ul>
+
+      <p>This port would not be possible without substantial
+	assistance from bapt@, lwhsu@, mat@, and koobs@ &mdash; thank
+	you for your help!  You are very nice and I learned a lot
+	about &os; and the Ports framework from your help.</p>
+    </body>
+
+    <help>
+      <task>Review, test, comment, and most importantly, commit to the
+	Ports Collection.</task>
+
+      <task>Fix the OpenCL support on &os;.</task>
+
+      <task>Port <tt>tensorflow-serving</tt>, which is a flexible,
+	high-performance serving system for machine learning models
+	produced by TensorFlow.</task>
+
+      <task>Set up a CI for TensorFlow on &os; and give early notice
+	to upstream when they break TensorFlow on &os;.</task>
+    </help>
+  </project>
 </report>
