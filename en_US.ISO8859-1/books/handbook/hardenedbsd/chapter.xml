@@ -1063,4 +1063,47 @@ options	PAX_ASLR</programlisting>
 			</informaltable>
 		</sect2>
 	</sect1>
+	<sect1 xml:id="hardenedbsd-updating">
+		<title>Updating HardenedBSD</title>
+		<sect2>
+			<title>Updating the Base Operating System</title>
+			<para>HardenedBSD does not use &man.freebsd-update.8;. Instead, HardenedBSD
+			    uses an utility known as hbsd-update. hbsd-update does not use deltas for
+			    publishing updates, but rather distributes the base operating system as a
+			    whole. Not utilizing deltas incurs a bandwidth overhead, but is easier to
+			    maintain and mirror. hbsd-update relies on DNSSEC-signed TXT records for
+			    distributing version information.</para>
+			<para>hbsd-update is configured via a config file placed at
+			    <filename>/etc/hbsd-update.conf</filename>. hbsd-update works on a branch
+			    level, meaning it tracks branches within HardenedBSD's source tree. Thus,
+			    updating from one major version to another requires changing the dnsrec
+			    and branch variables in <filename>hbsd-update.conf</filename>. For example,
+			    the <filename>hbsd-update.conf</filename> for the hardened/current/master
+			    branch in the HardenedBSD repo:</para>
+		    	<programlisting>dnsrec="$(uname -m).master.current.hardened.hardenedbsd.updates.hardenedbsd.org"
+capath="/usr/share/keys/hbsd-update/trusted"
+branch="hardened/current/master"
+baseurl="http://updates.hardenedbsd.org/pub/HardenedBSD/updates/${branch}/$(uname -m)"
+</programlisting>
+			<para>And as another example, the <filename>hbsd-update.conf</filename>
+			    for the hardened/11-stable/master branch in the HardenedBSD repo:</para>
+		    	<programlisting>dnsrec="$(uname -m).master.11-stable.hardened.hardenedbsd.updates.hardenedbsd.org"
+capath="/usr/share/keys/hbsd-update/trusted"
+branch="hardened/11-stable/master"
+baseurl="http://updates.hardenedbsd.org/pub/HardenedBSD/updates/${branch}/$(uname -m)"
+</programlisting>
+			<para>Thus, generating a diff between the two configuration files would
+			    result in:</para>
+		    	<programlisting>--- hbsd-update_current.conf	2017-07-21 20:08:22.153616000 -0400
++++ hbsd-update_11-stable.conf	2017-07-21 20:08:38.003508000 -0400
+@@ -1,4 +1,4 @@
+-dnsrec="$(uname -m).master.current.hardened.hardenedbsd.updates.hardenedbsd.org"
++dnsrec="$(uname -m).master.11-stable.hardened.hardenedbsd.updates.hardenedbsd.org"
+ capath="/usr/share/keys/hbsd-update/trusted"
+-branch="hardened/current/master"
++branch="hardened/11-stable/master"
+ baseurl="http://updates.hardenedbsd.org/pub/HardenedBSD/updates/${branch}/$(uname -m)"
+ </programlisting>
+		</sect2>
+	</sect1>
 </chapter>
