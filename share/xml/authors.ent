@@ -1608,6 +1608,9 @@
 <!ENTITY a.mva "Marcus von Appen">
 <!ENTITY a.mva.email "&a.mva; <email xmlns='http://docbook.org/ns/docbook'>mva@FreeBSD.org</email>">
 
+<!ENTITY a.mw "Marcin Wojtas">
+<!ENTITY a.mw.email "&a.mw; <email xmlns='http://docbook.org/ns/docbook'>mw@FreeBSD.org</email>">
+
 <!ENTITY a.mwlucas "Michael W. Lucas">
 <!ENTITY a.mwlucas.email "&a.mwlucas; <email xmlns='http://docbook.org/ns/docbook'>mwlucas@FreeBSD.org</email>">
 
