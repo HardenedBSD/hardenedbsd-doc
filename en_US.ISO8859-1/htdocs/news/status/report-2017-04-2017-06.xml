@@ -1457,4 +1457,207 @@
 	Adriaan de Groot also wrote a blog post about the change.</p>
     </body>
   </project>
+
+  <project cat='ports'>
+    <title>PHP Ports: Help Improving QA</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Torsten</given>
+	  <common>Zühlsdorff</common>
+	</name>
+	<email>tz@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://www.patreon.com/TorstenZuehlsdorff">My Patreon Page</url>
+    </links>
+
+    <body>
+      <p>As maintainer of the PHP ports, I first want to thank you all
+	for the great feedback and patches I receive, in many forms.
+	You keep my life interesting!</p>
+
+      <p>In the past few months I learned a lot about various
+	configurations, settings and bugs.  Also, sadly, there are
+	always PRs, patches and emails left unanswered, because of
+	missing time on my side.</p>
+
+      <p>I want to improve the situation by adding more automatic QA
+	testing, but I need help to do so.  Please send me your
+	non-standard PHP-configurations or describe your exotic
+	setups!  These can be as simple as changed default versions,
+	like LibreSSL instead of OpenSSL or the GCC version used for
+	compiling.  I, for example, use always another
+	PostgreSQL-version than default (and always PHP 7.1).  Of
+	course, this also covers options set in an non-default way or
+	setups changing variables to allow for multiple PHP
+	installations, etc..</p>
+
+      <p>I plan to test on all supported &os; versions, so you only
+	need to mention if you are using an unsupported version.</p>
+
+      <p>Note: Since PHP 7.2 is coming (hopefully on schedule), I will
+	test PHP 7.2 from the onset with all the provided
+	configurations, too.</p>
+    </body>
+
+    <help>
+      <task>Document the various configurations to be tested.</task>
+
+      <task>Setup the automatic QA infrastructure.</task>
+    </help>
+  </project>
+
+  <project cat='proj'>
+    <title>Capability-Based Network Communication for Capsicum/CloudABI</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Ed</given>
+	  <common>Schouten</common>
+	</name>
+	<email>ed@nuxi.nl</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://github.com/NuxiNL/arpc">ARPC: GRPC-Like RPC Library That Wupports File Descriptor Passing</url>
+      <url href="https://github.com/NuxiNL/flower">Flower: A Label-Based Network Backplane</url>
+    </links>
+
+    <body>
+      <p>One of the weaknesses of Capsicum and CloudABI is that it is
+	not easy to develop applications that need to make outgoing
+	network connections, since system calls like
+	<tt>connect()</tt> and <tt>sendto()</tt> are disabled.  Though
+	we can sometimes work around this by ensuring that the
+	sandboxed process already possesses socket file descriptors on
+	startup, this doesn't allow the destination process to be
+	restarted, moved to a different network address, be load
+	balanced, etc.</p>
+
+      <p>Coming up with a solution for this is quite important for me,
+	as I am currently working on making CloudABI work on top of
+	Kubernetes, Google's open source cluster management suite.
+	The idea is that Kubernetes will schedule CloudABI processes
+	instead of Docker containers.  All of these CloudABI processes
+	will have their dependencies on other services in the cluster
+	injected explicitly, making internal communication very
+	secure.  All of this is intended to work on &os; as well, of
+	course!</p>
+
+      <p>To solve this problem, I've been working on a daemon called
+	Flower (read: flow-er) that allows software to register
+	services and connect to them.  Servers are identified by a set
+	of labels with values (e.g., <tt>{datacenter: 'frankfurt',
+	service: 'mysql'}</tt>).  Clients can connect these servers by
+	providing the corresponding label(s).  Flower's security model is
+	capability-based, just like Capsicum.  The ability to bind and
+	connect can be limited by permanently constraining labels to
+	certain values.</p>
+
+      <p>Flower has been designed not to act as a proxy.  It does
+	not copy any data.  It merely forwards existing socket file
+	descriptors or creates UNIX socket pairs and hands these out
+	to its clients and servers.  To realize this, processes
+	communicate with Flower using an RPC library called ARPC.
+	ARPC is a very simple clone of Google's GRPC, with the special
+	feature that messages (Protobufs) can have file descriptors
+	attached.</p>
+    </body>
+
+    <sponsor>Nuxi, the Netherlands</sponsor>
+
+    <help>
+      <task>Finish implementing the Flower code.</task>
+
+      <task>Integrate Flower with the Kubernetes/CloudABI runtime.</task>
+
+      <task>Release the Kubernetes/CloudABI runtime as open source
+	software.</task>
+    </help>
+  </project>
+
+  <project cat='team'>
+    <title>Ports Collection</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>René</given>
+	  <common>Ladan</common>
+	</name>
+	<email>portmgr-secretary@FreeBSD.org</email>
+      </person>
+
+      <person>
+	<name>&os; Ports Management Team</name>
+	<email>portmgr@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://www.FreeBSD.org/ports/">About &os; Ports</url>
+      <url href="https://www.freebsd.org/doc/en_US.ISO8859-1/articles/contributing/ports-contributing.html">Contributing to ports</url>
+      <url href="http://portsmon.freebsd.org/index.html">&os; Ports Monitoring</url>
+      <url href="https://www.freebsd.org/portmgr/index.html">Ports Management Team</url>
+      <url href="https://twitter.com/freebsd_portmgr/">&os; portmgr on Twitter (@freebsd_portmgr)</url>
+      <url href="https://www.facebook.com/portmgr">&os; Ports Management Team on Facebook</url>
+      <url href="https://plus.google.com/communities/108335846196454338383">&os; Ports Management Team on Google+</url>
+    </links>
+
+    <body>
+      <p>This quarter, 2017Q2, broke the 30,000 ports landmark for the
+	first time.  The PR count is currently just under 2,500 with
+	almost 600 of them unassigned.  This quarter saw almost 7,400
+	commits from 171 committers.  More PRs got closed this
+	quarter, but also more PRs got sent in, both of which are good
+	to see.</p>
+
+      <p>Over the past three months, we welcomed four new committers:
+	Bradley T.  Hughes (bhughes@), Danilo G. Baio (dbaio@), Jochen
+	Neumeister (joneum@), and Richard Gallamore (ultima@).  kan@
+	re-joined us as a ports committer.  One commit bit, that of
+	bf@, was taken in for safekeeping after a long period of
+	inactivity.</p>
+
+      <p>On the management side, the Port Management Team welcomed
+	back bapt@, who is working on several new features for the
+	Ports Tree.  The Port Management Team also had its annual
+	real-life meeting during BSDCan.</p>
+
+      <p>On the infrastructure side, three new <tt>USES</tt> values
+	were introduced:</p>
+
+      <ul>
+	<li><tt>cargo</tt>, to ease the porting of Rust packages or
+	  binaries using the <tt>cargo</tt> command (also covered
+	  separately in this report).</li>
+
+	<li><tt>groff</tt>, to handle the dependency on the
+	  <tt>groff</tt> document formatting system, that has been
+	  removed from the base system for &os; 12.</li>
+
+	<li><tt>meson</tt>, to provide support for projects based on
+	  Meson.</li>
+      </ul>
+
+      <p>The default version of PostgreSQL switched from 9.3 to 9.5,
+	and that of Python3 from 3.5 to 3.6.  The default generator
+	for ports using <tt>cmake</tt> has been switched to
+	<tt>ninja</tt>.</p>
+
+      <p>Some major version updates are: <tt>pkg</tt> 1.10.1, Firefox
+	54.0.1, and Chromium 59.0.3071.115.</p>
+
+      <p>Behind the scenes, antoine@ ran 36 exp-runs to test version updates,
+	making CRAN ports platform-independent, test installing
+	bsdgrep(1) as <tt>/usr/bin/grep</tt>, test LLVM updates, test
+	the ino64 project, and perform Makefile cleanups.</p>
+    </body>
+  </project>
 </report>
