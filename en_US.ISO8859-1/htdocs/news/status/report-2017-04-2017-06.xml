@@ -1660,4 +1660,98 @@
 	the ino64 project, and perform Makefile cleanups.</p>
     </body>
   </project>
+
+  <project cat='kern'>
+    <title>Coda revival</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Edward Tomasz</given>
+	  <common>Napiera&#322;a</common>
+	</name>
+	<email>trasz@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://github.com/trasz/FreeBSD/tree/coda">GitHub Repository</url>
+    </links>
+
+    <body>
+      <p>Coda is a distributed file system developed as a research
+	project at Carnegie Mellon University, descended from a older
+	version of the Andrew File System.  It got dropped from &os;
+	some five years ago, due to not having been adopted for a
+	MPSAFE world.  The focus for this current project is to bring
+	it back into sufficiently workable shape that it could return
+	to the kernel.  It is currently in a working condition.  Work
+	is underway to test it better, fix whatever issues are found,
+	and commit it to 12-CURRENT.</p>
+    </body>
+
+    <sponsor>Chalmers University of Technology</sponsor>
+
+    <help>
+      <task>Additional testing.</task>
+
+      <task>Update the userspace components (<tt>net/coda_client</tt>
+	and <tt>net/coda_server</tt>).</task>
+    </help>
+  </project>
+
+  <project cat='arch'>
+    <title>&os;/arm64</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Andrew</given>
+	  <common>Turner</common>
+	</name>
+	<email>andrew@FreeBSD.org</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://wiki.FreeBSD.org/arm64">&os; arm64 Wiki Page</url>
+    </links>
+
+    <body>
+      <p>Support for the Privilege Access Never (PAN) feature was
+	added.  This stops the kernel from accessing userspace
+	memory, except through specific instructions.  This helps
+	security by only allowing access to userspace via the
+	correct accessor functions.  This is enabled on all
+	supported CPUs that implement ARMv8.1 or later.</p>
+
+      <p>The <tt>pmap</tt> code now supports the Unprivileged
+	execute-never (UXN) and Privileged execute-never (PXN) bits
+	in the page tables.  These bits stop userspace and the
+	kernel, respectively, from executing instructions on any
+	marked page.</p>
+
+      <p>The performance of the pmap layer has been improved.  Many
+	of the cache handling function calls have been removed.
+	Some were needed early on to work around other bugs that
+	have now been fixed.  The removal of these calls has led to
+	a large performance improvement.</p>
+
+      <p>The kernel now uses <tt>crc32c</tt> instructions where
+	appropriate.  These are an optional set of instructions to
+	perform <tt>crc32c</tt> quickly without using a lookup
+	table.c</p>
+
+      <p>The <tt>VM_MEMATTR_WRITE_THROUGH</tt> memory attribute is
+	now supported.  This is used to allocate memory for the
+	framebuffer.  Previously, the kernel would use cached
+	memory; however, this leads to visual artifacts.  The
+	write-through flag fixes these by writing data out to
+	RAM.</p>
+
+      <p>The default linker on arm64 is now <tt>lld</tt>.  This
+	means &os; is able to built itsself with just the components
+	in the base system, a big milestone!</p>
+    </body>
+  </project>
 </report>
