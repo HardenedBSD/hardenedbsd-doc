@@ -48,7 +48,7 @@
     <programlisting># &dollar;FreeBSD&dollar;
 
 PORTNAME=	oneko
-PORTVERSION=	1.1b
+DISTVERSION=	1.1b
 CATEGORIES=	games
 MASTER_SITES=	ftp://ftp.cs.columbia.edu/archives/X11R5/contrib/
 
@@ -306,11 +306,6 @@ lib/X11/oneko/mouse.xpm</programlisting>
       </step>
 
       <step>
-	<para><command>pkg add
-	    <replaceable>package-filename</replaceable></command></para>
-      </step>
-
-      <step>
 	<para><command>make package</command> (as user)</para>
       </step>
     </procedure>
@@ -418,7 +413,8 @@ lib/X11/oneko/mouse.xpm</programlisting>
       <para>Giving a good description in the summary of the problem
 	report makes the work of port committers a lot easier.  We
 	prefer something like <quote>New port:
-	  <replaceable>category</replaceable>/<replaceable>portname</replaceable> <replaceable>short description of
+	  <replaceable>category</replaceable>/<replaceable>portname</replaceable>
+	  <replaceable>short description of
 	    the port</replaceable></quote> for new ports.  Using this
 	scheme makes it easier and faster to begin the work of
 	committing the new port.</para>

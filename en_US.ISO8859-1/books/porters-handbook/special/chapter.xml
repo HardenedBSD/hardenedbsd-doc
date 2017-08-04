@@ -72,23 +72,67 @@
       <buildtarget>post-install</buildtarget> target.  Avoid using
       absolute paths whenever possible.</para>
 
-    <para>When creating a symlink, <varname>STAGEDIR</varname>
-      is prepended to the target path only.  For
-      example:</para>
+    <tip>
+      <para>Ports that install kernel modules must prepend
+	<varname>STAGEDIR</varname> to their destination, by default
+	<filename>/boot/modules</filename>.</para>
+    </tip>
 
-    <programlisting>${LN} -sf <replaceable>libfoo.so.42</replaceable> ${STAGEDIR}${PREFIX}/lib/<replaceable>libfoo.so</replaceable></programlisting>
+    <sect2 xml:id="staging-symlink">
+      <title>Handling Symbolic Links</title>
 
-    <para>The source path
-      <filename>${PREFIX}/lib/<replaceable>libfoo.so.42</replaceable></filename>
-      looks fine but could, in fact, be incorrect.  Absolute paths can
-      point to a wrong location, like when a remote file system has
-      been mounted with <acronym>NFS</acronym> under a non-root mount
-      point.  Relative paths are less fragile, and often much
-      shorter.</para>
+      <para>When creating a symlink, there are two cases, either the
+	source and target are both within
+	<filename>${PREFIX}</filename>.  In that case, use
+	<command>${RLN}</command>.  In the other case, if one or both
+	of the paths are outside of <filename>${PREFIX}</filename>
+	use <command>${LN} -s</command> and only prepend
+	<filename>${STAGEDIR}</filename> to the target's path.</para>
 
-    <para>Ports that install kernel modules must prepend
-      <varname>STAGEDIR</varname> to their destination, by default
-      <filename>/boot/modules</filename>.</para>
+      <example xml:id="staging-ex1">
+	<title>Inside <filename>${PREFIX}</filename>, Create Relative
+	  Symbolic Links</title>
+
+	<para><command>${RLN}</command> uses &man.install.1;'s
+	  relative symbolic feature which frees the porter of
+	  computing the relative path.</para>
+
+	<programlisting>${RLN} ${STAGEDIR}${PREFIX}/lib/<replaceable>libfoo.so.42</replaceable> ${STAGEDIR}${PREFIX}/lib/<replaceable>libfoo.so</replaceable></programlisting>
+
+	<para>Will generate:</para>
+
+	<screen>&prompt.user; <userinput>ls -lF ${STAGEDIR}${PREFIX}/lib</userinput>
+  lrwxr-xr-x  1 nobody  nobody    181 Aug  3 11:27 libfoo.so@ -> libfoo.so.42
+  -rwxr-xr-x  1 nobody  nobody     15 Aug  3 11:24 libfoo.so.42*</screen>
+
+	<para>When used with paths not in the same directory:</para>
+
+	<programlisting>${RLN} ${STAGEDIR}${PREFIX}/libexec/foo/<replaceable>bar</replaceable> ${STAGEDIR}${PREFIX}/bin/<replaceable>bar</replaceable></programlisting>
+
+	<para>Will automatically generate the relative symbolic
+	  links:</para>
+
+	<screen>&prompt.user; <userinput>ls -lF ${STAGEDIR}${PREFIX}/bin</userinput>
+  lrwxr-xr-x  1 nobody  nobody    181 Aug  3 11:27 bar@ -> ../libexec/foo/bar</screen>
+      </example>
+
+      <example xml:id="staging-ex2">
+	<title>Outside <filename>${PREFIX}</filename>, Create Absolute
+	  Symbolic Links</title>
+
+	<para>When creating a symbolic link outside of
+	  <filename>${PREFIX}</filename>, the source must not contain
+	  <filename>${STAGEDIR}</filename>, the target, however,
+	  must:</para>
+
+	<programlisting>${LN} -sf <replaceable>/var/cache/${PORTNAME}</replaceable> ${STAGEDIR}${PREFIX}/share/<replaceable>${PORTNAME}</replaceable></programlisting>
+
+	<para>Will generate:</para>
+
+	<screen>&prompt.user; <userinput>ls -lF ${STAGEDIRDIR}${PREFIX}/share</userinput>
+  lrwxr-xr-x  1 nobody  nobody    181 Aug  3 11:27 foo@ -> /var/cache/foo</screen>
+      </example>
+    </sect2>
   </sect1>
 
   <sect1 xml:id="bundled-libs">
@@ -351,7 +395,7 @@
 	binary packages and the port's <varname>DISTFILES</varname>
 	will still be available via FTP/HTTP.</para>
 
-      <para> If this variable is set along with
+      <para>If this variable is set along with
 	<varname>NO_PACKAGE</varname>, then only the port's
 	<varname>DISTFILES</varname> will be available, and only via
 	FTP/HTTP.</para>
@@ -1415,10 +1459,9 @@ USE_XORG=	x11 xpm</programlisting>
 
       <programlisting>DEVELOPER=yes</programlisting>
 
-      <para>
-	in the environment or in <filename>/etc/make.conf</filename>.
-	This causes the ports framework to enable additional
-	checks.</para>
+      <para>in the environment or in
+	<filename>/etc/make.conf</filename>.  This causes the ports
+	framework to enable additional checks.</para>
     </sect2>
 
     <sect2 xml:id="use-gnome">
@@ -1454,7 +1497,7 @@ USE_XORG=	x11 xpm</programlisting>
       <programlisting># &dollar;FreeBSD&dollar;
 
 PORTNAME=	 regexxer
-PORTVERSION=	 0.10
+DISTVERSION=	 0.10
 CATEGORIES=	 devel textproc gnome
 MASTER_SITES=	 GNOME
 
@@ -2858,7 +2901,8 @@ USE_QT4=	moc_build qmake_build rcc_build uic_build</programlisting>
     <title>Using LXQt</title>
 
     <para>Applications depending on LXQt should set
-      <literal>USES+= lxqt</literal> and set <varname>USE_LXQT</varname>
+      <literal>USES+= lxqt</literal> and set
+      <varname>USE_LXQT</varname>
       to the list of required components from the table below</para>
 
     <table frame="none" xml:id="using-lxqt-components">
@@ -2929,7 +2973,8 @@ USE_LXQT=       buildtools libfmqt</programlisting>
 	The most current version is
 	<package role="port">java/openjdk8</package>, with
 	<package role="port">java/openjdk6</package> and
-	<package role="port">java/openjdk7</package> also available.</para>
+	<package role="port">java/openjdk7</package> also
+	available.</para>
 
       <table frame="none" xml:id="using-java-variables">
 	<title>Variables Which May be Set by Ports That Use
@@ -3486,7 +3531,7 @@ do-install:
 
       <important>
 	<para>Use <varname>WWWOWN</varname> and
-	  <varname>WWWGRP</varname> sparingly. Remember that every
+	  <varname>WWWGRP</varname> sparingly.  Remember that every
 	  file the web server can write to is a security risk waiting
 	  to happen.</para>
       </important>
@@ -3519,7 +3564,7 @@ do-install:
 	<title>Example Makefile for PEAR Class</title>
 
 	<programlisting>PORTNAME=       Date
-PORTVERSION=	1.4.3
+DISTVERSION=	1.4.3
 CATEGORIES=	devel www pear
 
 MAINTAINER=	example@domain.com
@@ -3554,7 +3599,7 @@ USES=	pear
 	    Module</title>
 
 	  <programlisting>PORTNAME=	Horde_Core
-PORTVERSION=	2.14.0
+DISTVERSION=	2.14.0
 CATEGORIES=	devel www pear
 
 MAINTAINER=	horde@FreeBSD.org
@@ -3707,7 +3752,7 @@ SOCKETS_USE=	PHP=sockets
 	Module</title>
 
       <programlisting>PORTNAME=	sample
-PORTVERSION=	1.2.3
+DISTVERSION=	1.2.3
 CATEGORIES=	devel
 
 MAINTAINER=	john@doe.tld
@@ -5419,8 +5464,8 @@ run_rc_command "$1"</programlisting>
 	  <para>Are options listed in the default
 	    <replaceable>name</replaceable><varname>_flags</varname>
 	    things that are actually mandatory?  If so, they must
-	    be in <varname>command_args</varname>.  The
-	    <option>-d</option> option is a red flag (pardon the
+	    be in <varname>command_args</varname>.
+	    <option>-d</option> is a red flag (pardon the
 	    pun) here, since it is usually the option to
 	    &ldquo;daemonize&rdquo; the process, and therefore is
 	    actually mandatory.</para>
