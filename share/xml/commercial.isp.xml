@@ -334,6 +334,19 @@
     </description>
   </entry>
 
+  <entry id="globotech">
+    <name>GloboTech Communications</name>
+    <url>https://www.globo.tech/</url>
+    <description>
+      GloboTech offers world class hosting services and uncompromising
+      support. Their services include Dedicated Servers, Public Cloud
+      and Private Cloud with Fundamental Management and a 100% Power
+      and Network Uptime.  Their all-SSD public cloud includes a set of
+      one-click app for faster deployment, less than 90 seconds and
+      a comprehensive and easy-to-use cloud portal. 
+    </description>
+  </entry>
+
   <entry id="gradwell">
     <name>gradwell dot com Ltd</name>
     <url>http://www.gradwell.com/</url>
@@ -771,16 +784,6 @@
     </description>
   </entry>
 
-  <entry id="Liebscher">
-    <name>Liebscher &amp; Partner</name>
-    <url>http://www.freibergnet.de</url>
-    <description>
-      Liebscher &amp; Partner are now shipping the BSD <a
-      href="http://www.freibergnet.de/fgnet/scan/sf=prod_group/se=Fanartikel/sf=category/se=BSD">
-        Stuffed Daemon! <img alt="stuffed daemon" src="../gifs/plueschtier-tiny.jpg"/></a>
-    </description>
-  </entry>
-
   <entry id="ingate">
     <name>INGATE GmbH</name>
     <url>http://www.ingate.de</url>
@@ -813,6 +816,20 @@
       Internet.  For more information, please check our
       <a href="http://www.oph.net">website</a>, or call us at
       +31 527 688768.
+    </description>
+  </entry>
+
+  <entry id="ovh">
+    <name>OVH</name>
+    <url>http://www.ovh.com/</url>
+    <description>
+      With many own datacenters on 4 continents and extensive offers
+      for even the most demanding infrastructure needs, OVH is the
+      number 3 internet hosting company in the world and a globally
+      leading cloud provider on the market.  Among almost 100 other
+      Unix/Linux distributions, OVH is proud to provide the latest
+      FreeBSD versions for dedicated and virtual servers since
+      FreeBSD 4.
     </description>
   </entry>
 
