@@ -22,7 +22,21 @@
 <article xmlns="http://docbook.org/ns/docbook"
   xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0"
   xml:id="pgpkeys">
+
   <info>
+    <its:rules xmlns:its="http://www.w3.org/2005/11/its"
+      version="1.0" xmlns:db="http://docbook.org/ns/docbook">
+
+      <its:translateRule translate="no"
+	selector="//db:programlisting[@role='pgpfingerprint']"/>
+
+      <its:translateRule translate="no"
+	selector="//db:programlisting[@role='pgpkey']"/>
+
+      <its:translateRule translate="no"
+	selector="//db:sect2[starts-with(@xml:id,'pgpkey-')]"/>
+    </its:rules>
+
     <title>Open<acronym>PGP</acronym> Keys</title>
 
     <pubdate>$FreeBSD$</pubdate>
