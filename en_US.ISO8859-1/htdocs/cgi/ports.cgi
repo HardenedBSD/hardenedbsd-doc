@@ -450,7 +450,7 @@ description about the port.
 
 <form method="get" action="$script_name">
 Search for:
-<input name="query" value="$query" />
+<input name="query" value="$query" type="text" autocapitalize="none" />
 <select name="stype">
 };
 
@@ -497,8 +497,6 @@ sub footer {
 };
 
 #print q{$FreeBSD$} . "<br />\n";
-    print qq{Please direct questions about this service to
-<i><a href="$mailtoURL">$mailto</a></i><br />\n};
     print qq{General questions about FreeBSD ports should be sent to }
       . qq{<a href="mailto:$mailtoList">}
       . qq{<i>$mailtoList</i></a><br />\n};

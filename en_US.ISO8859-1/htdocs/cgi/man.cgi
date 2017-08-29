@@ -978,6 +978,8 @@ div#content { padding-top: 4.9em; }
 form#man > input, button { font-size: 200%; }
 form#man > button { font-size: 200%; }
 form#man > input[name='query'] { width: 12em; }
+form#man > select { font-size: 140%; }
+span.spaces { display: none; }
 }
 </style>
 |;
@@ -1670,7 +1672,7 @@ sub encode_data {
 
 sub indexpage {
     &http_header("text/html");
-    print &html_header("$www{'title'}: Index Page") . "<h1><br/>", $www{'head'},
+    print &html_header("$www{'title'}") . "<h1><br/>", $www{'head'},
       "</h1>\n\n"; 
     # print &intro;
     &formquery;
@@ -1735,13 +1737,13 @@ sub formquery {
     print <<ETX;
 <form id="man" method="get" action="$BASE">
 <!-- Manual Page or Keyword Search: -->
-&nbsp;&nbsp;
-<input id="query" value="$query" name="query" size="36" $autofocus />
+<span class="spaces">&nbsp;&nbsp;</span>
+<input type="text" id="query" value="$query" name="query" size="36" autocapitalize="none" $autofocus />
 <button type="submit" name="apropos" value="0">man</button>
 <button type="submit" name="apropos" value="1">apropos</button>
 <br/>
 <span class="space">&nbsp;</span><br/>
-&nbsp;&nbsp;
+<span class="spaces">&nbsp;&nbsp;</span>
 ETX
 
     print qq{<select name="sektion">\n};
