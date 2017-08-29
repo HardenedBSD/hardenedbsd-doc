@@ -411,6 +411,24 @@
 	      operational on amd64.
 	      (<revnumber>r322762</revnumber>).</entry>
 	  </row>
+
+	  <row>
+	    <entry>1200042</entry>
+	    <entry><revnumber>r322900</revnumber></entry>
+	    <entry>August 25, 2017</entry>
+	    <entry>12.0-CURRENT after PLPMTUD counters were changed to use
+		<literal>counter(9)</literal>.
+	      (<revnumber>r322900</revnumber>).</entry>
+	  </row>
+
+	  <row>
+	    <entry>1200043</entry>
+	    <entry><revnumber>r322989</revnumber></entry>
+	    <entry>August 28, 2017</entry>
+	    <entry>12.0-CURRENT after dropping x86 CACHE_LINE_SIZE down to 64
+		bytes.
+	      (<revnumber>r322989</revnumber>).</entry>
+	  </row>
 	</tbody>
       </tgroup>
     </table>
