@@ -609,6 +609,17 @@
     </description>
   </entry>
 
+  <entry id="NSWITS" category="australia">
+    <name>NSW IT Support</name>
+    <url>http://nswits.com.au/</url>
+    <description>
+      NSW IT Support provides FreeBSD, OpenBSD and Linux installations
+      services for secure antispam web servers that will make any
+      customers happy.  Visit our <a
+      href="http://nswits.com.au">website</a> for more information.
+    </description>
+  </entry>
+
   <entry id="OmarSiddique" category="namerica">
     <name>Omar Siddique</name>
     <url>http://www.heedme.com/resume</url>
