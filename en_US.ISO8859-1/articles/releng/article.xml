@@ -21,7 +21,7 @@
           a significant part in.</para>
         </personblurb><affiliation>
           <address><email>murray@FreeBSD.org</email>
-            <otheraddr xlink:href="https://www.FreeBSD.org/~murray/">https://www.FreeBSD.org/~murray/</otheraddr>
+            <otheraddr xlink:href="https://people.FreeBSD.org/~murray/">https://people.FreeBSD.org/~murray/</otheraddr>
           </address>
         </affiliation></author>
     </authorgroup>
@@ -1035,7 +1035,7 @@
     <footnote>
       <simpara>
         John Baldwin's &os; Release Engineering Proposal
-        <uri xlink:href="http://people.FreeBSD.org/~jhb/docs/releng.txt">http://people.FreeBSD.org/~jhb/docs/releng.txt</uri>
+        <uri xlink:href="https://people.FreeBSD.org/~jhb/docs/releng.txt">https://people.FreeBSD.org/~jhb/docs/releng.txt</uri>
       </simpara>
     </footnote>
   </para>
