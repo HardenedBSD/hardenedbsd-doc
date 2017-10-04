@@ -3912,9 +3912,9 @@ Relnotes:           yes</programlisting>
 	(features which are inherently architecture-specific, such as
 	support for hardware device drivers, may be exempt from this
 	requirement).  In general, all Tier 1 platforms must have
-	build and Tinderbox support either in the FreeBSD.org cluster,
-	or be easily available for all developers.  Embedded platforms
-	may substitute an emulator available in the &os; cluster
+	build and test automation support either in the FreeBSD.org cluster,
+	or easily available for all developers.  Embedded platforms
+	may substitute an emulator available in the FreeBSD.org cluster
 	for actual hardware.</para>
 
       <para>Tier 1 architectures are expected to be Production Quality
@@ -4002,7 +4002,8 @@ Relnotes:           yes</programlisting>
 
       <para>Current Tier 2 platforms are &arch.arm;, &arch.arm64;,
 	&arch.ia64; (through &os; 10),
-	&arch.pc98;, &arch.powerpc;, and &arch.sparc64;.</para>
+	&arch.pc98; (through &os; 11),
+	&arch.powerpc;, and &arch.sparc64;.</para>
     </sect2>
 
     <sect2>
@@ -4045,7 +4046,8 @@ Relnotes:           yes</programlisting>
 
       <para>All systems not otherwise classified into a support tier
 	are Tier 4 systems.  The &arch.ia64; platform is transitioning
-	to Tier 4 status in &os; 11.</para>
+	to Tier 4 status in &os; 11.  The &arch.pc98; platform is
+	transitioning to Tier 4 status in &os; 12.</para>
     </sect2>
 
     <sect2>
