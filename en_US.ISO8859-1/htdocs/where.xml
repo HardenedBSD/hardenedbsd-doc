@@ -354,12 +354,13 @@
 	      <li><a href="&url.snapshot;/arm/armv6/ISO-IMAGES/&rel.head;/">PANDABOARD</a></li>
 	      <li><a href="&url.snapshot;/arm/armv6/ISO-IMAGES/&rel.head;/">RPI-B</a></li>
 	      <li><a href="&url.snapshot;/arm/armv6/ISO-IMAGES/&rel.head;/">RPI2</a></li>
+	      <li><a href="&url.snapshot;/arm64/aarch64/ISO-IMAGES/&rel.head;/">RPI3</a></li>
 	      <li><a href="&url.snapshot;/arm/armv6/ISO-IMAGES/&rel.head;/">WANDBOARD</a></li>
 	    </ul>
 	  </td>
 	  <td>
 	    <ul class="txtdocslist">
-	      <li><a href="&base;/relnotes/CURRENT/relnotes/article.html">Release Notes</a></li>
+	      <li><a href="&base;/releases/12.0R/relnotes.html">Release Notes</a></li>
 	    </ul>
 	  </td>
 	</tr>
@@ -368,7 +369,6 @@
 
     <p>&nbsp;</p>
 
-    <?ignore
     <h1>&os; &rel.current;-STABLE</h1>
 
     <table class="tblbasic tblwide tbldownload">
@@ -422,7 +422,6 @@
     </table>
 
     <p>&nbsp;</p>
-    ?>
 
     <h1>&os; &rel1.current;-STABLE</h1>
 
