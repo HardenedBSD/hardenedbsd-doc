@@ -720,10 +720,9 @@ options	PAX_ASLR</programlisting>
 		    by default on amd64 for base.
 		</para>
 		<para>CFI requires a linker that supports Link Time
-		    Optimization (LTO). HardenedBSD 12-CURRENT includes
-		    clang/llvm 4.0.0 and lld 4.0.0. HardenedBSD has enabled
-		    lld as the default linker for arm64 and amd64. lld gives
-		    HardenedBSD a linker that natively supports LTO.
+		    Optimization (LTO). Starting with 12-CURRENT,
+		    HardenedBSD ships with lld as the default linker. lld
+		    supports LTO.
 		</para>
 		<para>Non-Cross-DSO CFI adds checks both before and after
 		    every branch instruction in the application itself.
