@@ -783,6 +783,22 @@ options	PAX_ASLR</programlisting>
 			    also affects shared objects loaded via
 			    &man.dlopen.3;.
 			</para>
+			<para>When a file is added to secadm's ruleset,
+			    secadm will disallow modifications to that file.
+			    This includes deleting, appending, truncating, or
+			    otherwise modifying the file. This is because
+			    secadm tracks files under its control by using the
+			    inode. Modifying the file might change the inode,
+			    or freeing it in case of deletion, thereby implicitly
+			    modifying the secadm ruleset. To protect the integrity
+			    of the loaded ruleset, secadm also protects the files
+			    it controls.
+		    	</para>
+			<para>Thus, when updating installed ports or packages,
+			    care must be taken. Flush the ruleset prior to
+			    installing updates. The ruleset can be reloaded after
+			    updating.
+			</para>
 		</sect2>
 		<sect2>
 			<title>Downloading and Installing secadm</title>
