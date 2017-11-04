@@ -685,8 +685,7 @@ options	PAX_ASLR</programlisting>
 		    clang. SafeStack can be disabled by setting
 		    WITHOUT_SAFESTACK in &man.src.conf.5;.
 		</para>
-		<para>As of 28 November 2016, with clang 3.9.0,
-		    SafeStack only supports being applied to
+		<para>SafeStack only supports being applied to
 		    applications and not shared libraries. Multiple
 		    patches have been submitted to clang by third
 		    parties to add support for shared libraries. As
@@ -696,7 +695,7 @@ options	PAX_ASLR</programlisting>
 		<para>SafeStack has been made available to the
 		    HardenedBSD ports tree as well. Unlike PIE and
 		    RELRO+BIND_NOW, it is not enabled globally for
-		    the ports tree. Some ports, like ports-mgmt/pkg
+		    the ports tree. Some ports, like ports-mgmt/pkg,
 		    have SafeStack enabled by default. Only those
 		    ports that have been tested to work fine will
 		    have SafeStack enabled by default. Users are
