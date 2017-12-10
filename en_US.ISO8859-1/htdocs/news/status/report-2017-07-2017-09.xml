@@ -1120,4 +1120,160 @@
       <task>Implementation and testing of mirror failure/recovery.</task>
     </help>
   </project>
+
+  <project cat="proj">
+    <title>The <tt>nosh</tt> Project</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Jonathan</given>
+	  <common>de Boyne Pollard</common>
+	</name>
+	<email>J.deBoynePollard-newsgroups@NTLWorld.COM</email>
+      </person>
+    </contact>
+
+    <links>
+      <url href="http://jdebp.eu./Softwares/nosh.html">Introduction</url>
+      <url href="http://jdebp.eu./Softwares/nosh/FreeBSD-binary-packages.html">&os; Binary Packages</url>
+      <url href="http://jdebp.eu./Softwares/nosh/timorous-admin-installation-how-to.html">Installation How-To</url>
+      <url href="http://jdebp.eu./Softwares/nosh/roadmap.html">Roadmap</url>
+      <url href="http://jdebp.eu./Softwares/nosh/guide/index.html">A Slightly Outdated User Guide</url>
+      <url href="http://framagit.org/taca/archnosh">Archnosh</url>
+    </links>
+
+    <body>
+      <p>The nosh project is a suite of system-level utilities for
+	initializing, running, and shutting down BSD systems; and for
+	managing daemons, terminals, and logging.  It attempts to
+	supersede BSD <tt>init</tt>, the Mewburn <tt>rc.d</tt> system,
+	and OpenRC as used on &os; and TrueOS, drawing inspiration
+	from Solaris SMF for named milestones, daemontools-encore for
+	service control/status mechanisms, UCSPI, and IBM AIX for
+	separated service and system management.  It comprises a range
+	of compatibility mechanisms, including shims for familiar
+	commands from other systems, and an automatic import mechanism
+	that takes existing configuration data from
+	<tt>/etc/fstab</tt>, <tt>/etc/rc.conf{,.local}</tt>,
+	<tt>/etc/ttys</tt>, and elsewhere, applying them to its native
+	service definitions and creating additional native services.
+	It is portable (including to Linux) and composable, it
+	provides a migration path from the world of systemd Linux, and
+	it does not require new kernel APIs.  It provides clean
+	service environments, orderings and dependencies between
+	services, parallelized startup and shutdown (including
+	<tt>fsck</tt>), strictly size-capped and autorotated logging,
+	the service manager as a &quot;subreaper&quot;, and uses
+	<tt>kevent(2)</tt> for event-driven parallelism.</p>
+
+      <p>Since the last status report, in December 2015, the project
+	has seen: restructured and finer-grained packaging that has
+	fewer conflicts with other toolsets; the addition of
+	<tt>zsh</tt> completion files; improvements to the vertual
+	terminal subsystem, keyboard map, mouse support, and ugen and
+	DECSCUSR support; RFC 5424/5426 remote logging support;
+	replacement of the libkqueue and the C library's environment
+	handling functions; several new helper commands; support for
+	Java VM autolocation; improved socket-passing code; an
+	extended status API and &quot;one-shot&quot; service support;
+	additional pre-supplied service bundles; support for service
+	aliases; improved handling of per-user D-Bus services;
+	improved import of MySQL, MariaDB, Percona, and OpenVPN
+	services; improved configuration import support; and extensive
+	additions to the <tt>nosh</tt> Guide.</p>
+
+      <p>On the recently updated roadmap you can see plans for even
+	more documentation, continuing the work to extend the
+	capabilities of the networking subsystem, and the scant
+	handful of <tt>rc.d</tt>-related items remaining.  There are
+	also some ideas still in the speculative or planning phases,
+	including work that may depend on incorporating <tt>nosh</tt>
+	support into other software.</p>
+    </body>
+
+    <help>
+      <task>Improve Ansible and SaltStack integration (the maintainer
+	of the Arch Linux <tt>nosh</tt> integration has some
+	ideas).</task>
+
+      <task>Command-line completions are still needed for
+	<tt>bash</tt>, <tt>csh</tt>, and <tt>fish</tt>.</task>
+
+      <task>Document <tt>convert-systemd-units</tt> for use by port
+	maintainers in making packaged service bundles from
+	<tt>systemd</tt> unit files.</task>
+
+      <task><tt>nosh</tt> could take advantage of several proposed
+	features for the base system:
+
+	<ul>
+	  <li>the boot loader signaling &quot;emergency&quot; and
+	    &quot;rescue&quot;modes of operation</li>
+
+	  <li>adding machine-readable status output to
+	    <tt>fsck</tt></li>
+
+	  <li>adding runtime support for more
+	    <tt>clang</tt>-compilable languages in the early bootstrap
+	    stage</li>
+
+	  <li>adding hooks for invoking external configuration import
+	    mechanisms</li>
+	</ul>
+      </task>
+    </help>
+  </project>
+
+  <project cat='doc'>
+    <title>Manual Pages</title>
+
+    <contact>
+      <person>
+	<name>
+	  <given>Warren</given>
+	  <common>Block</common>
+	  <email>wblock@FreeBSD.org</email>
+	</name>
+      </person>
+    </contact>
+
+    <links>
+      <url href="https://www.freebsd.org/doc/en_US.ISO8859-1/books/fdp-primer/">&os; Documentation Project Primer</url>
+    </links>
+
+    <body>
+      <p>Over the last year, interest has increased in manual pages, in
+	large part due to excellent infrastructure work by Baptiste
+	Daroussin and others, and promotion by George Neville-Neil and
+	others.  This increased interest has been both gratifying and
+	problematic.  Our man pages are underappreciated gems, but we
+	have sadly lacked any substantial documentation on how to write
+	new ones.</p>
+
+      <p>In September, I added a new chapter to the
+	<a href="https://www.freebsd.org/doc/en_US.ISO8859-1/books/fdp-primer/">&os;Documentation
+	Project Primer</a> describing the basics of creating a man
+	page.  It includes descriptions of the markup, section
+	structure, recommended optional material such as examples,
+	and sample templates for the most common types of man pages.
+	The Resources section includes links to several external
+	resources, including the excellent <a
+	href="http://manpages.bsd.lv/mdoc.html">Practical UNIX
+	Manuals: mdoc</a>.</p>
+
+      <p>While this chapter is not a full tutorial, it does begin to fill
+	in a large gap in our documentation resources and provide a
+	starting point from which to grow.</p>
+    </body>
+
+    <help>
+      <task>Add more explanation and examples of markup.</task>
+
+      <task>Expand the sample templates with additional desired standard
+	features, like an EXAMPLES section.</task>
+
+      <task>Add more sample templates.</task>
+    </help>
+  </project>
 </report>
