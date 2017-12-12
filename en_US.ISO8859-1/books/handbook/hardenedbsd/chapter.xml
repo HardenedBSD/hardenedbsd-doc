@@ -137,6 +137,12 @@
 			<listitem>
 				<para>SafeStack available in ports</para>
 			</listitem>
+			<listitem>
+				<para>Non-Cross-DSO CFI</para>
+			</listitem>
+			<listitem>
+				<para>Non-Cross-DSO CFI available in ports</para>
+			</listitem>
 		</itemizedlist>
 	</sect1>
 	<sect1 xml:id="hardenedbsd-kernopts">
