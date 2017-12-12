@@ -998,7 +998,7 @@ options	PAX_ASLR</programlisting>
 			    <itemizedlist>
 				    <listitem><para>HardenedBSD version</para></listitem>
 				    <listitem><para>Architecture</para></listitem>
-				    <listitem><para>If the report concers a kernel panic, the backtrace of the panic</para></listitem>
+				    <listitem><para>If the report concerns a kernel panic, the backtrace of the panic</para></listitem>
 				    <listitem><para>Steps to reproduce the bug</para></listitem>
 			    </itemizedlist>
 			</para>
