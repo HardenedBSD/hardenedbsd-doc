@@ -5,6 +5,33 @@
      $FreeBSD$
 -->
 
+<!--
+
+README FIRST:
+
+The format of each entry is:
+
+	  <row>
+	    <entry>[version number]</entry>
+	    <entry><revnumber>[revision of the bump]</revnumber></entry>
+	    <entry>[date of revision]</entry>
+	    <entry>[FreeBSD version] [long-ish description of why the version was
+	      bumped.]</entry>
+	  </row>
+
+The [FreeBSD version] is usually XY-CURRENT or XY-STABLE.
+
+In some cases, the changes described were not committed at the same
+time when the version was bumped, in this case, add the revision to
+the description, like, for example, for 1200028.
+
+You do not need to add all the extra xml markup in the description
+that will make it look better, what is important is to document
+things.  Keep in mind though, that this is xml, so if you need a &, it
+is spelled &amp;, < is &lt; and > is &gt;.
+
+-->
+
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink=
   "http://www.w3.org/1999/xlink" version="5.0" xml:id="versions">
 
@@ -392,8 +419,7 @@
 	    <entry><revnumber>r321369</revnumber></entry>
 	    <entry>July 22, 2017</entry>
 	    <entry>12.0-CURRENT after upgrade of copies of clang, llvm,
-	      lld, lldb, compiler-rt and libc++ to 5.0.0 (trunk r308421).
-	      (<revnumber>r321369</revnumber>).</entry>
+	      lld, lldb, compiler-rt and libc++ to 5.0.0 (trunk r308421).</entry>
 	  </row>
 
 	  <row>
@@ -401,8 +427,7 @@
 	    <entry><revnumber>r321688</revnumber></entry>
 	    <entry>July 29, 2017</entry>
 	    <entry>12.0-CURRENT after adding NFS client forced dismount
-	      support <command>umount -N</command>.
-	      (<revnumber>r321688</revnumber>).</entry>
+	      support <command>umount -N</command>.</entry>
 	  </row>
 
 	  <row>
@@ -410,8 +435,7 @@
 	    <entry><revnumber>r322762</revnumber></entry>
 	    <entry>August 21, 2017</entry>
 	    <entry>12.0-CURRENT after WRFSBASE instruction become
-	      operational on amd64.
-	      (<revnumber>r322762</revnumber>).</entry>
+	      operational on amd64.</entry>
 	  </row>
 
 	  <row>
@@ -419,8 +443,7 @@
 	    <entry><revnumber>r322900</revnumber></entry>
 	    <entry>August 25, 2017</entry>
 	    <entry>12.0-CURRENT after PLPMTUD counters were changed to
-	      use &man.counter.9;.
-	      (<revnumber>r322900</revnumber>).</entry>
+	      use &man.counter.9;.</entry>
 	  </row>
 
 	  <row>
@@ -428,8 +451,7 @@
 	    <entry><revnumber>r322989</revnumber></entry>
 	    <entry>August 28, 2017</entry>
 	    <entry>12.0-CURRENT after dropping x86 CACHE_LINE_SIZE
-	      down to 64 bytes.
-	      (<revnumber>r322989</revnumber>).</entry>
+	      down to 64 bytes.</entry>
 	  </row>
 
 	  <row>
@@ -437,8 +459,7 @@
 	    <entry><revnumber>r323349</revnumber></entry>
 	    <entry>September 8, 2017</entry>
 	    <entry>12.0-CURRENT after implementing poll_wait() in the
-	      LinuxKPI.
-	      (<revnumber>r323349</revnumber>).</entry>
+	      LinuxKPI.</entry>
 	  </row>
 
 	  <row>
@@ -455,8 +476,7 @@
 	    <entry><revnumber>r323910</revnumber></entry>
 	    <entry>September 22, 2017</entry>
 	    <entry>12.0-CURRENT after adding support for 32-bit
-	      compatibility IOCTLs to LinuxKPI.
-	      (<revnumber>r323910</revnumber>).</entry>
+	      compatibility IOCTLs to LinuxKPI.</entry>
 	  </row>
 
 	  <row>
@@ -474,8 +494,7 @@
 	    <entry>October 2, 2017</entry>
 	    <entry>12.0-CURRENT after hiding <literal>struct
 		socket</literal> and <literal>struct unpcb</literal>
-	      from userland.
-	      (<revnumber>r324227</revnumber>).</entry>
+	      from userland.</entry>
 	  </row>
 
 	  <row>
@@ -484,8 +503,7 @@
 	    <entry>October 4, 2017</entry>
 	    <entry>12.0-CURRENT after adding the
 	      <literal>value.u16</literal> field to <literal>struct
-		diocgattr_arg</literal>.
-	      (<revnumber>r324281</revnumber>).</entry>
+		diocgattr_arg</literal>.</entry>
 	  </row>
 
 	  <row>
@@ -513,8 +531,7 @@
 	    <entry>October 26, 2017</entry>
 	    <entry>12.0-CURRENT after fixing
 	      <function>ptrace()</function> to always clear the
-	      correct thread event when resuming.
-	      (<revnumber>r325028</revnumber>).</entry>
+	      correct thread event when resuming.</entry>
 	  </row>
 
 	  <row>
@@ -523,8 +540,7 @@
 	    <entry>November 7, 2017</entry>
 	    <entry>12.0-CURRENT after changing <literal>struct
 		mbuf</literal> layout to add optional hardware
-	      timestamps for receive packets.
-	      (<revnumber>r325506</revnumber>).</entry>
+	      timestamps for receive packets.</entry>
 	  </row>
 
 	  <row>
@@ -533,8 +549,7 @@
 	    <entry>November 15, 2017</entry>
 	    <entry>12.0-CURRENT after changing the layout of
 	      <literal>struct vmtotal</literal> to allow for reporting
-	      large memory counters.
-	      (<revnumber>r325852</revnumber>).</entry>
+	      large memory counters.</entry>
 	  </row>
 	</tbody>
       </tgroup>
@@ -1808,6 +1823,16 @@
 	    <entry>September 26, 2017</entry>
 	    <entry>11-STABLE after merging clang, llvm, lld, lldb, compiler-rt
 	      and libc++ 5.0.0 release.</entry>
+	  </row>
+
+	  <row>
+	    <entry>1101506</entry>
+	    <entry><revnumber>r325003</revnumber></entry>
+	    <entry>October 25, 2017</entry>
+	    <entry>11-STABLE after merging
+	      <revnumber>r324281</revnumber>, adding the
+	      <literal>value.u16</literal> field to <literal>struct
+		diocgattr_arg</literal>.</entry>
 	  </row>
 	</tbody>
       </tgroup>
