@@ -154,6 +154,13 @@
       <see>updating-upgrading</see>
     </indexterm>
 
+    <warning>
+	    <para>HardenedBSD has disabled freebsd-update. This
+		section is no longer applicable. Instead, use
+		hbsd-update(8), documented in the HardenedBSD
+		chapter.</para>
+    </warning>
+
     <para>Applying security patches in a timely manner and upgrading
       to a newer release of an operating system are important aspects
       of ongoing system administration.  &os; includes a utility
