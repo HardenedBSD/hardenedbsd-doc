@@ -281,7 +281,7 @@
 	<answer>
 	  <para>James Howard wrote a good explanation of the history
 	    and differences between the various projects, called <link
-	      xlink:href="http://www.freebsdworld.gr/freebsd/bsd-family-tree.html">The
+	      xlink:href="https://jameshoward.us/archive/the-bsd-family-tree/">The
 	      BSD Family Tree</link> which goes a fair way to
 	    answering this question.  Some of the information is out
 	    of date, but the history portion in particular remains
@@ -2450,11 +2450,10 @@ kern.timecounter.hardware: TSC -&gt; i8254</screen>
 
 	  <para>There are rare cases where <filename>INDEX</filename>
 	    will not build due to odd cases involving
-	    <varname>WITH_<replaceable>*</replaceable></varname> or
-	    <varname>WITHOUT_<replaceable>*</replaceable></varname>
-	    variables being set in <filename>make.conf</filename>.  If
+	    <varname>OPTIONS_SET</varname>
+	    being set in <filename>make.conf</filename>.  If
 	    you suspect that this is the case, try to make
-	    <filename>INDEX</filename> with those make variables
+	    <filename>INDEX</filename> with those variables
 	    turned off before reporting it to &a.ports;.</para>
 	</answer>
       </qandaentry>
@@ -4845,7 +4844,7 @@ Key F15        A        A        Menu Workplace Nop</programlisting>
 	      xlink:href="http://www.nvidia.com/object/IO_32667.html">http://www.nvidia.com/object/IO_32667.html</uri>.</para>
 
 	  <para>For Matrox&nbsp;G200/G400, check the
-	    <package>x11-servers/mga_hal</package>
+	    <package>x11-drivers/xf86-video-mga</package>
 	    port.</para>
 
 	  <para>For ATI&nbsp;Rage&nbsp;128 and Radeon see
