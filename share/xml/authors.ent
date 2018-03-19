@@ -1521,6 +1521,9 @@
 <!ENTITY a.melifaro "Alexander V. Chernikov">
 <!ENTITY a.melifaro.email "&a.melifaro; <email xmlns='http://docbook.org/ns/docbook'>melifaro@FreeBSD.org</email>">
 
+<!ENTITY a.meta "Koichiro Iwao">
+<!ENTITY a.meta.email "&a.meta; <email xmlns='http://docbook.org/ns/docbook'>meta@FreeBSD.org</email>">
+
 <!ENTITY a.metal "Koichi Suzuki">
 <!ENTITY a.metal.email "&a.metal; <email xmlns='http://docbook.org/ns/docbook'>metal@FreeBSD.org</email>">
 
@@ -2408,6 +2411,9 @@
 
 <!ENTITY a.vkashyap "Vinod Kashyap">
 <!ENTITY a.vkashyap.email "&a.vkashyap; <email xmlns='http://docbook.org/ns/docbook'>vkashyap@FreeBSD.org</email>">
+
+<!ENTITY a.vmaffione "Vincenzo Maffione">
+<!ENTITY a.vmaffione.email "&a.vmaffione; <email xmlns='http://docbook.org/ns/docbook'>vmaffione@FreeBSD.org</email>">
 
 <!ENTITY a.vs "Volker Stolz">
 <!ENTITY a.vs.email "&a.vs; <email xmlns='http://docbook.org/ns/docbook'>vs@FreeBSD.org</email>">
