@@ -30,8 +30,7 @@
 	href="mailto:FreeBSD-stable@FreeBSD.org">freebsd-stable</a>
       mailing list.  <a
 	href="&base;/doc/en_US.ISO8859-1/books/handbook/freebsd-glossary.html#mfc-glossary">MFC</a>
-      requests should be sent to <a
-	href="mailto:re@FreeBSD.org">re@FreeBSD.org</a>.</p>
+      requests are no longer being accepted.</p>
 
     &beta.local.where;
     &beta2.local.where;
@@ -96,7 +95,7 @@
       </tr>
 
       <tr>
-	<td>BETA3 builds begin&nbsp;*</td>
+	<td>BETA3 builds begin</td>
 	<td>25&nbsp;May&nbsp;2018</td>
 	<td>25&nbsp;May&nbsp;2018</td>
 	<td>Third beta test snapshot.</td>
@@ -133,9 +132,9 @@
       </tr>
 
       <tr>
-	<td>RC3 builds begin&nbsp;*</td>
+	<td>RC3 builds begin</td>
 	<td>15&nbsp;June&nbsp;2018&nbsp;</td>
-	<td>-</td>
+	<td>15&nbsp;June&nbsp;2018&nbsp;</td>
 	<td>Third release candidate.</td>
       </tr>
 
