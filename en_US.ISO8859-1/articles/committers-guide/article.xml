@@ -1554,9 +1554,7 @@ U    stable/9/share/man/man4/netmap.4
 	  <sect5>
 	    <title>Preparing the Vendor Sources</title>
 
-	    <para>Unlike in <acronym>CVS</acronym> where only the
-	      needed parts were imported into the vendor tree to avoid
-	      bloating the main tree, Subversion is able to store a
+	    <para>Subversion is able to store a
 	      full distribution in the vendor tree.  So, import
 	      everything, but merge only what is required.</para>
 
@@ -1594,7 +1592,7 @@ U    stable/9/share/man/man4/netmap.4
 &prompt.user; <userinput>tar cf - . | tar xf - -C ../dist</userinput>
 &prompt.user; <userinput>cd <replaceable>../dist</replaceable></userinput>
 &prompt.user; <userinput>comm -23 ../old ../new | xargs svn rm</userinput>
-&prompt.user; <userinput>comm -13 ../old ../new | xargs svn --parents add</userinput></screen>
+&prompt.user; <userinput>comm -13 ../old ../new | xargs svn add --parents</userinput></screen>
 
 	    <para>If any directories were removed, they will have to
 	      be <command>svn rm</command>ed manually.  Nothing will
@@ -1670,7 +1668,7 @@ U    stable/9/share/man/man4/netmap.4
 
 	    <screen>&prompt.user; <userinput>svn checkout svn+ssh://repo.freebsd.org/base/head/contrib/<replaceable>sendmail</replaceable></userinput>
 &prompt.user; <userinput>cd sendmail</userinput>
-&prompt.user; <userinput>svn merge -c r<replaceable>261190</replaceable> ^/vendor/<replaceable>sendmail/dist</replaceable> .</userinput></screen>
+&prompt.user; <userinput>svn merge -c r<replaceable>261190</replaceable> '^/vendor/<replaceable>sendmail/dist</replaceable>' .</userinput></screen>
 
 	    <para><literal>^</literal> is an alias for the
 	      repository path.</para>
@@ -1679,9 +1677,7 @@ U    stable/9/share/man/man4/netmap.4
 	  <note>
 	    <para>If using the <application>Zsh</application> shell,
 	      the <literal>^</literal> must be escaped with
-	      <literal>\</literal>.  This means
-	      <literal>^/head</literal> should be
-	      <literal>\^/head</literal>.</para>
+	      <literal>\</literal> or quoted.</para>
 	  </note>
 
 	  <para>It is necessary to resolve any merge conflicts.</para>
@@ -1835,7 +1831,7 @@ U    stable/9/share/man/man4/netmap.4
       </sect3>
 
       <sect3 xml:id="svn-getting-started-checkout-from-a-mirror">
-	<title>Using a Subversion mirror</title>
+	<title>Using a Subversion Mirror</title>
 
 	<para>There is a serious disadvantage to this method: every
 	  time something is to be committed, a
@@ -1848,7 +1844,7 @@ U    stable/9/share/man/man4/netmap.4
 	  to start using it.</para>
 
 	<sect4 xml:id="svn-advanced-checkout-from-mirror">
-	  <title>Checkout From a Mirror</title>
+	  <title>Checkout from a Mirror</title>
 
 	  <para>Check out a working copy from a mirror by
 	    substituting the mirror's <acronym>URL</acronym> for
@@ -1893,7 +1889,8 @@ U    stable/9/share/man/man4/netmap.4
 
 	  <screen>&prompt.user; <userinput>svn proplist -v --revprop -r 0 file:///home/svnmirror/base</userinput></screen>
 
-	  <para>Use <literal>svn propset</literal> to change things.</para>
+	  <para>Use <literal>svn propset</literal> to change
+	    things.</para>
 	</sect4>
       </sect3>
 
@@ -2674,18 +2671,17 @@ Relnotes:           yes</programlisting>
       probably little need to check with other committers before
       jumping in with a commit.  Working on a bug in an area of the
       system which is clearly orphaned (and there are a few such
-      areas, to our shame), the same applies.  Trying to modify
-      something which is clearly being actively maintained by someone
-      else (and it is only by watching the
-      <literal><replaceable>repository</replaceable>-committers</literal>
-      mailing list that a developer can really get a feel for just
-      what is and is not) then consider sending the change to them
-      instead, just as a developer would have before becoming a
+      areas, to our shame), the same applies.  When modifying
+      parts of the system which are maintained, formally, or
+      informally, consider asking for review just as a developer
+      would have before becoming a
       committer.  For ports, contact the listed
       <varname>MAINTAINER</varname> in the
-      <filename>Makefile</filename>.  For other parts of the
-      repository, if it is not clear who the active maintainer is, it
-      may help to scan the revision history to see who has committed
+      <filename>Makefile</filename>.</para>
+
+    <para>To determine if an area of the tree is maintained, check the
+      MAINTAINERS file at the root of the tree.  If nobody is listed,
+      scan the revision history to see who has committed
       changes in the past.  An example script that lists each person
       who has committed to a given file along with the number of
       commits each person has made can be found at on
@@ -2694,11 +2690,11 @@ Relnotes:           yes</programlisting>
       unanswered or the committer otherwise indicates a lack of
       interest in the area affected, go ahead and commit it.</para>
 
-    <note>
+    <important>
       <para>Avoid sending private emails to maintainers.  Other people
 	might be interested in the conversation, not just the final
 	output.</para>
-    </note>
+    </important>
 
     <para>If there is any doubt about a commit for any reason at all,
       have it reviewed before
@@ -4544,7 +4540,7 @@ Do you want to commit? (no = start a shell) [y/n]</screen>
 	      account, you need a few lines in your
 	      <filename>~/.ssh/config</filename>:</para>
 
-	    <programlisting>Host repo.freebsd.org # Can be *.freebsd.org
+	    <programlisting>Host *.freebsd.org
     User <replaceable>freebsd-login</replaceable></programlisting>
 
 	    <tip>
