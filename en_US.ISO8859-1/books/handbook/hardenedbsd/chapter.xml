@@ -26,11 +26,11 @@
 		<para>HardenedBSD is a fork of FreeBSD, founded
 		    in 2014, that implements exploit mitigations and
 		    security hardening technologies. The primary goal
-		    of HardenedBSD is to port over the grsecurity
-		    patchset for Linux to HardenedBSD. HardenedBSD
-		    takes a defense-in-depth approach to security,
-		    implementing many security hardening technologies
-		    out-of-the-box.
+		    of HardenedBSD is to perform a clean-room
+		    reimplementation of the grsecurity patchset for
+		    Linux to HardenedBSD. HardenedBSD takes a
+		    defense-in-depth approach to security, implementing
+		    many security hardening technologies out-of-the-box.
 		</para>
 		<para>Some of HardenedBSD's features can be toggled
 		    on a per-application and per-jail basis using
