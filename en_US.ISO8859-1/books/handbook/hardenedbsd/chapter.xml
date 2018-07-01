@@ -122,7 +122,7 @@
 				<para>procfs/linprocfs hardening</para>
 			</listitem>
 			<listitem>
-				<para>LibreSSL as the default crypto
+				<para>LibreSSL as an optional crypto
 				    library in base</para>
 			</listitem>
 			<listitem>
