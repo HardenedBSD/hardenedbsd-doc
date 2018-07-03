@@ -316,8 +316,8 @@
     committers in the project.  Requests for new accounts will not be
     acted upon without the proper approval from the appropriate entity.</p>
 
-  <p>Email sent to the Accounts Team is currently forwarded to <a
-    href="#t-clusteradm">Cluster Administration</a>.</p>
+  <p>Email sent to the Accounts Team is currently forwarded to the <a
+    href="#t-clusteradm">Cluster Administrators</a>.</p>
 
   <h3><a name="t-backups">Backups Administrators</a>
     <!-- admins mail aliases intentionally left incomplete -->
@@ -325,16 +325,15 @@
 
   <p>The Backups Administrators handle all backups on the FreeBSD cluster.</p>
 
-  <p>Email sent to the Backups Team is currently forwarded to <a
-    href="#t-clusteradm">Cluster Administration</a>.</p>
+  <p>Email sent to the Backups Team is currently forwarded to the <a
+    href="#t-clusteradm">Cluster Administrators</a>.</p>
 
   <h3><a name="t-bugmeister">Bugmeisters</a>
     &lt;<a href="mailto:bugmeister@FreeBSD.org">bugmeister@FreeBSD.org</a>&gt;</h3>
 
-  <p>The Bugmeisters are responsible for ensuring
-    that the maintenance database is in working order, that the entries are
-    correctly categorised and that there are no invalid entries.  They are
-    also responsible for the problem report group.</p>
+  <p>The Bugmeisters are responsible for ensuring that the problem report
+    software is in working order, that the entries are correctly categorised
+    and that there are no invalid entries.</p>
 
   <ul>
     <li>&a.eadler.email;</li>
@@ -349,12 +348,10 @@
     &lt;admins@&gt;</h3>
 
   <p>The Cluster Administrators consists of the people responsible for
-    administrating the machines that the project relies on for its
-    distributed work and communication to be synchronised.  It
-    consists mainly of those people who have physical access to the servers.
-    Issues concerning the projects infrastructure or setting up new
-    machines should be directed to the cluster administrators. This
-    team is led by the lead cluster administrator whose duties and
+    maintaing the machines and services that the project relies on for its
+    distributed work and communication.  Issues concerning the projects
+    infrastructure or setting up new machines should be directed to them.
+    This team is led by the lead cluster administrator whose duties and
     responsbilities are described in the <a
       href="internal/clusteradm.html">cluster administration charter</a>
     in greater detail.</p>
@@ -378,16 +375,16 @@
   <p>The DNS Administrators are responsible for managing DNS and related
     services.</p>
 
-  <p>E-mail to the DNS Administrators is currently forwarded to <a
-    href="#t-clusteradm">Cluster Administration</a>.</p>
+  <p>E-mail to the DNS Administrators is currently forwarded to the <a
+    href="#t-clusteradm">Cluster Administrators</a>.</p>
 
   <h3><a name="t-forum-admins">&os; Forum Administrators</a>
     &lt;<a href="mailto:forum-admins@FreeBSD.org">forum-admins@FreeBSD.org</a>&gt;</h3>
 
-  <p>The Forum Administrators maintain the &os; Project's web forum site,
+  <p>The Forum Administrators maintain the &os; Project's Internet forum,
     located at <a href="https://forums.freebsd.org/">https://forums.freebsd.org/</a>
     and lead the group of moderators who work to ensure the relevance and quality of
-    forum content.</p>
+    the forum's content.</p>
 
   <ul>
     <li>&a.brd.email;</li>
@@ -417,8 +414,9 @@
     Administrators</a> &lt;<a href="mailto:jenkins-admin@FreeBSD.org"
     >jenkins-admin@FreeBSD.org</a>&gt;</h3>
 
-  <p>The Jenkins Administrators run continuous build and integration tests
-    against the HEAD revision of the &os; Source Code.</p>
+  <p>The Jenkins Administrators maintain the Continuous Integration and
+    testing infrastructure for The &os; Project.  This includes maintaining
+    the Jenkins instance and the jobs that run builds and execute tests.</p>
 
   <ul>
     <li>&a.bapt.email; (Core Team Liaison)</li>
@@ -439,7 +437,7 @@
     the general public to find their closest FTP/WWW mirror.</p>
 
   <p>E-mail to the Mirror Site Coordinators is currently forwarded to
-    the <a href="#t-clusteradm">Cluster Administration</a> team with the
+    the <a href="#t-clusteradm">Cluster Administrators</a> with the
     addition of:</p>
     
   <ul>
@@ -492,7 +490,7 @@
     the Subversion Repositories.</p>
 
   <p>Email to the Subversion Administration team is currently
-    forwarded to <a href="#t-clusteradm">Cluster Administration</a>.</p>
+    forwarded to the <a href="#t-clusteradm">Cluster Administrators</a>.</p>
 
   <h3><a name="t-webmaster">Webmaster Team</a>
     &lt;<a href="mailto:webmaster@FreeBSD.org">webmaster@FreeBSD.org</a>&gt;</h3>
