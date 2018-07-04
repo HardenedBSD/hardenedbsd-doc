@@ -32,7 +32,33 @@
     <name>2018</name>
 
     <month>
+      <name>7</name>
+
+      <day>
+	<name>4</name>
+
+	<event>
+	  <title>New &os; Core Team Elected</title>
+
+	  <p>Active committers to the project have elected your tenth
+	    &os; Core Team.  For details, refer to the
+	    <a href="&lists.announce;/2018-July/001836.html">official
+	    announcement</a>.</p></event>
+      </day>
+    </month>
+
+    <month>
       <name>6</name>
+	
+      <day>
+	<name>30</name>
+
+	<event>
+	   <p>New committer:
+             <a href="mailto:jsm@FreeBSD.org">Jesper Schmitz Mouridsen</a>
+	    (ports)</p>
+	</event>
+      </day>
 
       <day>
 	<name>27</name>
@@ -1149,7 +1175,7 @@
 	    <a href="mailto:sevan@FreeBSD.org">Sevan Janiyan</a>
 	    (doc)</p>
 	</event>
-      </day>	
+      </day>
 
       <day>
 	<name>28</name>
@@ -1702,7 +1728,7 @@
 	</event>
 	  </day>
 
-	<day>	
+	<day>
 	<name>1</name>
 	<event>
 	  <title>October&ndash;December Status Report</title>
