@@ -20,7 +20,7 @@
      the contents of <title> will be preferred over <p>.
 
      The FreeBSD Simplified Chinese Documentation Project
-     Original Revision: r51961
+     Original Revision: r52022
      From: www/share/xml/news.xml
 -->
 
@@ -101,6 +101,12 @@
 	    可以通过众多的 <a
 	      href="&url.doc.base-en;/books/handbook/mirrors-ftp.html">&os;
 	      镜像站点</a> 获得。</p>
+	</event>
+
+	<event>
+	  <p>新增 committer:
+	    <a href="mailto:0mp@FreeBSD.org">Mateusz Piotrowski</a>
+	    (ports)</p>
 	</event>
       </day>
 
