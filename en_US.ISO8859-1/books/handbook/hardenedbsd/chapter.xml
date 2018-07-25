@@ -722,7 +722,7 @@ options	PAX_ASLR</programlisting>
 		    locations. The CFI implementation from clang/llvm
 		    comes in two forms: Cross-DSO CFI and non-Cross-DSO
 		    CFI. HardenedBSD 12-CURRENT enables non-Cross-DSO CFI
-		    by default on amd64 for base.
+		    by default on amd64 and arm64 for base.
 		</para>
 		<para>CFI requires a linker that supports Link Time
 		    Optimization (LTO). Starting with 12-CURRENT,
@@ -742,13 +742,6 @@ options	PAX_ASLR</programlisting>
 		    cfi-icall scheme can be disabled when building world by
 		    adding a CFI override in that application's Makefile.
 		</para>
-		<para>As of 20 May 2017, Cross-DSO CFI is being actively
-		    researched. However, support for Cross-DSO CFI is not
-		    available in HardenedBSD, yet. Cross-DSO CFI would allow
-		    functions resolved through &man.dlopen.3;/&man.dlsym.3;
-		    to work since CFI would be able to be applied between
-		    Dynamic Shared Object (DSO) boundaries.
-		</para>
 		<para>Note that Non-Cross-DSO CFI does not require ASLR and
 		    strict W^X. Given that Cross-DSO CFI keeps metadata and
 		    state information, Cross-DSO CFI does require ASLR and
@@ -758,6 +751,20 @@ options	PAX_ASLR</programlisting>
 		    ports framework. However, it is not enabled by default.
 		    Support for CFI in ports is still very premature and is only
 		    available for those brave users who want to experiment.
+		</para>
+		<para>As of 20 May 2017, Cross-DSO CFI is being actively
+		    researched. However, support for Cross-DSO CFI is not
+		    available in HardenedBSD, yet. Cross-DSO CFI would allow
+		    functions resolved through &man.dlopen.3;/&man.dlsym.3;
+		    to work since CFI would be able to be applied between
+		    Dynamic Shared Object (DSO) boundaries. Signifficant progress
+		    has been made in the first half of 2018 with regards to
+		    Cross-DSO CFI. The base operating system can be fully
+		    compiled with Cross-DSO CFI. On 16 July 2018, a pre-alpha
+		    <link xlink:href="https://hardenedbsd.org/article/shawn-webb/2018-07-16/preliminary-call-testing-cross-dso-cfi">Call For Testing (CFT)</link>
+		    was released for wider initial testing. The HardenedBSD core
+		    development team hopes to launch Cross-DSO CFI in base
+		    within the latter half of 2019.
 		</para>
 	</sect1>
 	<sect1 xml:id="hardenedbsd-secadm">
