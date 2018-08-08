@@ -620,12 +620,10 @@
 	  <para>The project produces a wide range of documentation,
 	    available online from this link: <uri
 	      xlink:href="https://www.FreeBSD.org/docs.html">https://www.FreeBSD.org/docs.html</uri>.
-	    In addition, <link
-	      linkend="bibliography">the Bibliography</link> at the
-	    end of this <acronym>FAQ</acronym>, and <link
+	    In addition, the <link
 	      xlink:href="&url.books.handbook;/bibliography.html">the
-	      one in the Handbook</link> reference other recommended
-	    books.</para>
+	      bibliography in the Handbook</link> reference other
+	    recommended books.</para>
 	</answer>
       </qandaentry>
 
@@ -731,6 +729,12 @@
 		    </row>
 
 		    <row>
+		      <entry><literal>ko_KR.UTF-8</literal></entry>
+
+		      <entry>Korean (Korea, UTF-8 encoding)</entry>
+		    </row>
+
+		    <row>
 		      <entry><literal>mn_MN.UTF-8</literal></entry>
 
 		      <entry>Mongolian (Mongolia, UTF-8
@@ -741,12 +745,6 @@
 		      <entry><literal>nl_NL.ISO8859-1</literal></entry>
 
 		      <entry>Dutch (Netherlands)</entry>
-		    </row>
-
-		    <row>
-		      <entry><literal>no_NO.ISO8859-1</literal></entry>
-
-		      <entry>Norwegian (Norway)</entry>
 		    </row>
 
 		    <row>
@@ -765,12 +763,6 @@
 		      <entry><literal>ru_RU.KOI8-R</literal></entry>
 
 		      <entry>Russian (Russia, KOI8-R encoding)</entry>
-		    </row>
-
-		    <row>
-		      <entry><literal>sr_YU.ISO8859-2</literal></entry>
-
-		      <entry>Serbian (Serbia)</entry>
 		    </row>
 
 		    <row>
@@ -7158,14 +7150,18 @@ hint.sio.7.irq="12"</programlisting>
 
       <qandaentry>
 	<question xml:id="how-to-contribute">
-	  <para>How can I contribute to &os;?</para>
+	  <para>How can I contribute to &os;?  What can I do to
+	    help?</para>
 	</question>
 
 	<answer>
-	  <para>See the article on <link
+	  <para>We except all types of contributions: documentation,
+	    code, and even art.  See the article on <link
 	      xlink:href="&url.articles.contributing;/article.html">Contributing
-	      to &os;</link> for specific advice on how to do this.
-	    Assistance is more than welcome!</para>
+	      to &os;</link> for specific advice on how to do
+	    this.</para>
+
+	  <para>And thanks for the thought!</para>
 	</answer>
       </qandaentry>
 
@@ -7212,21 +7208,6 @@ hint.sio.7.irq="12"</programlisting>
 	    <emphasis>-CURRENT</emphasis> in &rel.relengdate; and the
 	    &rel2.stable; branch, &rel2.releng;, forked off from
 	    <emphasis>-CURRENT</emphasis> in &rel2.relengdate;.</para>
-	</answer>
-      </qandaentry>
-
-      <qandaentry>
-	<question xml:id="submitting-kernel-extensions">
-	  <para>I have written a kernel extension, who do I send it
-	    to?</para>
-	</question>
-
-	<answer>
-	  <para>Take a look at the article on <link
-	      xlink:href="&url.articles.contributing;/article.html">Contributing
-	      to &os;</link> to learn how to submit code.</para>
-
-	  <para>And thanks for the thought!</para>
 	</answer>
       </qandaentry>
 
@@ -7485,6 +7466,4 @@ panic: page fault</programlisting>
 	them</link> in making this <acronym>FAQ</acronym> even
       better.</para>
   </chapter>
-
-  &bibliography;
 </book>
