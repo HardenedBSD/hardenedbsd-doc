@@ -1132,8 +1132,11 @@ baseurl="http://updates.hardenedbsd.org/pub/HardenedBSD/updates/${branch}/$(unam
  baseurl="http://updates.hardenedbsd.org/pub/HardenedBSD/updates/${branch}/$(uname -m)"
  </programlisting>
  		<warning>
-			<para>Official updates from HardenedBSD come from the main development
-			    repository, not from the stable builds repository.</para>
+			<para>Official updates from HardenedBSD for the -CURRENET branch come from
+			    the main development repository, not from the stable builds repository.
+			    Official updates for -STABLE branches from from the HardenedBSD-STABLE
+			    repository.
+			</para>
 		</warning>
 		</sect2>
 	</sect1>
