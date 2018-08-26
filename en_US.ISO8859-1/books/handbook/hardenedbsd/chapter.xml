@@ -990,6 +990,11 @@ options	PAX_ASLR</programlisting>
 	}
 }
 </programlisting>
+			<warning>
+				<para>As of 26 Aug 2018, secadm is planned to undergo a major rewrite.
+				    Certain features, like TPE, will be merged into HardenedBSD base and
+				    removed from the rewrite.</para>
+			</warning>
 		</sect2>
 	</sect1>
 	<sect1 xml:id="hardenedbsd-contributing">
