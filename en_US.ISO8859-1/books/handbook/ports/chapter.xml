@@ -757,7 +757,7 @@ Deinstalling ca_root_nss-3.15.1_1... done</screen>
     <procedure xml:id="ports-using-portsnap-method">
       <title>Portsnap Method</title>
 
-      <para>The base system of &os; includes
+      <para>The base system of &os; does not yet include 
 	<application>Portsnap</application>.  This is a fast and
 	user-friendly tool for retrieving the Ports Collection and
 	is the recommended choice for most users.  This utility
@@ -798,47 +798,51 @@ Deinstalling ca_root_nss-3.15.1_1... done</screen>
       </step>
     </procedure>
 
-    <procedure xml:id="ports-using-subversion-method">
-      <title>Subversion Method</title>
+    <procedure xml:id="ports-using-git-method">
+      <title>Git Method</title>
 
       <para>If more control over the ports tree is needed or if local
 	changes need to be maintained,
-	<application>Subversion</application> can be used to obtain
+	<application>Git</application> can be used to obtain
 	the Ports Collection.  Refer to <link
-	  xlink:href="&url.articles.committers-guide;/subversion-primer.html">the
-	  Subversion Primer</link> for a detailed description of
-	<application>Subversion</application>.</para>
+	  xlink:href="&url.articles.committers-guide;/git-primer.html">the
+	  git Primer</link> for a detailed description of
+	<application>Git</application>.</para>
 
       <step>
-	<para><application>Subversion</application> must be installed
+	<para><application>Git</application> must be installed
 	  before it can be used to check out the ports tree.  If a
 	  copy of the ports tree is already present, install
-	  <application>Subversion</application> like this:</para>
+	  <application>Git</application> like this:</para>
 
-	<screen>&prompt.root; <userinput>cd /usr/ports/devel/subversion</userinput>
+	<screen>&prompt.root; <userinput>cd /usr/ports/devel/git</userinput>
 &prompt.root; <userinput>make install clean</userinput></screen>
 
 	<para>If the ports tree is not available, or
 	  <application>pkg</application> is being used to manage
-	  packages, <application>Subversion</application> can be
+	  packages, <application>Git</application> can be
 	  installed as a package:</para>
 
-	<screen>&prompt.root; <userinput>pkg install subversion</userinput></screen>
+	  <screen>&prompt.root; <userinput>pkg install git</userinput></screen>
+
+	  <para>Alternatively you can install the minimal git client as a package:</para>
+
+	<screen>&prompt.root; <userinput>pkg install git-lite</userinput></screen>
 
       </step>
 
       <step>
 	<para>Check out a copy of the ports tree:</para>
 
-	<screen>&prompt.root; <userinput>svn checkout https://svn.FreeBSD.org/ports/head /usr/ports</userinput></screen>
+	<screen>&prompt.root; <userinput>git clone https://github.com/HardenedBSD/hardenedbsd-ports /usr/ports</userinput></screen>
       </step>
 
       <step>
 	<para>As needed, update <filename>/usr/ports</filename> after
-	  the initial <application>Subversion</application>
+	  the initial <application>Git</application>
 	  checkout:</para>
 
-	<screen>&prompt.root; <userinput>svn update /usr/ports</userinput></screen>
+	<screen>&prompt.root; <userinput>cd /usr/ports; git pull</userinput></screen>
       </step>
     </procedure>
 
@@ -1142,7 +1146,7 @@ The deinstallation will free 229 kB
 	available, ensure that the latest version of the ports tree is
 	installed, using the updating command described in either
 	<xref linkend="ports-using-portsnap-method"/> or
-	<xref linkend="ports-using-subversion-method"/>.  On &os; 10
+	<xref linkend="ports-using-git-method"/>.  On &os; 10
 	and later, or if the system has been converted to
 	<application>pkg</application>, the following command will
 	list the installed ports which are out of date:</para>
