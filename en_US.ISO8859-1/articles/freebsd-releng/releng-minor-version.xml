@@ -30,11 +30,6 @@
 
 	<tbody>
 	  <row>
-	    <entry><filename>gnu/usr.bin/groff/tmac/mdoc.local.in</filename></entry>
-	    <entry>Add the new &os; version</entry>
-	  </row>
-
-	  <row>
 	    <entry><filename>sys/conf/newvers.sh</filename></entry>
 	    <entry>Update the <varname>BRANCH</varname> value to
 	      reflect <literal>PRERELEASE</literal></entry>
@@ -61,7 +56,8 @@
       a regular expression matching the &branch.stablex; branch for
       the release:</para>
 
-    <programlisting>^/&branch.stablex;	re</programlisting>
+    <programlisting>^/&branch.stablex;	re
+^/&branch.relengx;	re</programlisting>
 
     <note>
       <para>There are two general exceptions to requiring commit
@@ -110,40 +106,40 @@
 
 	<tbody>
 	  <row>
-	    <entry><filename>releng/<replaceable>11.0</replaceable>/sys/conf/newvers.sh</filename></entry>
+	    <entry><filename>releng/<replaceable>12.0</replaceable>/sys/conf/newvers.sh</filename></entry>
 	    <entry>Change
 	      <literal>BETA<replaceable>X</replaceable></literal>
 	      to <literal>RC1</literal></entry>
 	  </row>
 
 	  <row>
-	    <entry><filename>releng/<replaceable>11.0</replaceable>/sys/sys/param.h</filename></entry>
+	    <entry><filename>releng/<replaceable>12.0</replaceable>/sys/sys/param.h</filename></entry>
 	    <entry>Update <varname>__FreeBSD_version</varname></entry>
 	  </row>
 
 	  <row>
-	    <entry><filename>releng/<replaceable>11.0</replaceable>/etc/pkg/FreeBSD.conf</filename></entry>
+	    <entry><filename>releng/<replaceable>12.0</replaceable>/etc/pkg/FreeBSD.conf</filename></entry>
 	    <entry>Replace <literal>latest</literal> with
 	      <literal>quarterly</literal> as the default package
 	      repository location</entry>
 	  </row>
 
 	  <row>
-	    <entry><filename>releng/<replaceable>11.0</replaceable>/release/pkg_repos/release-dvd.conf</filename></entry>
+	    <entry><filename>releng/<replaceable>12.0</replaceable>/release/pkg_repos/release-dvd.conf</filename></entry>
 	    <entry>Replace <literal>latest</literal> with
 	      <literal>quarterly</literal> as the default package
 	      repository location</entry>
 	  </row>
 
 	  <row>
-	    <entry><filename>stable/<replaceable>11</replaceable>/sys/conf/newvers.sh</filename></entry>
+	    <entry><filename>stable/<replaceable>12</replaceable>/sys/conf/newvers.sh</filename></entry>
 	    <entry>Update
 	      <literal>BETA<replaceable>X</replaceable></literal> with
 	      <literal>PRERELEASE</literal></entry>
 	  </row>
 
 	  <row>
-	    <entry><filename>stable/<replaceable>11</replaceable>/sys/sys/param.h</filename></entry>
+	    <entry><filename>stable/<replaceable>12</replaceable>/sys/sys/param.h</filename></entry>
 	    <entry>Update <varname>__FreeBSD_version</varname></entry>
 	  </row>
 
