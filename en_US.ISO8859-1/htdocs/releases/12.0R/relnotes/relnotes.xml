@@ -22,7 +22,8 @@
 
     <pubdate>$FreeBSD$</pubdate>
 
-    <!-- Last rev: 288943 -->
+    <!-- First rev: 339953 -->
+    <!-- Last rev: 335799 -->
 
     <copyright>
       <year>2018</year>
@@ -159,7 +160,12 @@
     <sect2 xml:id="userland-config">
       <title>Userland Configuration Changes</title>
 
-      <para>&nbsp;</para>
+      <para revision="337497">The default <literal>PAGER</literal> now
+	defaults to &man.less.1; for most commands.</para>
+
+      <para revision="339303"><application>LDNS</application> now
+	enables <literal>DANE-TA</literal>, and
+	<literal>GOST</literal> has been removed.</para>
     </sect2>
 
     <sect2 xml:id="userland-programs">
@@ -167,12 +173,96 @@
 
       <para>xlint and the ability to build lint libraries or lint
 	source code has been removed.</para>
+
+      <para revision="337505">The &man.dd.1; utility has been updated
+	to add the <literal>status=progress</literal> option, which
+	prints the status of its operation on a single line once per
+	second, similar to <acronym>GNU</acronym> &man.dd.1;.</para>
+
+      <para revision="337332">The &man.date.1; utility has been
+	updated to include a new flag, <literal>-I</literal>, which
+	prints its output in <acronym>ISO</acronym> 8601
+	formatting.</para>
+
+      <para revision="337663">The &man.bectl.8; utility has been
+	added, providing an administrative interface for managing
+	<acronym>ZFS</acronym> boot environments, similar to
+	<filename role="package">sysutils/beadm</filename>.</para>
+
+      <para revision="337956">The &man.ls.1; utility has been updated
+	to include a new
+	<literal>--color=<replaceable>when</replaceable></literal>
+	flag, where <replaceable>when</replaceable> can be one of
+	<literal>always</literal>, <literal>auto</literal> (default),
+	or <literal>never</literal>.</para>
     </sect2>
 
     <sect2 xml:id="userland-contrib">
       <title>Contributed Software</title>
 
-      <para>&nbsp;</para>
+      <para revision="333783">The &man.xz.1; utility has been updated
+	to version 5.2.4.</para>
+
+      <para revision="335799">The <application>clang</application>,
+	<application>llvm</application>,
+	<application>lld</application>,
+	<application>lldb</application>,
+	<application>compiler-rt</application> utilities and
+	<application>libc++</application> have been updated to version
+	6.0.1.</para>
+
+      <para revision="335885">The <application>bsnmp</application>
+	utility has been updated to version 1.13.</para>
+
+      <para revision="336203">The <acronym>WPA</acronym> utilities
+	have been updated to version 2.6.</para>
+
+      <para revision="336525">The &man.ntpd.8; utility has been
+	updated to allow being run as a non-root user.</para>
+
+      <note>
+	<para>Source-based upgrades from &os;&nbsp;11.x and earlier
+	  require the <literal>ntpd</literal> <acronym>UID</acronym>
+	  (123) and <acronym>GID</acronym> (123) to exist before the
+	  <literal>installworld</literal> target is run.  See the
+	  &quot;rebuild everything and install&quot; section of
+	  <filename>UPDATING</filename> for the documented procedure
+	  for source-based upgrades for more details.</para>
+      </note>
+
+      <para revision="337018">Support for <acronym>UDP</acronym>-lite
+	has been added via &man.dtrace.udplite.4;.</para>
+
+      <para revision="337442">The &man.file.1; utility has been
+	updated to version 5.34.</para>
+
+      <para revision="337810">The <application>lua</application>
+	utility has been updated to version 5.3.5.</para>
+
+      <para revision="338213">Support for send, receive, and
+	state-change providers have been added to
+	&man.dtrace.sctp.4;.</para>
+
+      <para revision="338126">The &man.ntpd.8; utility has been
+	updated to version 4.2.8p12.</para>
+
+      <para revision="338561"><application>OpenSSH</application> has
+	been updated to version 7.8p1.</para>
+
+      <para revision="338826">The &man.mandoc.1; utility has been
+	updated to version 1.14.4.</para>
+
+      <para revision="339256"><application>Serf</application> has been
+	updated to version 1.3.9.</para>
+
+      <para revision="339270"><application>OpenSSL</application> has
+	been updated to version 1.1.1.</para>
+
+      <para revision="339278"><application>Unbound</application> has
+	been updated to version 1.8.1.</para>
+
+      <para revision="339937">The timezone database files have been
+	updated to version 2018g.</para>
     </sect2>
 
     <sect2 xml:id="userland-installer">
@@ -198,7 +288,11 @@
     <sect2 xml:id="userland-libraries">
       <title>Runtime Libraries and API</title>
 
-      <para>&nbsp;</para>
+      <para revision="338059">The &man.arc4random.3; library has been
+	updated to match the OpenBSD version 1.35.</para>
+
+      <para revision="338600">The &man.libarchive.3; library has been
+	updated to version 3.3.3.</para>
     </sect2>
 
     <sect2 xml:id="userland-abi">
