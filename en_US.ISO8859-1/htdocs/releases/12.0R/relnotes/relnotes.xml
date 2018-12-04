@@ -141,13 +141,55 @@
     <sect2 xml:id="security">
       <title>Security Advisories</title>
 
-      &security;
+      <informaltable frame="none" pgwide="1">
+	<tgroup cols="3">
+	  <colspec colwidth="40%"/>
+	  <colspec colwidth="30%"/>
+	  <colspec colwidth="30%"/>
+	  <thead>
+	    <row>
+	      <entry>Advisory</entry>
+	      <entry>Date</entry>
+	      <entry>Topic</entry>
+	    </row>
+	  </thead>
+
+	  <tbody>
+	    <row>
+	      <entry><para>No advisories.</para></entry>
+	      <entry><para>&nbsp;</para></entry>
+	      <entry><para>&nbsp;</para></entry>
+	    </row>
+	  </tbody>
+	</tgroup>
+      </informaltable>
     </sect2>
 
     <sect2 xml:id="errata">
       <title>Errata Notices</title>
 
-      &errata;
+      <informaltable frame="none" pgwide="1">
+	<tgroup cols="3">
+	  <colspec colwidth="40%"/>
+	  <colspec colwidth="30%"/>
+	  <colspec colwidth="30%"/>
+	  <thead>
+	    <row>
+	      <entry>Errata</entry>
+	      <entry>Date</entry>
+	      <entry>Topic</entry>
+	    </row>
+	  </thead>
+
+	  <tbody>
+	    <row>
+	      <entry><para>No errata notices.</para></entry>
+	      <entry><para>&nbsp;</para></entry>
+	      <entry><para>&nbsp;</para></entry>
+	    </row>
+	  </tbody>
+	</tgroup>
+      </informaltable>
     </sect2>
   </sect1>
 
@@ -163,6 +205,11 @@
       <para revision="337497">The default <literal>PAGER</literal> now
 	defaults to &man.less.1; for most commands.</para>
 
+      <para revision="338165" contrib="sponsor"
+	sponsor="&dellemc;">The &man.newsyslog.8; utility has been
+	updated to reject configuration entries that specify
+	&man.setuid.2; or executable log files.</para>
+
       <para revision="339303"><application>LDNS</application> now
 	enables <literal>DANE-TA</literal>, and
 	<literal>GOST</literal> has been removed.</para>
@@ -173,6 +220,22 @@
 
       <para>xlint and the ability to build lint libraries or lint
 	source code has been removed.</para>
+
+      <para revision="304200">The &man.dtrace.1; utility has been
+	updated to support <literal>if</literal> and
+	<literal>else</literal> statements.</para>
+
+      <para revision="323865">The &man.cat.1; utility has been updated
+	to print output aligned the same regardless of if invoked with
+	<literal>-ne</literal> or <literal>-be</literal>.</para>
+
+      <para revision="334443">The &man.dhclient.8; utility has been
+	updated to add a configuration knob to allow superseding the
+	<literal>interface-mtu</literal> option provided by an
+	incorrectly-configured <acronym>DHCP</acronym> server.</para>
+
+      <para revision="336126">The <literal>sha224(1)</literal> utility
+	has been added.</para>
 
       <para revision="337505">The &man.dd.1; utility has been updated
 	to add the <literal>status=progress</literal> option, which
@@ -203,6 +266,10 @@
 
     <sect2 xml:id="userland-contrib">
       <title>Contributed Software</title>
+
+      <para revision="331602" contrib="sponsor"
+	sponsor="&dellemc;">The &man.zstd.1; utility has been updated
+	to version 1.3.4.</para>
 
       <para revision="333783">The &man.xz.1; utility has been updated
 	to version 5.2.4.</para>
@@ -235,7 +302,7 @@
       </note>
 
       <para revision="337018">Support for <acronym>UDP</acronym>-lite
-	has been added via &man.dtrace.udplite.4;.</para>
+	has been added to &man.dtrace.udplite.4;.</para>
 
       <para revision="337442">The &man.file.1; utility has been
 	updated to version 5.34.</para>
@@ -258,6 +325,9 @@
 
       <para revision="339256"><application>Serf</application> has been
 	updated to version 1.3.9.</para>
+
+      <para revision="339262"><application>ACPICA</application> has
+	been updated to version 20181003.</para>
 
       <para revision="339278"><application>Unbound</application> has
 	been updated to version 1.8.1.</para>
@@ -283,7 +353,8 @@
 	&man.rc.8; subsystem has been updated to support new keywords
 	in &man.rc.conf.5;, <literal>enable</literal>,
 	<literal>disable</literal>, and
-	<literal>delete</literal>.  See &man.rc.conf.5; for usage
+	<literal>delete</literal> with &man.rc.d.8; scripts and the
+	&man.service.8; utility.  See &man.rc.conf.5; for usage
 	information.</para>
     </sect2>
 
@@ -296,6 +367,10 @@
 
     <sect2 xml:id="userland-libraries">
       <title>Runtime Libraries and API</title>
+
+      <para revision="331279">The &man.getrandom.2; system call and
+	&man.getentropy.3; library have been added, compatible with
+	&linux; and OpenBSD implementations.</para>
 
       <para revision="338059">The &man.arc4random.3; library has been
 	updated to match the OpenBSD version 1.35.</para>
@@ -321,6 +396,17 @@
     <sect2 xml:id="kernel-bugfix">
       <title>Kernel Bug Fixes</title>
 
+      <para revision="326956" contrib="sponsor"
+	sponsor="&dellemc;">The <acronym>ACPI</acronym> subsystem has
+	been updated to implement <literal>Device</literal> object
+	types for <acronym>ACPI</acronym> 6.0 support, required for
+	some &dell; Poweredge&trade; &amd; Epyc&trade; systems.</para>
+
+      <para revision="334625" contrib="sponsor"
+	sponsor="&dellemc;">An issue with <acronym>IPv6-AH</acronym>
+	<acronym>IPSEC</acronym> padding has been fixed to match
+	<acronym>RFC</acronym>4302.</para>
+
       <para revision="340446">The &man.amdsmn.4; and &man.amdtemp.4;
 	drivers have been updated to attach to
 	&amd;&nbsp;Ryzen&nbsp;2&trade; host bridges.</para>
@@ -333,7 +419,28 @@
     <sect2 xml:id="kernel-config">
       <title>Kernel Configuration</title>
 
-      <para>&nbsp;</para>
+      <para revision="324965" contrib="sponsor"
+	sponsor="&dellemc;">The &man.dumpon.8; utility has been
+	updated to add support for compressed kernel crash dumps when
+	the kernel configuration file includes the
+	<literal>GZIO</literal> option.  See &man.rc.conf.5; and
+	&man.dumpon.8; for additional information.</para>
+
+      <para revision="327584">The &man.ext2fs.5; filesystem has been
+	updated to support full read/write support for ext4.</para>
+
+      <para revision="329240" contrib="sponsor"
+	sponsor="&dellemc;">The &man.dumpon.8; utility has been
+	updated to add support for &man.zstd.1;-compressed kernel
+	crash dumps when the kernel configuration file includes the
+	<literal>ZSTDIO</literal> option.  See &man.rc.conf.5; and
+	&man.dumpon.8; for additional information.</para>
+
+      <para revision="338602" contrib="sponsor"
+	sponsor="&dellemc;, &netflix;">The <literal>NUMA</literal>
+	option has been enabled by default in the &arch.amd64;
+	<filename>GENERIC</filename> and <filename>MINIMAL</filename>
+	kernel configurations.</para>
     </sect2>
 
     <sect2 xml:id="kernel-sysctl">
@@ -352,7 +459,29 @@
     <sect2 xml:id="drivers-device">
       <title>Device Drivers</title>
 
-      <para>&nbsp;</para>
+      <para revision="331070" contrib="sponsor"
+	sponsor="&dellemc;">The &man.random.4; device has been updated
+	to allow terminating large reads with
+	<literal>^C</literal>.</para>
+
+      <para revision="338324">The &man.random.4; driver has been
+	updated to remove the Yarrow algorithm.  The Fortuna algorithm
+	remains the default, and now only, available algorithm.</para>
+
+      <para revision="333283" contrib="sponsor"
+	sponsor="&dellemc;">The &man.netdump.4; driver has been added,
+	providing a facility through which kernel crash dumps can be
+	transmitted to a remote host after a system panic.  See
+	&man.netdump.4; and &man.dumpon.8; for more information and
+	configuration details.</para>
+
+      <para revision="338292">The &man.random.4; driver has been
+	updated to fix excessive activity during pseudo-random number
+	generation.</para>
+
+      <para revision="338316">The &man.vt.4; driver has been updated
+	with performance improvements, drawing text at rates ranging
+	from 2- to 6-times faster.</para>
     </sect2>
 
     <sect2 xml:id="drivers-storage">
@@ -367,7 +496,7 @@
       <para revision="339338" contrib="sponsor"
 	sponsor="&intelcorp;">The &man.ixlv.4; driver has been renamed
 	to &man.iavf.4; and updated to use &man.iflib.9;.  The
-	&man.ixlv.4; kernel module is not a hard link to &man.iavf.4;
+	&man.ixlv.4; kernel module is now a hard link to &man.iavf.4;
 	for backwards compatibility for upgrading from earlier &os;
 	releases.</para>
     </sect2>
@@ -377,13 +506,15 @@
 
       <para revision="339218">The <acronym>DRM</acronym> driver for
 	modern graphics chipsets has been marked deprecated and marked
-	for removal in &os;&nbsp;13.  Additionally, it has been added
-	to the lua &man.loader.conf.5;
-	<literal>module_blacklist</literal>, and installation of the
-	<acronym>DRM</acronym> kernel module from <filename
-	  role="package">graphics/drm-legacy-kmod</filename> or
-	<filename role="package">graphics/drm-stable-kmod</filename>
-	is recommended.</para>
+	for removal in &os;&nbsp;13.  The <acronym>DRM</acronym>
+	kernel modules are available from <filename
+	  role="package">graphics/drm-stable-kmod</filename> or
+	<filename role="package">graphics/drm-legacy-kmod</filename>
+	in the Ports Collection as well as via &man.pkg.8;.
+	Additionally, the kernel modules have been added to the lua
+	&man.loader.conf.5; <literal>module_blacklist</literal>, as
+	installation from the Ports Collection or &man.pkg.8; is
+	strongly recommended.</para>
 
       <para revision="339735">The following drivers have been
 	deprecated in &os;&nbsp;12.0, and not present in
@@ -411,7 +542,29 @@
     <sect2 xml:id="hardware-virtualization">
       <title>Virtualization Support</title>
 
-      <para>&nbsp;</para>
+      <para revision="325254">Amazon&reg; EC2&trade; AMI instances now
+	have <filename
+	  role="package">sysutils/amazon-ssm-agent</filename>
+	installed by default, though the service is not enabled by
+	default in &man.rc.conf.5;.  To enable the service,
+	add:</para>
+
+      <programlisting>	>>/etc/rc.conf
+	amazon_ssm_agent_enable="YES"</programlisting>
+
+      <para>to the EC2&trade; user-data.</para>
+
+      <para revision="326564">Amazon&reg; EC2&trade; AMI instances now
+	disable <literal>ChallengeResponseAuthentication</literal> in
+	&man.sshd.config.5; by default.</para>
+
+      <para revision="326565">Amazon&reg; EC2&trade; AMI instances now
+	use the Amazon&reg; internal <application>NTP</application>
+	service by default.</para>
+
+      <para revision="338321">Amazon&reg; EC2&trade; AMI instances now
+	disable the PS/2 keyboard and mouse devices by default,
+	reducing overall boot time by 2.5 seconds.</para>
     </sect2>
 
     <sect2 xml:id="hardware-arm">
@@ -461,8 +614,24 @@
     <sect2 xml:id="boot-loader">
       <title>Boot Loader Changes</title>
 
+      <para revision="329501" contrib="sponsor"
+	sponsor="&dellemc;">The lua &man.loader.8; has been updated to
+	detect a list of installed kernels to boot.</para>
+
+      <para revision="337715" contrib="sponsor" sponsor="&ff;">The
+	&man.loader.8; has been updated to add support for loading
+	&intel; microcode updates early during the boot
+	process.</para>
+
       <para revision="339218">The lua &man.loader.8; has been updated
 	to support module blacklists.</para>
+
+      <para revision="339308">The default lua &man.loader.conf.5; has
+	been updated to include the
+	<literal>kernels_autodetect</literal> option, which defaults
+	to <literal>YES</literal>, supplementing the &man.loader.8;
+	support to list available kernels to boot introduced in
+	revision <literal>329501</literal>.</para>
     </sect2>
 
     <sect2 xml:id="boot-menu">
