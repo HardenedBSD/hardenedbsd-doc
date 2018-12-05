@@ -29,13 +29,18 @@
 <!ENTITY ff		"The&nbsp;&os;&nbsp;Foundation">
 <!ENTITY ff.url		"https://www.FreeBSDFoundation.org/">
 
+<!ENTITY g2inc		"G2, Inc.">
 <!ENTITY gandi		"Gandi.net">
 <!ENTITY google		"Google">
 
 <!ENTITY juniper	"Juniper Networks, Inc.">
 
+<!ENTITY hbsd		"HardenedBSD">
+
 <!ENTITY intelcorp	"Intel Corporation">
 <!ENTITY ix		"iXsystems">
+
+<!ENTITY klara		"Klara Systems">
 
 <!ENTITY limelight	"Limelight Networks">
 <!ENTITY lsi		"LSI">
@@ -48,6 +53,8 @@
 <!ENTITY netgate	"Netgate">
 <!ENTITY nginx		"Nginx, Inc.">
 <!ENTITY norse		"Norse Corporation">
+
+<!ENTITY panzura	"Panzura">
 
 <!ENTITY sandvine	"Sandvine, Inc.">
 <!ENTITY scaleengine	"ScaleEngine, Inc.">
