@@ -99,7 +99,7 @@
     <tr>
       <td><tt>releng/12.0</tt></td>
       <td>Frozen</td>
-      <td>&contact.re;</td>
+      <td>&contact.so;</td>
       <td>FreeBSD 12.0 supported errata fix branch.</td>
     </tr>
 
@@ -135,7 +135,7 @@
       <td><tt>stable/10</tt></td>
       <td>Open</td>
       <td>committers</td>
-      <td>Development branch for FreeBSD 10-STABLE.</td>
+      <td>Maintenance branch for 10-STABLE (not officially supported).</td>
     </tr>
 
     <tr>
