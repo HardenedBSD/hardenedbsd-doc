@@ -1787,10 +1787,12 @@ kadmind5_server_enable="YES"</programlisting>
       services.</para>
 
     <para>The version of <application>OpenSSL</application> included
-      in &os; supports the Secure Sockets Layer v2/v3 (SSLv2/SSLv3)
-      and Transport Layer Security v1 (TLSv1) network security
+      in &os; supports the Secure Sockets Layer 3.0 (SSLv3)
+      and Transport Layer Security 1.0/1.1/1.2 (TLSv1/TLSv1.1/TLSv1.2)
+      network security
       protocols and can be used as a general cryptographic
-      library.</para>
+      library.  In &os; 12.0-RELEASE and above, OpenSSL also supports
+      Transport Layer Security 1.3 (TLSv1.3).</para>
 
     <para><application>OpenSSL</application> is often used to encrypt
       authentication of mail clients and to secure web based
@@ -1798,27 +1800,14 @@ kadmind5_server_enable="YES"</programlisting>
       <package>www/apache24</package> and
       <package>databases/postgresql91-server</package>, include a
       compile option for building with
-      <application>OpenSSL</application>.</para>
+      <application>OpenSSL</application>.  If selected, the port will
+      add support using <application>OpenSSL</application> from the
+      base system.  To instead have the port compile against
+      <application>OpenSSL</application> from the
+      <package>security/openssl</package> port, add the following to
+      <filename>/etc/make.conf</filename>:</para>
 
-    <para>&os; provides two versions of
-      <application>OpenSSL</application>: one in the base system and
-      one in the Ports Collection.  Users can choose which version to
-      use by default for other ports using the following knobs:</para>
-
-    <itemizedlist>
-      <listitem>
-	<para>WITH_OPENSSL_PORT: when set, the port will use
-	  <application>OpenSSL</application> from the
-	  <package>security/openssl</package> port, even if the
-	  version in the base system is up to date or newer.</para>
-      </listitem>
-
-      <listitem>
-	<para>WITH_OPENSSL_BASE: when set, the port will compile
-	  against <application>OpenSSL</application> provided by the
-	  base system.</para>
-      </listitem>
-    </itemizedlist>
+    <programlisting>DEFAULT_VERSIONS+= ssl=openssl</programlisting>
 
     <para>Another common use of <application>OpenSSL</application> is
       to provide certificates for use with software applications.
