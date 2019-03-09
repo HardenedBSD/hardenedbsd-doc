@@ -74,25 +74,19 @@
       </li>
 
       <li>
-	<p>We will allow existing GPLv2 licensed software to be
-	converted to GPLv3 or other similar license changes on a
-	case-by-case basis provided that the FreeBSD Core Team is
-	given appropriate technical justification.</p>
+	<p>The Apache License 2.0 is acceptable for use in some cases.
+	  The Core Team must approve the import of new Apache
+	  License licensed components or the change of license of
+	  existing components to the Apache License.</p>
 
-	<p>Each piece of software that is being converted to a
-	different license must be submitted to the FreeBSD Core Team
-	for approval through this process as though it were a new
-	piece of software.</p>
-
-	<p>For Free Software Foundation maintained software except
-	GCC, GDB, and binutils, all patches posted after the date the
-	software switched to GPLv3 will be considered to be covered by
-	the GPLv3 and thus will be subject to this rule.  For GCC, GDB
-	and binutils we accept the community practice of allowing
-	patches to be relicensed under GPLv2 at the patch author's
-	discretion.  The author's permission must be documented in the
-	commit message for each patch that is committed.</p>
+	<p>The following components are currently approved:</p>
+	<ul>
+	  <li>LLVM toolchain and (with LLVM Exceptions) runtime
+	    components.</li>
+	  <li>Subversion and its dependencies</li>
+	</ul>
       </li>
+
       <li>
 	<p>Historically, the phrase 'All Rights Reserved.' was
 	included in all copyright notices. The BSD releases had it to
