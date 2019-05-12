@@ -672,7 +672,7 @@ $manPathDefault = 'FreeBSD 12.0-RELEASE and Ports';
     'HP-UX 10.01', "$manLocalDir/HP-UX-10.01",
     'HP-UX 9.07',  "$manLocalDir/HP-UX-9.07",
 
-    'IRIX-6.5.30',  "$manLocalDir/IRIX-6.5.30/catman/a_man:$manLocalDir/IRIX-6.5.30/catman/p_man:$manLocalDir/IRIX-6.5.30/catman/u_man:$manLocalDir/IRIX-6.5.30/dt",
+    'IRIX 6.5.30',  "$manLocalDir/IRIX-6.5.30/catman/a_man:$manLocalDir/IRIX-6.5.30/catman/p_man:$manLocalDir/IRIX-6.5.30/catman/u_man:$manLocalDir/IRIX-6.5.30/dt",
 
     'SunOS 5.10',  "$manLocalDir/SunOS-5.10",
     'SunOS 5.9',   "$manLocalDir/SunOS-5.9",
@@ -732,6 +732,10 @@ $manPathDefault = 'FreeBSD 12.0-RELEASE and Ports';
     'MACH 2.5/i386', "$manLocalDir/MACH-2.5-i386",
 );
 
+my @no_html_output = (
+    'IRIX-6.5.30'
+);
+
 my @no_pdf_output = (
     '386BSD 0.0',
     '386BSD 0.1',
@@ -775,6 +779,7 @@ my @no_pdf_output = (
 );
 
 my %no_pdf_output = map { $_ => 1 } @no_pdf_output;
+my %no_html_output = map { $_ => 1 } @no_html_output;
 
 my %valid_arch = map { $_ => 1 }
   qw/aarch64 acorn26 acorn32 algor alpha amd64 amiga arc arm arm26 arm32 arm64 armish atari aviion bebox cats cesfic cobalt dreamcast evbarm evbmips evbppc evbsh3 evbsh5 hp300 hp700 hpcarm hpcmips hpcsh hppa hppa64 i386 ibmnws landisk loongson luna68k luna88k mac68k macppc mipsco mmeye mvme68k mvme88k mvmeppc netwinder news68k newsmips next68k ofppc palm pc532 pegasos playstation2 pmax pmppc powerpc prep sandpoint sbmips sgi sgimips shark socppc sparc sparc64 sun2 sun3 sun3x tahoe vax walnut wgrisc x68k zaurus/;
@@ -906,18 +911,53 @@ sub sort_versions {
     my @b = ( lc($b) =~ m,^(\D+)([\d\.]+)(\D*)$, );
 
     if (@a and @b) {
-	return $a[0] cmp $b[0] || (-1 *  ($a[1] <=> $b[1])) || $a[2] cmp $a[2] || $a cmp $b;
+	return $a[0] cmp $b[0]   || # FreeBDS <=> IRIX
+	  &version($a[1], $b[1]) || # 6.5.30 <=> 6.5.31  
+	  $a[2] cmp $a[2] ||        # RELEASE <=> ports 
+	  $a cmp $b;		    # rest
     }
 
     # 2.9.1 BSD
-    @a = ( lc($a) =~ m,^(\d\.+)(.*)$, );
-    @b = ( lc($b) =~ m,^(\d\.+)(.*)$, );
+    @a = ( lc($a) =~ m,^([\d\.]+)(.*)$, );
+    @b = ( lc($b) =~ m,^([\d\.]+)(.*)$, );
     if (@a and @b) {
-	return (-1 * ( $a[0] <=> $b[0])) || $a[1] <=> $b[1] || $a cmp $b;
+	return &version($a[0], $b[0]) || # 2.9.1BSD
+	  $a[1] <=> $b[1] ||             # BSD 
+	  $a cmp $b;			 # rest
     }
 
     # rest
     return $a cmp $b;
+}
+
+sub version {
+    return &version_compare(@_) * -1;
+}
+
+# compare two versions, e.g.: 5.1.1 <> 5.2.2
+sub version_compare {
+    my $a = shift;
+    my $b = shift;
+
+    my @a = split( '\.', $a );
+    my @b = split( '\.', $b );
+
+    my $max = @a >= @b ? @a : @b;
+
+    for ( my $i = 0 ; $i < $max ; $i++ ) {
+
+        # 5.1 <=> 5.1.1
+        return -1 if !defined $a[$i];
+
+        # 5.1.1 <=> 5.1
+        return +1 if !defined $b[$i];
+
+        if ( ( $a[$i] <=> $b[$i] ) != 0 ) {
+            return $a[$i] <=> $b[$i];
+        }
+    }
+
+    return 0;
 }
 
 # FreeBSD manual pages first before any other manual pages
@@ -1823,7 +1863,8 @@ ETX
 <select name="format">
 ETX
 
-    my @format = ('html');
+    my @format = ();
+    push( @format, ( 'html' ) ) if !$no_html_output{$manpath};
     push( @format, ( 'pdf' ) ) if !$no_pdf_output{$manpath};
     push( @format, ( 'ascii' ) );
 
