@@ -189,31 +189,31 @@ $sectionpath = {
     'CentOS 7.0' => { 'path' => '0p:1:1p:1x:2:2x:3:3p:3t:3x:4:4x:5:5x:6:6x:7:7x:8:8x:9:9x:n' },
     'CentOS 7.1' => { 'path' => '0p:1:1p:2:3:3p:3t:4:5:6:7:8:9:n' },
 
-    'SuSE Linux/i386 4.3'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
-    'SuSE Linux/i386 5.0'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
-    'SuSE Linux/i386 5.2'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
-    'SuSE Linux/i386 5.3'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
-    'SuSE Linux/i386 6.0'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
-    'SuSE Linux/i386 6.1'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
-    'SuSE Linux/i386 6.3'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
-    'SuSE Linux/i386 6.4'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
-    'SuSE Linux/i386 7.0'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
-    'SuSE Linux/i386 7.1'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
-    'SuSE Linux/i386 7.2'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
-    'SuSE Linux/i386 7.3'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
-    'SuSE Linux/i386 8.0'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
-    'SuSE Linux/i386 8.1'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
-    'SuSE Linux/i386 8.2'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
-    'SuSE Linux/i386 9.2'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
-    'SuSE Linux/i386 9.3'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
-    'SuSE Linux/i386 10.0' => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
-    'SuSE Linux/i386 10.1' => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
-    'SuSE Linux/i386 10.2' => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
-    'SuSE Linux/i386 10.3' => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
-    'SuSE Linux/i386 11.0' => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
-    'SuSE Linux/i386 11.1' => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
-    'SuSE Linux/i386 11.2' => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
-    'SuSE Linux/i386 11.3' => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
+    'SuSE 4.3'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
+    'SuSE 5.0'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
+    'SuSE 5.2'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
+    'SuSE 5.3'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
+    'SuSE 6.0'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
+    'SuSE 6.1'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
+    'SuSE 6.3'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
+    'SuSE 6.4'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
+    'SuSE 7.0'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
+    'SuSE 7.1'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
+    'SuSE 7.2'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
+    'SuSE 7.3'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
+    'SuSE 8.0'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
+    'SuSE 8.1'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
+    'SuSE 8.2'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
+    'SuSE 9.2'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
+    'SuSE 9.3'  => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
+    'SuSE 10.0' => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
+    'SuSE 10.1' => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
+    'SuSE 10.2' => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
+    'SuSE 10.3' => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
+    'SuSE 11.0' => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
+    'SuSE 11.1' => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
+    'SuSE 11.2' => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
+    'SuSE 11.3' => { 'path' => '0p:1:1p:2:3:3p:4:5:6:7:8:9:n:s', },
 };
 
 foreach my $os ( keys %$sectionpath ) {
@@ -595,17 +595,17 @@ $manPathDefault = 'FreeBSD 12.0-RELEASE and Ports';
     '4.4BSD Lite2', "$manLocalDir/4.4BSD-Lite2",
 
     'Linux Slackware 3.1',    "$manLocalDir/Slackware-3.1",
-    'Red Hat Linux/i386 4.2', "$manLocalDir/RedHat-4.2",
-    'Red Hat Linux/i386 5.0', "$manLocalDir/RedHat-5.0",
-    'Red Hat Linux/i386 5.2', "$manLocalDir/RedHat-5.2-i386",
-    'Red Hat Linux/i386 6.1', "$manLocalDir/RedHat-6.1-i386",
-    'Red Hat Linux/i386 6.2', "$manLocalDir/RedHat-6.2-i386",
-    'Red Hat Linux/i386 7.0', "$manLocalDir/RedHat-7.0-i386",
-    'Red Hat Linux/i386 7.1', "$manLocalDir/RedHat-7.1-i386",
-    'Red Hat Linux/i386 7.2', "$manLocalDir/RedHat-7.2-i386",
-    'Red Hat Linux/i386 7.3', "$manLocalDir/RedHat-7.3-i386",
-    'Red Hat Linux/i386 8.0', "$manLocalDir/RedHat-8.0-i386",
-    'Red Hat Linux/i386 9',   "$manLocalDir/RedHat-9-i386",
+    'Red Hat 4.2', "$manLocalDir/RedHat-4.2",
+    'Red Hat 5.0', "$manLocalDir/RedHat-5.0",
+    'Red Hat 5.2', "$manLocalDir/RedHat-5.2-i386",
+    'Red Hat 6.1', "$manLocalDir/RedHat-6.1-i386",
+    'Red Hat 6.2', "$manLocalDir/RedHat-6.2-i386",
+    'Red Hat 7.0', "$manLocalDir/RedHat-7.0-i386",
+    'Red Hat 7.1', "$manLocalDir/RedHat-7.1-i386",
+    'Red Hat 7.2', "$manLocalDir/RedHat-7.2-i386",
+    'Red Hat 7.3', "$manLocalDir/RedHat-7.3-i386",
+    'Red Hat 8.0', "$manLocalDir/RedHat-8.0-i386",
+    'Red Hat 9',   "$manLocalDir/RedHat-9-i386",
 
     'CentOS 3.9', "$manLocalDir/CentOS-3.9",
     'CentOS 4.8', "$manLocalDir/CentOS-4.8",
@@ -627,33 +627,33 @@ $manPathDefault = 'FreeBSD 12.0-RELEASE and Ports';
     'CentOS 7.0', "$manLocalDir/CentOS-7.0",
     'CentOS 7.1', "$manLocalDir/CentOS-7.1",
 
-    'SuSE Linux/i386 4.3',  "$manLocalDir/SuSE-4.3-i386",
-    'SuSE Linux/i386 5.0',  "$manLocalDir/SuSE-5.0-i386",
-    'SuSE Linux/i386 5.2',  "$manLocalDir/SuSE-5.2-i386",
-    'SuSE Linux/i386 5.3',  "$manLocalDir/SuSE-5.3-i386",
-    'SuSE Linux/i386 6.0',  "$manLocalDir/SuSE-6.0-i386",
-    'SuSE Linux/i386 6.1',  "$manLocalDir/SuSE-6.1-i386",
-    'SuSE Linux/i386 6.3',  "$manLocalDir/SuSE-6.3-i386",
-    'SuSE Linux/i386 6.4',  "$manLocalDir/SuSE-6.4-i386",
-    'SuSE Linux/i386 7.0',  "$manLocalDir/SuSE-7.0-i386",
-    'SuSE Linux/i386 7.1',  "$manLocalDir/SuSE-7.1-i386",
-    'SuSE Linux/i386 7.2',  "$manLocalDir/SuSE-7.2-i386",
-    'SuSE Linux/i386 7.3',  "$manLocalDir/SuSE-7.3-i386",
-    'SuSE Linux/i386 8.0',  "$manLocalDir/SuSE-8.0-i386",
-    'SuSE Linux/i386 8.1',  "$manLocalDir/SuSE-8.1-i386",
-    'SuSE Linux/i386 8.2',  "$manLocalDir/SuSE-8.2-i386",
-    'SuSE Linux/i386 9.2',  "$manLocalDir/SuSE-9.2-i386",
-    'SuSE Linux/i386 9.3',  "$manLocalDir/SuSE-9.3-i386",
-    'SuSE Linux/i386 10.0', "$manLocalDir/SuSE-10.0",
-    'SuSE Linux/i386 10.1', "$manLocalDir/SuSE-10.1",
-    'SuSE Linux/i386 10.2', "$manLocalDir/SuSE-10.2",
-    'SuSE Linux/i386 10.3', "$manLocalDir/SuSE-10.3",
-    'SuSE Linux/i386 11.0', "$manLocalDir/SuSE-11.0",
-    'SuSE Linux/i386 11.1', "$manLocalDir/SuSE-11.1",
-    'SuSE Linux/i386 11.2', "$manLocalDir/SuSE-11.2",
-    'SuSE Linux/i386 11.3', "$manLocalDir/SuSE-11.3",
+    'SuSE 4.3',  "$manLocalDir/SuSE-4.3-i386",
+    'SuSE 5.0',  "$manLocalDir/SuSE-5.0-i386",
+    'SuSE 5.2',  "$manLocalDir/SuSE-5.2-i386",
+    'SuSE 5.3',  "$manLocalDir/SuSE-5.3-i386",
+    'SuSE 6.0',  "$manLocalDir/SuSE-6.0-i386",
+    'SuSE 6.1',  "$manLocalDir/SuSE-6.1-i386",
+    'SuSE 6.3',  "$manLocalDir/SuSE-6.3-i386",
+    'SuSE 6.4',  "$manLocalDir/SuSE-6.4-i386",
+    'SuSE 7.0',  "$manLocalDir/SuSE-7.0-i386",
+    'SuSE 7.1',  "$manLocalDir/SuSE-7.1-i386",
+    'SuSE 7.2',  "$manLocalDir/SuSE-7.2-i386",
+    'SuSE 7.3',  "$manLocalDir/SuSE-7.3-i386",
+    'SuSE 8.0',  "$manLocalDir/SuSE-8.0-i386",
+    'SuSE 8.1',  "$manLocalDir/SuSE-8.1-i386",
+    'SuSE 8.2',  "$manLocalDir/SuSE-8.2-i386",
+    'SuSE 9.2',  "$manLocalDir/SuSE-9.2-i386",
+    'SuSE 9.3',  "$manLocalDir/SuSE-9.3-i386",
+    'SuSE 10.0', "$manLocalDir/SuSE-10.0",
+    'SuSE 10.1', "$manLocalDir/SuSE-10.1",
+    'SuSE 10.2', "$manLocalDir/SuSE-10.2",
+    'SuSE 10.3', "$manLocalDir/SuSE-10.3",
+    'SuSE 11.0', "$manLocalDir/SuSE-11.0",
+    'SuSE 11.1', "$manLocalDir/SuSE-11.1",
+    'SuSE 11.2', "$manLocalDir/SuSE-11.2",
+    'SuSE 11.3', "$manLocalDir/SuSE-11.3",
 
-    'SuSE Linux/i386 ES 10 SP1', "$manLocalDir/SLES-10-SP1-i386",
+    'SuSE ES 10 SP1', "$manLocalDir/SLES-10-SP1-i386",
 
     'Debian 2.2.7', "$manLocalDir/Debian-2.2r7/man:$manLocalDir/Debian-2.2r7/misc",
     'Debian 3.1.8', "$manLocalDir/Debian-31r8/man:$manLocalDir/Debian-31r8/misc",
@@ -697,6 +697,7 @@ $manPathDefault = 'FreeBSD 12.0-RELEASE and Ports';
     'XFree86 4.5.0',    "$manLocalDir/XFree86-4.5.0",
     'XFree86 4.6.0',    "$manLocalDir/XFree86-4.6.0",
     'XFree86 4.7.0',    "$manLocalDir/XFree86-4.7.0",
+    'XFree86 4.8.0',    "$manLocalDir/XFree86-4.8.0",
 
     'X11R6.7.0', "$manLocalDir/X11R6.7.0",
     'X11R6.8.2', "$manLocalDir/X11R6.8.2",
@@ -861,8 +862,8 @@ while ( ( $key, $val ) = each %manPath ) {
     'freebsd-ports', 'FreeBSD Ports 12.0',
 
     'slackware',  'Linux Slackware 3.1',
-    'redhat',     'Red Hat Linux/i386 9',
-    'suse',       'SuSE Linux/i386 11.3',
+    'redhat',     'Red Hat 9',
+    'suse',       'SuSE 11.3',
     'debian',     'Debian 7.7.0',
     'centos',     'CentOS 7.1',
     'linux',      'Debian 7.7.0',
@@ -875,7 +876,7 @@ while ( ( $key, $val ) = each %manPath ) {
     'v7',            'Unix Seventh Edition',
     'v7man',         'Unix Seventh Edition',
     'x11',           'X11R7.4',
-    'xfree86',       'XFree86 4.7.0',
+    'xfree86',       'XFree86 4.8.0',
     'ultrix',        'ULTRIX 4.2',
     'hpux',          'HP-UX 11.22',
     'irix',          'IRIX 6.5.30',
@@ -906,28 +907,21 @@ while ( ( $key, $val ) = each %manPath ) {
 #
 sub sort_versions {
 
+    # a release has at least 2 numbers seperated by a dot:
     # FreeBSD 11.1-RELEASE ports
-    my @a = ( lc($a) =~ m,^(\D+)([\d\.]+)(\D*)$, );
-    my @b = ( lc($b) =~ m,^(\D+)([\d\.]+)(\D*)$, );
+    # X11R7.4
+    my @a = ( lc($a) =~ m,^(.*?)(\d+\.[\d\.]+)(.*)$, );
+    my @b = ( lc($b) =~ m,^(.*?)(\d+\.[\d\.]+)(.*)$, );
 
     if (@a and @b) {
 	return $a[0] cmp $b[0]   || # FreeBDS <=> IRIX
 	  &version($a[1], $b[1]) || # 6.5.30 <=> 6.5.31  
 	  $a[2] cmp $a[2] ||        # RELEASE <=> ports 
 	  $a cmp $b;		    # rest
+    } else {
+    	# for the rest: basic string compare
+    	return $a cmp $b;
     }
-
-    # 2.9.1 BSD
-    @a = ( lc($a) =~ m,^([\d\.]+)(.*)$, );
-    @b = ( lc($b) =~ m,^([\d\.]+)(.*)$, );
-    if (@a and @b) {
-	return &version($a[0], $b[0]) || # 2.9.1BSD
-	  $a[1] <=> $b[1] ||             # BSD 
-	  $a cmp $b;			 # rest
-    }
-
-    # rest
-    return $a cmp $b;
 }
 
 sub version {
@@ -1912,7 +1906,7 @@ sub faq {
       '$FreeBSD$';
     return qq{\
 <pre>
-Copyright (c) 1996-2018 <a href="$mailtoURL">Wolfram Schneider</a>
+Copyright (c) 1996-2019 <a href="$mailtoURL">Wolfram Schneider</a>
 Copyright (c) 1993-1995 Berkeley Software Design, Inc.
 
 This data is part of a licensed program from BERKELEY SOFTWARE
@@ -1933,7 +1927,7 @@ Copyright (c) for man pages by OS vendors.
 <a href="http://www.minix3.org">Minix</a>,
 <a href="https://www.netbsd.org">NetBSD</a>,
 <a href="https://www.openbsd.org">OpenBSD</a>,
-<a href="http://plan9.bell-labs.com/plan9/">Plan 9</a>,
+<a href="https://9p.io/plan9/">Plan 9</a>,
 <a href="https://www.redhat.com">Red Hat</a>,
 <a href="https://www.slackware.com">Slackware Linux</a>,
 <a href="https://www.sun.com">SunOS</a>,
