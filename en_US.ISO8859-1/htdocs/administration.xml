@@ -54,7 +54,6 @@
 	<li><a href="#t-core-secretary">Core Team Secretary</a></li>
 	<li><a href="#t-portmgr-secretary">Port Management Team
 	  Secretary</a></li>
-	<li><a href="#t-secteam-secretary">Security Team Secretary</a></li>
       </ul>
     </li>
     <li>Internal Administration
@@ -375,7 +374,9 @@
     <li>&a.dhw.email;</li>
     <li>&a.gavin.email;</li>
     <li>&a.gjb.email;</li>
+    <li>&a.lwhsu.email;</li>
     <li>&a.peter.email; (Lead)</li>
+    <li>&a.remko.email;</li>
     <li>&a.sbruno.email;</li>
     <li>&a.simon.email;</li>
     <li>&a.zi.email;</li>
