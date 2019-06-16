@@ -4,7 +4,7 @@
 #
 # $FreeBSD$
 #
-# Article: Mailing List FAQ
+# Article: Remote Install
 
 MAINTAINER=carlavilla@FreeBSD.org
 

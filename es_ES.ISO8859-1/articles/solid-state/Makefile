@@ -4,7 +4,7 @@
 #
 # $FreeBSD$
 #
-# Article: Mailing List FAQ
+# Article: Solid State Devices
 
 MAINTAINER=carlavilla@FreeBSD.org
 
